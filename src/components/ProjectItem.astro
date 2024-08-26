@@ -1,0 +1,19 @@
+---
+const {title, url, type} = Astro.props
+---
+<li class="project-item">
+    <a href={url}>
+        <div class="project-image">
+            <img src="https://placehold.co/1200x750" />
+        </div>
+        <p>{title}</p>
+        <p>{type}</p>
+    </a>
+</li>
+
+<style>
+    .project-image {
+        margin-bottom: 20px;
+    }
+
+</style>

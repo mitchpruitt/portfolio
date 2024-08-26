@@ -1,0 +1,12 @@
+---
+import "../styles/global.css"
+
+const currentPath = Astro.url.pathname;
+---
+<header class="site-header">
+    <div class="name">Mitch Pruitt</div>
+    <nav class="site-nav">
+        <a href="/" class={currentPath === '/' ? 'active' : ''}>Projects</a>
+        <a href="/about/" class={currentPath === '/about/' ? 'active' : ''}>About</a>
+    </nav>
+</header>
