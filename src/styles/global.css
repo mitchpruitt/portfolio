@@ -1,16 +1,18 @@
 @import url(reset.css);
-@import url("https://use.typekit.net/god4dlz.css");
+/* @import url("https://use.typekit.net/god4dlz.css"); */
 
 :root {
     --h-padding: 40px;
     --transition-regular: .135s ease-out;
 
     /* fonts */
+    --regular: 'wght' 400, 'wdth' 100, 'slnt' 0;
     --wide-semibold: 'wght' 600, 'wdth' 115, 'slnt' 0;
     --wide-light: 'wght' 300, 'wdth' 115, 'slnt' 0;
+    --wide-black: 'wght' 800, 'wdth' 115, 'slnt' 0;
 
     /* colors */
-    --text-black: rgba(0,0,0,1);
+    --text-black: rgba(10,10,10,1);
     --brand-primary: rgba(239,70,35, 1)
 }
 
@@ -24,6 +26,8 @@ body {
 }
 
 .site-header {
+    position: sticky;
+    top: 0;
     width: 100%;
     display: flex;
     align-items: center;
@@ -68,6 +72,7 @@ body {
     margin: auto;
     max-width: 1140px;
     padding: 0 var(--h-padding);
+    font-size: 18px;
 }
 
 .project-list {
@@ -82,9 +87,15 @@ body {
     }
 }
 
+
+
 @media only screen and (max-width:800px) { 
     :root {
         --h-padding: 20px;
+    }
+
+    .site-header {
+        position: static;
     }
 
 	.project-list {
