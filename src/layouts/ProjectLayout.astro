@@ -1,8 +1,90 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import MetaItem from "../components/MetaItem.astro";
 const { frontmatter } = Astro.props;
 ---
 <BaseLayout pageTitle={"Mitch Pruitt | " + frontmatter.title}>
-    <h1>{frontmatter.title}</h1>
-    <slot />
+    <div class="project-image">
+        <img src="https://placehold.co/1200x750" />
+    </div>
+    <section class="content" transition:animate="fade">
+        <div class="project-header-grid">
+            <h1 class="title">{frontmatter.title}</h1>
+            <p class="description">{frontmatter.description}</p>
+            <ul class="meta">
+                <MetaItem label="Discipline" value={frontmatter.type} />
+                <MetaItem label="Client" value={frontmatter.client} />
+                <MetaItem label="Year" value={frontmatter.year} />
+                <MetaItem label="Team" value={frontmatter.studio} />
+            </ul>
+        </div>
+        <slot />
+    </section>
 </BaseLayout>
+
+<style>
+    .project-image {
+        margin-top: -82px;
+        width: 100%;
+        height: 50vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .project-header-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        margin-bottom: var(--h-padding);
+        row-gap: var(--h-padding);
+        column-gap: 60px;
+        grid-template-areas: "title title"
+                             "description meta";
+    }
+
+    .title {
+        font-variation-settings: var(--wide-semibold);
+        font-size: 60px;
+        grid-area: title;
+    }
+
+    .description {
+        font-size: 24px;
+        line-height: 30px;
+        font-variation-settings: var(--wide-light);
+        grid-area: description;
+    }
+
+    .meta {
+        list-style-type: none;
+        font-size: 15px;
+
+        .meta-item {
+            margin-bottom: 20px;
+            label {
+
+            }
+        }
+    }
+
+    @media only screen and (max-width:800px) { 
+
+    .project-image {
+        height: 50%;
+        margin-top: 0;
+    }
+
+    .project-header-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: "title"
+                            "description"
+                            "meta";
+    }
+}
+</style>
