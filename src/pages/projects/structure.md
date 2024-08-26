@@ -7,4 +7,4 @@ client: Cycle Labs
 studio: Cycle Labs
 ---
 
-Structure
+Content
