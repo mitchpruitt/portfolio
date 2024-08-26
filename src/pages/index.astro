@@ -1,16 +1,12 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectLink from "../components/ProjectItem.astro";
 
+const allProjects = await Astro.glob('./projects/*.md');
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>My Astro Site</h1>
-	</body>
-</html>
+<BaseLayout>
+	<ul class="project-list">
+		{allProjects.map((project) => <ProjectLink url={project.url}  title={project.frontmatter.title} type={project.frontmatter.type} />)}
+	</ul>
+</BaseLayout>
