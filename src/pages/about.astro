@@ -4,6 +4,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Mitch Pruitt | About"
 
 ---
-<BaseLayout pageTitle={pageTitle}>
-    <h1>about me</h1>
+<BaseLayout pageTitle={pageTitle} transition:animate="fade">
+    <section class="content">
+        <h1>about me</h1>
+    </section>
 </BaseLayout>

@@ -8,7 +8,9 @@ const allProjects = await Astro.glob('./projects/*.md');
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<ul class="project-list">
-		{allProjects.map((project) => <ProjectLink url={project.url}  title={project.frontmatter.title} type={project.frontmatter.type} />)}
-	</ul>
+	<section class="content" transition:animate="fade">
+		<ul class="project-list">
+			{allProjects.map((project) => <ProjectLink url={project.url}  title={project.frontmatter.title} type={project.frontmatter.type} />)}
+		</ul>
+	</section>
 </BaseLayout>
