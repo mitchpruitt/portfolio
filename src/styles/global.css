@@ -1,0 +1,93 @@
+@import url(reset.css);
+@import url("https://use.typekit.net/god4dlz.css");
+
+:root {
+    --h-padding: 40px;
+    --transition-regular: .135s ease-out;
+
+    /* fonts */
+    --wide-semibold: 'wght' 600, 'wdth' 115, 'slnt' 0;
+    --wide-light: 'wght' 300, 'wdth' 115, 'slnt' 0;
+
+    /* colors */
+    --text-black: rgba(0,0,0,1);
+    --brand-primary: rgba(239,70,35, 1)
+}
+
+body {
+    font-family: "acumin-variable", sans-serif;
+    color: var(--text-black);
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.site-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px var(--h-padding);
+    transition: var(--transition-regular);
+    
+    .name {
+        font-size: 28px;
+        font-variation-settings: var(--wide-semibold);
+        transition: var(--transition-regular);
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+        cursor: default;
+    }
+
+    .site-nav {
+        display: flex;
+        gap: var(--h-padding);
+        font-size: 20px;
+        font-variation-settings: 'wght' 400, 'wdth' 100, 'slnt' 0;
+
+        a {
+            text-align: center;
+            min-width: 100px;
+            color: var(--text-black);
+            transition: var(--transition-regular);
+            &:hover {
+                font-variation-settings: var(--wide-semibold);
+            }
+            &.active {
+                color: var(--brand-primary);
+                font-variation-settings: var(--wide-semibold);
+            }
+        }
+
+    }
+}
+
+.content {
+    margin: auto;
+    max-width: 1140px;
+    padding: 0 var(--h-padding);
+}
+
+.project-list {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+
+    .project-item {
+        width: 100%;
+        flex: 1 0;
+    }
+}
+
+@media only screen and (max-width:800px) { 
+    :root {
+        --h-padding: 20px;
+    }
+
+	.project-list {
+        grid-template-columns: 1fr;
+    }
+}
