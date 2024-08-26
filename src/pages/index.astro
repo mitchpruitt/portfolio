@@ -2,10 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectLink from "../components/ProjectItem.astro";
 
+const pageTitle = "Mitch Pruitt | Designer & Developer"
+
 const allProjects = await Astro.glob('./projects/*.md');
 ---
 
-<BaseLayout>
+<BaseLayout pageTitle={pageTitle}>
 	<ul class="project-list">
 		{allProjects.map((project) => <ProjectLink url={project.url}  title={project.frontmatter.title} type={project.frontmatter.type} />)}
 	</ul>
