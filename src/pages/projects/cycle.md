@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/ProjectLayout.astro
 title: Cycle
 year: 2014-2024
 type: Product Design

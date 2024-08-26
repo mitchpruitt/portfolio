@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/ProjectLayout.astro
 title: Ruckus
 year: 2023
 type: Branding
