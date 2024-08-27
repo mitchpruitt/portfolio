@@ -7,17 +7,21 @@
 
     /* fonts */
     --regular: 'wght' 400, 'wdth' 100, 'slnt' 0;
+    --wide: 'wght' 383, 'wdth' 115, 'slnt' 0;
+    --wide-medium: 'wght' 500, 'wdth' 115, 'slnt' 0;
     --wide-semibold: 'wght' 600, 'wdth' 115, 'slnt' 0;
     --wide-light: 'wght' 300, 'wdth' 115, 'slnt' 0;
     --wide-black: 'wght' 800, 'wdth' 115, 'slnt' 0;
 
     /* colors */
     --text-black: rgba(10,10,10,1);
-    --brand-primary: rgba(239,70,35, 1)
+    --brand-primary: rgba(239,70,35, 1);
 }
 
 body {
     font-family: "acumin-variable", sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased;
+    
     color: var(--text-black);
 
     a {
@@ -28,6 +32,7 @@ body {
 .site-header {
     position: sticky;
     top: 0;
+    z-index: 10;
     width: 100%;
     display: flex;
     align-items: center;
@@ -48,7 +53,7 @@ body {
     .site-nav {
         display: flex;
         gap: var(--h-padding);
-        font-size: 20px;
+        font-size: 24px;
         font-variation-settings: 'wght' 400, 'wdth' 100, 'slnt' 0;
 
         a {
