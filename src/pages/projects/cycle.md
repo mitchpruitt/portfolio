@@ -1,10 +1,11 @@
 ---
 layout: ../../layouts/ProjectLayout.astro
 title: Cycle
+subtitle: Automated testing application
 year: 2014-2024
-type: Product Design
+role: Lead product designer, Front-end developer
 client: Cycle Labs
-studio: Cycle Labs
+studio: Cycle Labs Product Dept.
 description: "Morbi consequat nisi in libero condimentum, ac dapibus felis rhoncus. Curabitur arcu urna, condimentum eu metus id, placerat cursus lacus. Praesent a augue sodales ex maximus congue ut vel magna. Cras venenatis non risus interdum laoreet. Pellentesque condimentum convallis diam consequat dapibus. Quisque scelerisque pulvinar leo, a iaculis purus malesuada non. Nullam ornare dapibus pharetra. Fusce scelerisque purus nec ullamcorper blandit."
 ---
 
