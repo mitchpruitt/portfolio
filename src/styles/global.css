@@ -85,6 +85,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
+    perspective: 1000px; /* Prevents z-index overlap with Header on scale. */
 
     .project-item {
         width: 100%;
