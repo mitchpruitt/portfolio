@@ -1,18 +1,48 @@
 ---
-const {title, url, type} = Astro.props
+const {title, url, subtitle} = Astro.props
 ---
 <li class="project-item">
     <a href={url}>
         <div class="project-image">
             <img src="https://placehold.co/1200x750" />
         </div>
-        <p>{title}</p>
-        <p>{type}</p>
+        <p class="title">{title}</p>
+        <p class="subtitle">{subtitle}</p>
     </a>
 </li>
 
 <style>
+    .project-item {
+        .title, .subtitle, img {
+            color: var(--text-black);
+            transition: var(--transition-regular);
+        }
+        &:hover {
+            .project-image {
+                img {
+                    transform: scale(1.025);
+                }
+            }
+
+            .title, .subtitle {
+                color: var(--brand-primary);
+            }
+        }
+    }
+
     .project-image {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+        overflow: hidden;
+    }
+
+    .title {
+        font-size: 24px;
+        font-variation-settings: var(--wide-semibold);
+        margin-bottom: 4px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        font-variation-settings: var(--wide);
     }
 </style>
