@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/ProjectLayout.astro
-title: Release Updates
+title: Cycle Release Updates
 subtitle: Walkthough videos
 year: 2024
 role: Video editor, Motion designer
