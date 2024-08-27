@@ -18,12 +18,13 @@
     /* colors */
     --text-black: rgba(10,10,10,1);
     --brand-primary: rgba(239,70,35, 1);
+    --offwhite: rgb(243, 240, 240);
 }
 
 body {
     font-family: "acumin-variable", sans-serif;
     -webkit-font-smoothing: subpixel-antialiased;
-    
+    background-color: var(--offwhite);
     color: var(--text-black);
 
     a {
