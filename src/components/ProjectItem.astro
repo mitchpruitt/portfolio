@@ -1,11 +1,11 @@
 ---
-import { Image } from "astro:assets"
+import { Image, Picture } from "astro:assets"
 const {title, url, subtitle, cover, coverAlt} = Astro.props
 ---
 <li class="project-item">
     <a href={url}>
         <div class="project-image">
-            <Image src={cover} alt={coverAlt} />
+            <Picture src={cover} alt={coverAlt} loading={"eager"} width={760}/>
         </div>
         <p class="title">{title}</p>
         <p class="subtitle">{subtitle}</p>
@@ -14,47 +14,54 @@ const {title, url, subtitle, cover, coverAlt} = Astro.props
 
 <style>
     .project-item {
-        
+
         .title, .subtitle {
-            color: var(--text-black);
             transition: var(--transition-regular);
+            color: rgb(var(--text-black));
         }
         
         img {
             transition: 1s ease-out;
         }
+        
+        .project-image {
+            height: max-content;
+            margin-bottom: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            box-shadow: var(--shadow-elevation-low);
+            transition: var(--transition-regular);
+        }
+    
+        .title {
+            font-size: 24px;
+            font-variation-settings: var(--wide-semibold);
+            margin-bottom: 4px;
+        }
+    
+        .subtitle {
+            font-size: 16px;
+            font-variation-settings: var(--extra-light);
+        }
 
         &:hover {
             .project-image {
+                box-shadow: var(--shadow-elevation-medium);
+
                 img {
                     transform: scale(1.025);
                 }
             }
 
             .title, .subtitle {
-                color: var(--brand-primary);
+                color: rgb(var(--brand-primary));
             }
         }
     }
 
-    .project-image {
-        height: 300px;
-        margin-bottom: 10px;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 4px;
-    }
 
-    .title {
-        font-size: 24px;
-        font-variation-settings: var(--wide-semibold);
-        margin-bottom: 4px;
-    }
 
-    .subtitle {
-        font-size: 16px;
-        font-variation-settings: var(--extra-light);
-    }
 </style>
