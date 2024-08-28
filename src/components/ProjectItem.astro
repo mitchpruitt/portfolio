@@ -1,10 +1,11 @@
 ---
-const {title, url, subtitle} = Astro.props
+import { Image } from "astro:assets"
+const {title, url, subtitle, cover, coverAlt} = Astro.props
 ---
 <li class="project-item">
     <a href={url}>
         <div class="project-image">
-            <img src="https://placehold.co/1200x750" />
+            <Image src={cover} alt={coverAlt} />
         </div>
         <p class="title">{title}</p>
         <p class="subtitle">{subtitle}</p>
@@ -13,10 +14,16 @@ const {title, url, subtitle} = Astro.props
 
 <style>
     .project-item {
-        .title, .subtitle, img {
+        
+        .title, .subtitle {
             color: var(--text-black);
             transition: var(--transition-regular);
         }
+        
+        img {
+            transition: 1s ease-out;
+        }
+
         &:hover {
             .project-image {
                 img {
@@ -31,6 +38,7 @@ const {title, url, subtitle} = Astro.props
     }
 
     .project-image {
+        height: 300px;
         margin-bottom: 10px;
         overflow: hidden;
     }

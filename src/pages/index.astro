@@ -1,17 +1,18 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ProjectLink from "../components/ProjectItem.astro";
+import ProjectItem from "../components/ProjectItem.astro";
 
 const pageTitle = "Mitch Pruitt | Designer & Developer"
 
-const allProjects = await Astro.glob('./projects/*.md');
+const allProjects = await getCollection("projects");
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<section class="content" transition:animate="fade">
 		<ul class="project-list">
 			{allProjects.map((project) => 
-				<ProjectLink url={project.url}  title={project.frontmatter.title} subtitle={project.frontmatter.subtitle} />
+				<ProjectItem url={`/projects/${project.slug}`} title={project.data.title} subtitle={project.data.subtitle} cover={project.data.cover} coverAlt={project.data.coverAlt}/>
 			)}
 		</ul>
 	</section>

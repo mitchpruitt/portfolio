@@ -1,11 +1,12 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import MetaItem from "../components/MetaItem.astro";
+import { Image } from "astro:assets";
 const { frontmatter } = Astro.props;
 ---
 <BaseLayout pageTitle={"Mitch Pruitt | " + frontmatter.title}>
     <div class="project-image">
-        <img src="https://placehold.co/1200x750" />
+        <Image src={frontmatter.cover} alt={frontmatter.coverAlt} />
     </div>
     <section class="content" transition:animate="fade">
         <div class="project-header-grid">
