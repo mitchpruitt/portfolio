@@ -16,16 +16,38 @@
     --wide-black: 'wght' 800, 'wdth' 115, 'slnt' 0;
 
     /* colors */
-    --text-black: rgba(10,10,10,1);
-    --brand-primary: rgba(239,70,35, 1);
-    --offwhite: rgb(255, 251, 250, 1);
+    --text-black: 10,10,10;
+    --brand-primary: 239,70,35;
+    --offwhite: 255, 251, 250;
+
+    /* shadows */
+    --shadow-color: 0deg 0% 74%;
+    --shadow-elevation-low:
+        0px 0.6px 0.9px hsl(var(--shadow-color) / 0.04),
+        0px 1px 1.4px -0.3px hsl(var(--shadow-color) / 0.12),
+        0px 1.9px 2.7px -0.5px hsl(var(--shadow-color) / 0.21);
+    --shadow-elevation-medium:
+        0px 0.6px 0.9px hsl(var(--shadow-color) / 0.04),
+        0px 2.3px 3.3px -0.2px hsl(var(--shadow-color) / 0.11),
+        0px 4.5px 6.4px -0.4px hsl(var(--shadow-color) / 0.18),
+        0.1px 9.4px 13.3px -0.5px hsl(var(--shadow-color) / 0.24);
+    --shadow-elevation-high:
+        0px 0.6px 0.9px hsl(var(--shadow-color) / 0.04),
+        0px 3.2px 4.5px -0.1px hsl(var(--shadow-color) / 0.07),
+        0px 5.5px 7.8px -0.2px hsl(var(--shadow-color) / 0.1),
+        0px 8.1px 11.5px -0.2px hsl(var(--shadow-color) / 0.13),
+        0.1px 11.4px 16.2px -0.3px hsl(var(--shadow-color) / 0.16),
+        0.1px 16px 22.7px -0.4px hsl(var(--shadow-color) / 0.19),
+        0.1px 22.5px 31.9px -0.5px hsl(var(--shadow-color) / 0.23),
+        0.2px 31.3px 44.4px -0.5px hsl(var(--shadow-color) / 0.26);
+
 }
 
 body {
     font-family: "acumin-variable", sans-serif;
     -webkit-font-smoothing: subpixel-antialiased;
-    background-color: var(--offwhite);
-    color: var(--text-black);
+    background-color: rgb(var(--offwhite));
+    color: rgb(var(--text-black));
 
     a {
         text-decoration: none;
@@ -40,8 +62,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px var(--h-padding);
+    padding: 10px var(--h-padding);
     transition: var(--transition-regular);
+    background-color: rgba(var(--offwhite), .35);
+    &:hover {
+        background-color: rgba(var(--offwhite), .9);
+    }
     
     .name {
         font-size: 28px;
@@ -62,13 +88,13 @@ body {
         a {
             text-align: center;
             min-width: 100px;
-            color: var(--text-black);
+            color: rgb(var(--text-black));
             transition: var(--transition-regular);
             &:hover {
                 font-variation-settings: var(--wide-semibold);
             }
             &.active {
-                color: var(--brand-primary);
+                color: rgb(var(--brand-primary));
                 font-variation-settings: var(--wide-semibold);
             }
         }
@@ -79,7 +105,7 @@ body {
 .content {
     margin: auto;
     max-width: 1140px;
-    padding: 0 var(--h-padding);
+    padding: 40px var(--h-padding);
     font-size: 18px;
 }
 
@@ -109,5 +135,6 @@ body {
 
 	.project-list {
         grid-template-columns: 1fr;
+        gap:40px;
     }
 }
