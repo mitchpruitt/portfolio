@@ -1,11 +1,12 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
 title: Level Up
 subtitle: Mobile fitness brand
-year: 2023
+year: "2023"
 role: Graphic Designer, Project Manager
 client: Level Up Mobile Fitness
 studio: Freelance
+cover: "../../assets/images/levelup-cover.png"
+coverAlt: Some text
 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar ut urna at scelerisque. Donec rutrum, enim quis consectetur laoreet, mauris sapien finibus purus, quis dignissim sapien lectus in turpis. Curabitur tincidunt, urna aliquet porttitor porttitor, velit est ullamcorper leo, at sollicitudin mi elit consequat urna. Praesent ultricies non tortor vel efficitur. Vestibulum at neque nec ex fermentum iaculis et ut mauris. Donec vehicula sit amet urna non aliquam. Integer id posuere felis, id pellentesque metus. Sed ipsum purus, posuere ac interdum in, pretium ut dui. Vestibulum et lacus faucibus, facilisis leo ut, pellentesque nisl."
 ---
 
