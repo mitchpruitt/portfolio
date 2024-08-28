@@ -1,4 +1,5 @@
 ---
+order: 1
 title: Cycle
 subtitle: Automated testing application
 year: "2014-2024"
@@ -7,7 +8,7 @@ client: Cycle Labs
 studio: Cycle Labs Product Dept.
 cover: ../../assets/images/cycle-cover.png
 coverAlt: Some text
-description: "Morbi consequat nisi in libero condimentum, ac dapibus felis rhoncus. Curabitur arcu urna, condimentum eu metus id, placerat cursus lacus. Praesent a augue sodales ex maximus congue ut vel magna. Cras venenatis non risus interdum laoreet. Pellentesque condimentum convallis diam consequat dapibus. Quisque scelerisque pulvinar leo, a iaculis purus malesuada non. Nullam ornare dapibus pharetra. Fusce scelerisque purus nec ullamcorper blandit."
+description: "I designed and helped develop the front-end for the Cycle application testing platform for nearly 10 years as the Creative Lead of Tryon Solutions and later on Creative III at Cycle Labs. As the sole product designer within either organization, I was in charge of everything from the layout of the application, the design system used to style it, to the front-end code operating it."
 ---
 
 Content

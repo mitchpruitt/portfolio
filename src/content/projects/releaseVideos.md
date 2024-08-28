@@ -1,13 +1,14 @@
 ---
+order: 2
 title: Cycle Release Updates
 subtitle: Walkthough videos
 year: "2024"
 role: Video editor, Motion designer
 client: Cycle Labs
 studio: Cycle Labs Product Dept.
-cover: "../../assets/images/cycle-cover.png"
+cover: "../../assets/images/releasevideos-cover.png"
 coverAlt: Some text
-description: "urabitur eu lobortis erat. Suspendisse eu feugiat nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla ullamcorper nibh eget metus tincidunt, id auctor turpis sodales. Pellentesque elementum, nulla ac maximus vestibulum, nunc quam commodo neque, rhoncus congue ligula lectus placerat mi. Quisque finibus diam eu eros rutrum viverra. Nulla non erat egestas, lobortis turpis quis, congue massa."
+description: "While the Cycle Labs devteam dedicated significant effort to shipping new and requested features, we noticed that our adoption rate was lower than expected. Unprompted, teammate Andy and I set out to write and produce a series of videos that introduced our customers to these features and help integrate them in their current workflows."
 ---
 
 Content
