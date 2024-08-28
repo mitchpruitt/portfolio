@@ -18,7 +18,7 @@
     /* colors */
     --text-black: rgba(10,10,10,1);
     --brand-primary: rgba(239,70,35, 1);
-    --offwhite: rgb(243, 240, 240);
+    --offwhite: rgb(255, 251, 250, 1);
 }
 
 body {
@@ -56,7 +56,7 @@ body {
     .site-nav {
         display: flex;
         gap: var(--h-padding);
-        font-size: 24px;
+        font-size: 20px;
         font-variation-settings: 'wght' 400, 'wdth' 100, 'slnt' 0;
 
         a {
