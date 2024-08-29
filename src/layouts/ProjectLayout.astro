@@ -29,17 +29,17 @@ const { frontmatter } = Astro.props;
 
 <style>
     .project-image {
+        display: flex;
         margin-top: -82px;
         width: 100%;
         height: 50vh;
         overflow: hidden;
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
         margin-bottom: 40px;
-        display: flex;
         align-items: center;
         justify-content: center;
+        background-image: radial-gradient(rgb(var(--gray-light)) 2px, transparent 2px);
+        background-size: 15px 15px;
+        background-color: rgb(var(--offwhite));
 
         img {
             width: 100%;
