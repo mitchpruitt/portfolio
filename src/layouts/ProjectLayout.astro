@@ -1,12 +1,11 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import MetaItem from "../components/MetaItem.astro";
-import { Picture, Image } from "astro:assets";
-// import { Picture } from "astro-imagetools/components";
+import { Image } from "astro:assets";
 const { frontmatter } = Astro.props;
 ---
 <BaseLayout pageTitle={"Mitch Pruitt | " + frontmatter.title}>
-    <div class="project-image">
+    <div class="project-layout-image">
         <Image src={frontmatter.cover} alt={frontmatter.coverAlt} loading={"eager"} />
     </div>
     <section class="content" transition:animate="fade">
@@ -28,7 +27,7 @@ const { frontmatter } = Astro.props;
 </BaseLayout>
 
 <style>
-    .project-image {
+    .project-layout-image {
         display: flex;
         margin-top: -82px;
         width: 100%;
@@ -64,6 +63,7 @@ const { frontmatter } = Astro.props;
         .title {
             font-variation-settings: var(--wide-semibold);
             font-size: 56px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         }
 
         .subtitle {
@@ -98,7 +98,7 @@ const { frontmatter } = Astro.props;
 
     @media only screen and (max-width:800px) { 
 
-    .project-image {
+    .project-layout-image {
         height: 30vh;
         margin-top: 0;
     }
@@ -111,3 +111,37 @@ const { frontmatter } = Astro.props;
     }
 }
 </style>
+
+<script>
+    import splitType from 'split-type';
+
+    document.addEventListener(
+      "astro:page-load",
+      () => {
+        const text = new splitType('.project-header-grid .title', { types: 'words'});
+        const words = text.words;
+
+        gsap.fromTo(
+            words,
+            { 
+                y: 100,
+                opacity: 0
+            },
+            {
+                y: 0,
+                opacity: 1,
+                stagger: 0.05,
+                duration: 1,
+                ease: 'power4.out',
+            }
+        )
+
+        gsap.from(
+            '.project-layout-image',
+            { height: 0, duration: .5, ease: 'power4.out'},
+        ) 
+      },
+      { once: false }
+    );
+  </script>
+</script>

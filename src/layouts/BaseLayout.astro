@@ -18,27 +18,11 @@ const {pageTitle} = Astro.props;
 	</head>
 	<body>
 		<Header />
-        <slot />
+		<slot />
+		<script>
+			import {gsap} from "gsap";
+			window.gsap = gsap;
+		</script>
 		<!-- <footer>contact</footer> -->
 	</body>
 </html>
-
-<style>
-	body{
-		background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-		background-size: 200% 200%;
-		animation: gradient 15s ease infinite;
-
-		@keyframes gradient {
-			0% {
-				background-position: 0% 50%;
-			}
-			50% {
-				background-position: 100% 50%;
-			}
-			100% {
-				background-position: 0% 50%;
-			}
-		}
-	}
-</style>

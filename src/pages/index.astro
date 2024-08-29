@@ -10,7 +10,7 @@ allProjects.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<section class="content" transition:animate="fade">
+	<section class="content">
 		<ul class="project-list">
 			{allProjects.map((project) => 
 				<ProjectItem url={`/projects/${project.slug}`} title={project.data.title} subtitle={project.data.subtitle} cover={project.data.cover} coverAlt={project.data.coverAlt}/>
@@ -18,3 +18,21 @@ allProjects.sort((a, b) => a.data.order - b.data.order);
 		</ul>
 	</section>
 </BaseLayout>
+
+<script>
+	document.addEventListener(
+		"astro:page-load",
+		() => {
+			gsap.fromTo('.project-item', {
+				autoAlpha: 0,
+			},
+			{
+				autoAlpha: 1,
+				duration: 1,
+				stagger: 0.1,
+				ease: 'power4.out',
+			});
+      },
+      { once: false }
+    );
+</script>
