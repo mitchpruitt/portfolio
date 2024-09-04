@@ -1,0 +1,75 @@
+:root {
+    --font-family: "acumin-variable", sans-serif;
+
+    /* Font variants */
+    /* Regular */
+    --extra-light: 'wght' 200, 'wdth' 100, 'slnt' 0;
+    --regular: 'wght' 400, 'wdth' 100, 'slnt' 0;
+    --semibold: 'wght' 600, 'wdth' 100, 'slnt' 0;
+
+    /* Wide */
+    --wide-extralight: 'wght' 100, 'wdth' 115, 'slnt' 0;
+    --wide-light: 'wght' 300, 'wdth' 115, 'slnt' 0;
+    --wide: 'wght' 383, 'wdth' 115, 'slnt' 0;
+    --wide-medium: 'wght' 500, 'wdth' 115, 'slnt' 0;
+    --wide-semibold: 'wght' 600, 'wdth' 115, 'slnt' 0;
+    --wide-bold: 'wght' 700, 'wdth' 115, 'slnt' 0;
+    --wide-black: 'wght' 800, 'wdth' 115, 'slnt' 0;
+
+    /* Semicondensed */
+    --semicondensed-light: 'wght' 300, 'wdth' 90, 'slnt' 0;
+
+}
+
+h1 {
+    font-variation-settings: var(--wide-semibold);
+    font-family: var(--font-family);
+    font-size: 61.04px;
+}
+
+h2 {
+    font-variation-settings: var(--wide);
+    font-family: var(--font-family);
+    font-size: 48.83px;
+}
+
+h3 {
+    font-family: var(--font-family);
+    font-variation-settings: var(--wide-semibold);
+    font-size: 39.06px;
+}
+
+h4 {
+    font-variation-settings: var(--semicondensed-light);
+    font-family: var(--font-family);
+    font-size: 31.25px;
+}
+
+h5 {
+    font-variation-settings: var(--wide-light);
+    font-family: var(--font-family);
+    font-size: 25px;
+    line-height: 31px;
+}
+
+h6 {
+    font-family: var(--font-family);
+    font-size: 20px;
+}
+
+p {
+    font-family: var(--font-family);
+    font-size: 18px;
+    line-height: 23px;
+}
+
+small {
+    font-variation-settings: var(--wide-semibold);
+    font-family: var(--font-family);
+    font-size: 13.8px;
+}
+
+figcaption {
+    font-family: var(--font-family);
+    font-size: 11.24px;
+}
