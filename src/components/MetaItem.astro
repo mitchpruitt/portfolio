@@ -3,12 +3,25 @@ const {label, value} = Astro.props
 ---
 
 <li class="meta-item">
-    <label>{label}</label>
-    <p>{value}</p>
+    <small class="label">{label}</small>
+    <p class="data">{value}</p>
 </li>
 
 <style>
-    label {
-        color: rgb(var(--brand-primary));
+    .meta-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    small {
+        color: rgb(var(--primary));
+        font-variation-settings: var(--wide);
+        clip-path: var(--full-clip);
+    }
+
+    .data {
+        font-variation-settings: var(--wide);
+        clip-path: var(--full-clip);
     }
 </style>
