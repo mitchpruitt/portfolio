@@ -2,19 +2,20 @@
 import BaseLayout from "./BaseLayout.astro";
 import MetaItem from "../components/MetaItem.astro";
 import { Image } from "astro:assets";
+import './projectLayout.css';
 const { frontmatter } = Astro.props;
 ---
 <BaseLayout pageTitle={"Mitch Pruitt | " + frontmatter.title}>
     <div class="project-layout-image">
         <Image src={frontmatter.cover} alt={frontmatter.coverAlt} loading={"eager"} />
     </div>
-    <section class="content" transition:animate="fade">
+    <section class="content">
         <div class="project-header-grid">
             <header class="project-header">
                 <h1 class="title">{frontmatter.title}</h1>
-                <h2 class="subtitle">{frontmatter.subtitle}</h2>
+                <p class="label subtitle">{frontmatter.subtitle}</p>
             </header>
-            <p class="description">{frontmatter.description}</p>
+            <h5 class="description">{frontmatter.description}</h5>
             <ul class="meta">
                 <MetaItem label="Role" value={frontmatter.role} />
                 <MetaItem label="Client" value={frontmatter.client} />
@@ -22,120 +23,10 @@ const { frontmatter } = Astro.props;
                 <MetaItem label="Team" value={frontmatter.studio} />
             </ul>
         </div>
-        <slot />
+        <div class="project-body">
+            <slot />
+        </div>
     </section>
 </BaseLayout>
 
-<style>
-    .project-layout-image {
-        display: flex;
-        margin-top: -82px;
-        width: 100%;
-        height: 500px;
-        overflow: hidden;
-        align-items: center;
-        justify-content: center;
-        background-image: radial-gradient(rgb(var(--gray-light)) 2px, transparent 2px);
-        background-size: 15px 15px;
-        background-color: rgb(var(--offwhite));
-
-        img {
-            width: 100%;
-            height: auto;
-        }
-    }
-
-    .project-header-grid {
-        display: grid;
-        grid-template-columns: 3fr 1fr;
-        margin-bottom: var(--h-padding);
-        row-gap: var(--h-padding);
-        column-gap: 60px;
-        transition: var(--transition-standard);
-        grid-template-areas: "header header"
-                             "description meta";
-    }
-
-    .project-header {
-        grid-area: header;
-
-        .title {
-            font-variation-settings: var(--wide-semibold);
-            font-size: 56px;
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-        }
-
-        .subtitle {
-            font-variation-settings: var(--extra-light);
-            font-size: 24px;
-        }
-
-    }
-
-
-    .description {
-        font-size: 24px;
-        line-height: 30px;
-        font-variation-settings: var(--wide-light);
-        grid-area: description;
-    }
-
-    .meta {
-        list-style-type: none;
-        font-size: 15px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
-        .meta-item {
-            font-variation-settings: var(--wide);
-            label {
-                font-variation-settings: var(--wide-semibold);
-            }
-        }
-    }
-
-    @media only screen and (max-width:800px) { 
-
-        .project-layout-image {
-            height: fit-content;
-            margin-top: 0;
-        }
-
-        .project-header-grid {
-            grid-template-columns: 1fr;
-            grid-template-areas: "header"
-                                "description"
-                                "meta";
-        }
-    }
-</style>
-
-<script>
-    import splitType from 'split-type';
-
-    document.addEventListener(
-      "astro:page-load",
-      () => {
-        const text = new splitType('.project-header-grid .title', { types: 'words'});
-        const words = text.words;
-
-        gsap.fromTo(
-            words,
-            { 
-                y: 100,
-                opacity: 0
-            },
-            {
-                y: 0,
-                opacity: 1,
-                stagger: 0.05,
-                duration: 1,
-                ease: 'power4.out',
-            }
-        )
-      },
-      { once: false }
-    );
-  </script>
-</script>
+<script src="./projectLayout.js" />
