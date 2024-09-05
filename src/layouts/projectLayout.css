@@ -20,14 +20,14 @@
     display: grid;
     grid-template-columns: 3fr 1fr;
     margin-bottom: var(--h-padding);
-    row-gap: var(--h-padding);
+    row-gap: var(--v-padding);
     column-gap: 60px;
     transition: var(--transition-standard);
     grid-template-areas: "header header"
                          "description meta";
 
     .project-header {
-    grid-area: header;
+        grid-area: header;
 
         .title {
             color: rgb(var(--darkest));
@@ -41,7 +41,9 @@
     }
 
     .description {
+        width: 100%;
         grid-area: description;
+        font-kerning: none;
     }
     
     .meta {
@@ -63,6 +65,17 @@
         padding-bottom: 8px;
         margin-bottom: 8px;
         border-bottom: 1px dotted rgb(var(--dark));
+        & ~ h3 {
+            margin-top: 32px;
+        }
+    }
+
+    p + ul {
+        margin-top: 8px;
+    }
+
+    ul {
+        list-style-position: inside;
     }
 }
 
@@ -78,5 +91,27 @@
         grid-template-areas: "header"
                             "description"
                             "meta";
+
+        .project-header {
+            .title {
+                font-size: 42px;
+                margin-bottom: 0;
+            }
+    
+            .subtitle {
+                font-size: 14px;
+            }
+        }
+
+        .description {
+            font-size: 21px;
+            line-height: 25px;
+        }
+
+        .meta {
+            margin: 16px 0;
+        }
     }
+
+
 }
