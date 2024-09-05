@@ -20,19 +20,15 @@ allProjects.sort((a, b) => a.data.order - b.data.order);
 </BaseLayout>
 
 <script>
-	document.addEventListener(
-		"astro:page-load",
-		() => {
-			gsap.fromTo('.project-item', {
-				autoAlpha: 0,
-			},
-			{
-				autoAlpha: 1,
-				duration: 1,
-				stagger: 0.1,
-				ease: 'power4.out',
-			});
-      },
-      { once: false }
-    );
+	import gsap from 'gsap';
+
+	gsap.fromTo('.project-item', {
+		autoAlpha: 0,
+	},
+	{
+		autoAlpha: 1,
+		duration: 1,
+		stagger: 0.1,
+		ease: 'power4.out',
+	});
 </script>
