@@ -6,8 +6,8 @@
     overflow: hidden;
     align-items: center;
     justify-content: center;
-    background-image: radial-gradient(rgb(var(--light)) 2px, transparent 2px);
-    background-size: 15px 15px;
+    background-image: url(../assets/images/logo-pattern.svg);
+    background-size: 40px 38.15px;
     background-color: rgb(var(--lightest));
 
     img {
