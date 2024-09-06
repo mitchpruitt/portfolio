@@ -41,6 +41,7 @@ html {
 }
 
 body {
+    font-family: var(--font-family);
     -webkit-font-smoothing: subpixel-antialiased;
     background-color: rgb(var(--light));
     color: rgb(var(--darkest));
@@ -64,13 +65,13 @@ main {
     justify-content: space-between;
     padding: 10px var(--h-padding);
     transition: var(--transition-regular);
-    background-color: rgba(var(--offwhite), .35);
+    background-color: rgba(var(--light), .35);
     &:hover {
-        background-color: rgba(var(--offwhite), .9);
+        background-color: rgba(var(--light), .9);
     }
     
     .name {
-        font-size: 28px;
+        font-size: 22px;
         font-variation-settings: var(--wide-semibold);
         transition: var(--transition-regular);
         -webkit-user-select: none; /* Safari */
@@ -82,19 +83,19 @@ main {
     .site-nav {
         display: flex;
         gap: var(--h-padding);
-        font-size: 20px;
+        font-size: 18px;
         font-variation-settings: 'wght' 400, 'wdth' 100, 'slnt' 0;
 
         a {
             text-align: center;
             min-width: 100px;
-            color: rgb(var(--text-black));
+            color: rgb(var(--darkest));
             transition: var(--transition-regular);
             &:hover {
                 font-variation-settings: var(--wide-semibold);
             }
             &.active {
-                color: rgb(var(--brand-primary));
+                color: rgb(var(--primary));
                 font-variation-settings: var(--wide-semibold);
             }
         }
