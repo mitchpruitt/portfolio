@@ -5,6 +5,10 @@ import { cleanText } from '../scripts/cleanText';
 // Fixes jumpy text on revert()
 cleanText('.description');
 
+// GSAP variables
+const hero = '.project-layout-image img';
+const img = document.querySelector(hero);
+
 const headText = new splitType('.project-header .title', { types: 'words'});
 const headline = headText.words;
 
@@ -22,7 +26,24 @@ const data = dataText.lines
 
 const animatedElements = [headText, subtitleText, descriptionText, labelText, dataText]
 
+// GSAP timeline
 var tl = gsap.timeline();
+
+tl.set('main', {visibility: 'visible'})
+
+tl.fromTo(
+    hero, {
+        scale: 1.1,
+        opacity: 0,
+        filter: 'blur(10px)'
+    }, {
+        scale: 1,
+        filter: 'blur(0px)',
+        opacity: 1,
+        duration: 1,
+        ease: 'power4.out'
+    }
+)
 
 tl.fromTo(
     headline, { 
@@ -35,7 +56,7 @@ tl.fromTo(
         stagger: 0.05,
         duration: 1,
         ease: 'power4.out',
-    }
+    }, "<"
 )
 
 tl.fromTo(
@@ -102,6 +123,25 @@ tl.fromTo(".project-body *", {
     }, ">-=.5"
 )
 
+
+// Reverts text back to original state after animation completes
 tl.eventCallback("onComplete", function() {
     animatedElements.forEach(element => element.revert())
+})
+
+
+img.addEventListener("load", () => {
+    gsap.fromTo(
+        hero, {
+            scale: 1.1,
+            opacity: 0,
+            filter: 'blur(10px)'
+        }, {
+            scale: 1,
+            filter: 'blur(0px)',
+            opacity: 1,
+            duration: 1,
+            ease: 'power4.out'
+        }
+    )
 })
