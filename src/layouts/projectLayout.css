@@ -37,6 +37,7 @@
     
         .subtitle {
             font-size: 18px;
+            clip-path: var(--full-clip);
         }
     }
 
