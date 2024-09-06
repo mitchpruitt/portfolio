@@ -6,7 +6,7 @@ year: "2019"
 role: Graphic Designer, Project Manager
 client: RipXFit
 studio: Freelance
-cover: "../../assets/images/jacked-cover.png"
+cover: "../../assets/images/jacked-cover.jpg"
 coverAlt: Some text
 description: "When local gym RipXFit wanted to start a new men's fitness class, owner Jean-Pierre said he already had a name in mind – Jacked – but needed something raw and powerful to serve as its mascot. Given the amount of lifting and hanging athletes perform in class, a gorilla seemed like a natural fit."
 ---
