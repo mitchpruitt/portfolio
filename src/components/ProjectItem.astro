@@ -8,7 +8,7 @@ const {title, url, subtitle, cover, coverAlt} = Astro.props
             <Picture src={cover} alt={coverAlt} loading={"eager"} width={760}/>
         </div>
         <p class="title">{title}</p>
-        <p class="subtitle">{subtitle}</p>
+        <p class="subtitle label">{subtitle}</p>
     </a>
 </li>
 
@@ -17,7 +17,7 @@ const {title, url, subtitle, cover, coverAlt} = Astro.props
 
         .title, .subtitle {
             transition: var(--transition-regular);
-            color: rgb(var(--text-black));
+            overflow: hidden;
         }
         
         img {
@@ -40,14 +40,17 @@ const {title, url, subtitle, cover, coverAlt} = Astro.props
         }
     
         .title {
-            font-size: 24px;
+            font-size: 26px;
             font-variation-settings: var(--wide-semibold);
             margin-bottom: 4px;
+            color: rgb(var(--darkest));
+            padding: 4px 0;
         }
     
         .subtitle {
-            font-size: 16px;
+            font-size: 14px;
             font-variation-settings: var(--extra-light);
+            color: rgb(var(--primary));
         }
 
         &:hover {
@@ -57,10 +60,6 @@ const {title, url, subtitle, cover, coverAlt} = Astro.props
                 img {
                     transform: scale(1.025);
                 }
-            }
-
-            .title, .subtitle {
-                color: rgb(var(--brand-primary));
             }
         }
     }
