@@ -22,11 +22,13 @@ allProjects.sort((a, b) => a.data.order - b.data.order);
 <script>
 	import gsap from 'gsap';
 
+	gsap.set('main', {visibility: "visible"});
+
 	gsap.fromTo('.project-item', {
-		autoAlpha: 0,
+		opacity: 0,
 	},
 	{
-		autoAlpha: 1,
+		opacity: 1,
 		duration: 1,
 		stagger: 0.1,
 		ease: 'power4.out',

@@ -50,6 +50,10 @@ body {
     }
 }
 
+main {
+    visibility: hidden;
+}
+
 .site-header {
     position: sticky;
     top: 0;
