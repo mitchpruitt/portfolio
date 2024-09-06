@@ -10,6 +10,7 @@ allProjects.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+	<div class="bigassheader"></div>
 	<section class="content">
 		<ul class="project-list">
 			{allProjects.map((project) => 
@@ -21,16 +22,56 @@ allProjects.sort((a, b) => a.data.order - b.data.order);
 
 <script>
 	import gsap from 'gsap';
+	import splitType from 'split-type';
+	import { cleanText } from '../scripts/cleanText';
 
-	gsap.set('main', {visibility: "visible"});
+	const headText = new splitType('.project-item .title', { types: 'words'});
+	const headline = headText.words;
 
-	gsap.fromTo('.project-item', {
-		opacity: 0,
-	},
-	{
-		opacity: 1,
-		duration: 1,
-		stagger: 0.1,
-		ease: 'power4.out',
-	});
+	const subtitleText = new splitType('.project-item .subtitle', { types: 'words'});
+	const subtitle = subtitleText.words;
+
+	var tl = gsap.timeline()
+
+	tl.set('main', {visibility: "visible"});
+
+	tl.fromTo(
+		".project-item", {
+			opacity: 0
+		}, 
+		{
+			opacity: 1,
+			stagger: .05,
+			duration: 2,
+			ease: 'power4.out'
+		}
+	)
+
+	tl.fromTo(
+		headline, { 
+			y: 100,
+			opacity: 0
+		},
+		{
+			y: 0,
+			opacity: 1,
+			stagger: 0.05,
+			duration: 1,
+			ease: 'power4.out',
+		}, "<"
+	);
+
+	tl.fromTo(
+		subtitle, {
+			y: -100,
+			opacity: 0
+		}, {
+			y: 0,
+			opacity: 1,
+			stagger: 0.05,
+			duration: 1,
+			ease: 'power4.out',
+		}, "<"
+	)
+
 </script>
