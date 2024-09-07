@@ -6,7 +6,58 @@ const currentPath = Astro.url.pathname;
 <header class="site-header">
     <div class="name">Mitch Pruitt</div>
     <nav class="site-nav">
-        <a href="/" class={currentPath === '/' ? 'active' : ''}>Projects</a>
+        <a href="/#projects" class={currentPath === '/' ? 'active' : ''}>Projects</a>
         <a href="/about/" class={currentPath === '/about/' ? 'active' : ''}>About</a>
     </nav>
 </header>
+
+<style>
+    .site-header {
+        position: fixed;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px var(--h-padding);
+        transition: var(--transition-regular);
+        /* mix-blend-mode: difference; */
+        
+        .name {
+            font-size: 20px;
+            color: rgb(var(--light));
+            font-variation-settings: var(--wide-semibold);
+            transition: var(--transition-regular);
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
+            cursor: default;
+        }
+
+        .site-nav {
+            display: flex;
+            gap: var(--h-padding);
+            font-size: 16px;
+            font-variation-settings: 'wght' 400, 'wdth' 100, 'slnt' 0;
+
+            a {
+                text-align: center;
+                /* padding: 4px 8px; */
+                /* border-radius: 4px; */
+                /* min-width: 100px; */
+                color: rgb(var(--lightest));
+                transition: var(--transition-regular);
+                /* background-color: rgb(var(--darkest)); */
+                &:hover {
+                    /* font-variation-settings: var(--wide-semibold); */
+                }
+                &.active {
+                    color: rgb(var(--primary));
+                    /* font-variation-settings: var(--wide-semibold); */
+                }
+            }
+
+        }
+    }
+</style>
