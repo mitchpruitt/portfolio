@@ -19,6 +19,12 @@
     /* Semicondensed */
     --semicondensed-light: 'wght' 300, 'wdth' 90, 'slnt' 0;
 
+    /* Condensed */
+    --condensed-black: 'wght' 800, 'wdth' 75, 'slnt' 0;
+
+    /* Extracondensed */
+    --extracondensed-black: 'wght' 800, 'wdth' 50, 'slnt' 0;
+
 }
 
 h1 {
