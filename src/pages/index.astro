@@ -10,8 +10,14 @@ allProjects.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<div class="bigassheader"></div>
-	<section class="content">
+	<!-- <div class="bigassheader">
+		<div>
+			<h2>I take products and brands from</h2>
+			<h1>zero to one</h1>
+			<h1>& beyond</h1>
+		</div>
+	</div> -->
+	<section id="projects" class="content">
 		<ul class="project-list">
 			{allProjects.map((project) => 
 				<ProjectItem url={`/projects/${project.slug}`} title={project.data.title} subtitle={project.data.subtitle} cover={project.data.cover} coverAlt={project.data.coverAlt}/>
@@ -19,6 +25,33 @@ allProjects.sort((a, b) => a.data.order - b.data.order);
 		</ul>
 	</section>
 </BaseLayout>
+
+<!-- <style>
+	.bigassheader {
+		height: 100vh;
+		background-color: rgb(var(--darkest));
+		display: flex;
+		align-items: center;
+		padding: var(--h-padding) var(--v-padding);
+		/* justify-content: center; */
+
+		h2 {
+			color: rgb(var(--light));
+			font-size: 4vw;
+		}
+
+		h1 {
+			color: rgb(var(--primary));
+			font-variation-settings: var(--condensed-black);
+			text-transform: uppercase;
+			font-size: 16vw;
+			line-height: .85;
+			&:last-of-type {
+				font-variation-settings: var(--wide-light);
+			}
+		}
+	}
+</style> -->
 
 <script>
 	import gsap from 'gsap';
