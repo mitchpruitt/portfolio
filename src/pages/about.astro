@@ -9,3 +9,34 @@ const pageTitle = "Mitch Pruitt | About"
         <h1>about me</h1>
     </section>
 </BaseLayout>
+
+<style>
+    h1 {
+        
+    }
+</style>
+
+<script>
+	import gsap from 'gsap';
+	import splitType from 'split-type';
+
+	const headText = new splitType('h1', { types: 'chars'});
+	const headline = headText.chars;
+
+	var tl = gsap.timeline()
+
+	tl.set('main', {visibility: "visible"});
+
+	tl.fromTo(
+		headline, {
+			opacity: 0
+		}, 
+		{
+			opacity: 1,
+			stagger: .05,
+			duration: 2,
+			ease: 'power4.out'
+		}
+	)
+
+</script>
