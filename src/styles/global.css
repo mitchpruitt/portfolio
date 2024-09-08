@@ -3,7 +3,7 @@
 
 :root {
     --h-padding: 32px;
-    --v-padding: 32px;
+    --v-padding: 64px;
     --transition-regular: .135s ease-out;
     --full-clip: rect(0% 100% 100% 0%);
 
@@ -72,7 +72,7 @@ body {
 }
 
 main {
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 .content {
@@ -80,6 +80,9 @@ main {
     max-width: 1140px;
     padding: var(--v-padding) var(--h-padding);
     font-size: 18px;
+    p {
+        margin-bottom: 8px;
+    }
 
     p + h3 {
         margin-top: 32px;
@@ -108,12 +111,59 @@ main {
     letter-spacing: .1rem;
 }
 
+.project-header-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin-bottom: var(--h-padding);
+    row-gap: 24px;
+    column-gap: 60px;
+    transition: var(--transition-standard);
+    grid-template-areas: "header header"
+                         "description meta";
+
+    &.no-meta {
+        grid-template-columns: 1fr;
+        grid-template-areas: "header"
+                             "description";
+    }
+
+    .project-header {
+        grid-area: header;
+
+        .title {
+            color: rgb(var(--darkest));
+            clip-path: var(--full-clip);
+            margin-bottom: 8px;
+        }
+    
+        .subtitle {
+            font-size: 18px;
+            clip-path: var(--full-clip);
+        }
+    }
+
+    .description {
+        width: 100%;
+        grid-area: description;
+        font-kerning: none;
+    }
+    
+    .meta {
+        display: flex;
+        grid-area: meta;
+        gap: 16px;
+        flex-direction: column;
+        font-size: 15px;
+        list-style-type: none;
+    }
+}
 
 
-@media only screen and (max-width:800px) { 
+
+@media only screen and (max-width:912px) { 
     :root {
         --h-padding: 24px;
-        --v-padding: 16px;
+        --v-padding: 48px;
     }
 
     .site-header {
@@ -123,5 +173,32 @@ main {
 	.project-list {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .project-header-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: "header"
+                             "description"
+                             "meta";
+
+        .project-header {
+            .title {
+                font-size: 42px;
+                margin-bottom: 0;
+            }
+    
+            .subtitle {
+                font-size: 14px;
+            }
+        }
+
+        .description {
+            font-size: 21px;
+            line-height: 25px;
+        }
+
+        .meta {
+            margin-bottom: 16px;
+        }
     }
 }
