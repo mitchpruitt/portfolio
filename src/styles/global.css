@@ -36,6 +36,11 @@
         0.2px 31.3px 44.4px -0.5px hsl(var(--shadow-color) / 0.26);
 }
 
+html, body {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--primary)) rgb(var(--darkest));
+}
+
 html {
     background-color: rgb(var(--light));
 }
@@ -48,6 +53,21 @@ body {
 
     a {
         text-decoration: none;
+    }
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: rgb(var(--darkest));
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(var(--primary));
+        border-radius: 6px;
+        padding: 2px;
+        /* border: 3px solid rgb(var(--darkest)); */
     }
 }
 
