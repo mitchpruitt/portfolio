@@ -1,6 +1,4 @@
-import gsap from 'gsap';
-import splitType from 'split-type';
-import { cleanText } from '../scripts/cleanText';
+import {gsap, splitType, cleanText} from "../scripts/animation";
 
 // Fixes jumpy text on revert()
 cleanText('.description');
