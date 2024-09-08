@@ -1,0 +1,86 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectItem from "../components/ProjectItem.astro";
+
+const pageTitle = "Mitch Pruitt | Projects";
+const allProjects = await getCollection("projects");
+allProjects.sort((a, b) => a.data.order - b.data.order);
+
+const title = "Projects"
+const subtitle = "Show & tell"
+const description = "Every project is a new opportunity to grow my capabilities, support my clients, and delight my users. Given my extensive background in graphic design, UI/UX, illustration, animation, and web development, there's no design challenge I can't surmount."
+---
+
+<BaseLayout pageTitle={pageTitle} headerColor={"dark"}>
+	<section id="projects" class="content">
+		<div class="project-header-grid no-meta">
+            <header class="project-header">
+                <h1 class="title">{title}</h1>
+                <p class="label subtitle">{subtitle}</p>
+            </header>
+            <h5 class="description">{description}</h5>
+        </div>
+		<ul class="project-list">
+			{allProjects.map((project) => 
+				<ProjectItem url={`/projects/${project.slug}`} title={project.data.title} subtitle={project.data.subtitle} cover={project.data.cover} coverAlt={project.data.coverAlt}/>
+			)}
+		</ul>
+	</section>
+</BaseLayout>
+
+<script>
+
+	import {gsap, splitType} from "../scripts/animation";
+
+	const projectItemHeadText = new splitType('.project-item .title', { types: 'words'});
+	const projectItemHead = projectItemHeadText.words;
+
+	const projectItemSubtitleText = new splitType('.project-item .subtitle', { types: 'words'});
+	const projectItemSubtitle = projectItemSubtitleText.words;
+
+	var tl = gsap.timeline()
+
+	tl.set('main', {visibility: "visible"});
+
+	tl.fromTo(
+		".project-item", {
+			opacity: 0
+		}, 
+		{
+			opacity: 1,
+			stagger: .05,
+			duration: 2,
+			ease: 'power4.out'
+		}
+	)
+
+	tl.fromTo(
+		projectItemHead, { 
+			y: 100,
+			opacity: 0
+		},
+		{
+			y: 0,
+			opacity: 1,
+			stagger: 0.05,
+			duration: 1,
+			ease: 'power4.out',
+		}, "<"
+	);
+
+	tl.fromTo(
+		projectItemSubtitle, {
+			y: -100,
+			opacity: 0
+		}, {
+			y: 0,
+			opacity: 1,
+			stagger: 0.05,
+			duration: 1,
+			ease: 'power4.out',
+		}, "<"
+	)
+
+</script>
