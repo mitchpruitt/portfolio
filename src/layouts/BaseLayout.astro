@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 
-const {pageTitle} = Astro.props;
+const {pageTitle, headerColor} = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +21,7 @@ const {pageTitle} = Astro.props;
 		</noscript>
 	</head>
 	<body>
-		<Header />
+		<Header headerColor={headerColor}/>
 		<main>
 			<slot />
 		</main>

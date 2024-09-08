@@ -1,39 +1,25 @@
 ---
-import { getCollection } from "astro:content";
-
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ProjectItem from "../components/ProjectItem.astro";
-
 const pageTitle = "Mitch Pruitt | Designer & Developer";
-const allProjects = await getCollection("projects");
-allProjects.sort((a, b) => a.data.order - b.data.order);
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-	<!-- <div class="bigassheader">
+<BaseLayout pageTitle={pageTitle} headerColor={"light"}>
+	<div class="bigassheader">
 		<div>
 			<h2>I take products and brands from</h2>
 			<h1>zero to one</h1>
 			<h1>& beyond</h1>
 		</div>
-	</div> -->
-	<section id="projects" class="content">
-		<ul class="project-list">
-			{allProjects.map((project) => 
-				<ProjectItem url={`/projects/${project.slug}`} title={project.data.title} subtitle={project.data.subtitle} cover={project.data.cover} coverAlt={project.data.coverAlt}/>
-			)}
-		</ul>
-	</section>
+	</div>
 </BaseLayout>
 
-<!-- <style>
+<style>
 	.bigassheader {
 		height: 100vh;
 		background-color: rgb(var(--darkest));
 		display: flex;
 		align-items: center;
 		padding: var(--h-padding) var(--v-padding);
-		/* justify-content: center; */
 
 		h2 {
 			color: rgb(var(--light));
@@ -51,60 +37,4 @@ allProjects.sort((a, b) => a.data.order - b.data.order);
 			}
 		}
 	}
-</style> -->
-
-<script>
-	import gsap from 'gsap';
-	import splitType from 'split-type';
-	import { cleanText } from '../scripts/cleanText';
-
-	const headText = new splitType('.project-item .title', { types: 'words'});
-	const headline = headText.words;
-
-	const subtitleText = new splitType('.project-item .subtitle', { types: 'words'});
-	const subtitle = subtitleText.words;
-
-	var tl = gsap.timeline()
-
-	tl.set('main', {visibility: "visible"});
-
-	tl.fromTo(
-		".project-item", {
-			opacity: 0
-		}, 
-		{
-			opacity: 1,
-			stagger: .05,
-			duration: 2,
-			ease: 'power4.out'
-		}
-	)
-
-	tl.fromTo(
-		headline, { 
-			y: 100,
-			opacity: 0
-		},
-		{
-			y: 0,
-			opacity: 1,
-			stagger: 0.05,
-			duration: 1,
-			ease: 'power4.out',
-		}, "<"
-	);
-
-	tl.fromTo(
-		subtitle, {
-			y: -100,
-			opacity: 0
-		}, {
-			y: 0,
-			opacity: 1,
-			stagger: 0.05,
-			duration: 1,
-			ease: 'power4.out',
-		}, "<"
-	)
-
-</script>
+</style>

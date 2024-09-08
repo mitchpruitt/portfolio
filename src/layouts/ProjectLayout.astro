@@ -5,7 +5,7 @@ import { Image } from "astro:assets";
 import './projectLayout.css';
 const { frontmatter } = Astro.props;
 ---
-<BaseLayout pageTitle={"Mitch Pruitt | " + frontmatter.title}>
+<BaseLayout pageTitle={"Mitch Pruitt | " + frontmatter.title} headerColor={"dark"}>
     <div class="project-layout-image">
        <Image src={frontmatter.cover} alt={frontmatter.coverAlt} loading={"eager"} />
     </div>

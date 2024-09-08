@@ -1,13 +1,14 @@
 ---
-import "../styles/global.css";
-
 const currentPath = Astro.url.pathname;
+const {headerColor} = Astro.props;
 ---
-<header class="site-header">
-    <div class="name">Mitch Pruitt</div>
+<header class={`site-header ${headerColor}`}>
+    <div class="name">
+        <a href="/" class={currentPath === '/' ? 'active' : ''}>Mitch Pruitt</a>
+    </div>
     <nav class="site-nav">
-        <a href="/#projects" class={currentPath === '/' ? 'active' : ''}>Projects</a>
-        <a href="/about/" class={currentPath === '/about/' ? 'active' : ''}>About</a>
+        <a href="/projects" class={currentPath === '/projects' ? 'active' : ''}>Projects</a>
+        <a href="/about" class={currentPath === '/about' ? 'active' : ''}>About</a>
     </nav>
 </header>
 
@@ -22,13 +23,35 @@ const currentPath = Astro.url.pathname;
         justify-content: space-between;
         padding: 10px var(--h-padding);
         transition: var(--transition-regular);
-        /* mix-blend-mode: difference; */
+
+        &.dark {
+            a {
+                color: rgb(var(--darkest));
+            }
+        }
+
+        &.light {
+            a{
+                color: rgb(var(--lightest))
+            }
+        }
+
+        a {
+            transition: var(--transition-regular);
+
+            &:hover {
+                color: rgb(var(--primary));
+            }
+
+            &.active {
+                color: rgb(var(--primary));
+                border-bottom: 1px dotted rgb(var(--primary));
+            }
+        }
         
         .name {
             font-size: 20px;
-            color: rgb(var(--light));
             font-variation-settings: var(--wide-semibold);
-            transition: var(--transition-regular);
             -webkit-user-select: none; /* Safari */
             -ms-user-select: none; /* IE 10 and IE 11 */
             user-select: none; /* Standard syntax */
@@ -40,24 +63,6 @@ const currentPath = Astro.url.pathname;
             gap: var(--h-padding);
             font-size: 16px;
             font-variation-settings: 'wght' 400, 'wdth' 100, 'slnt' 0;
-
-            a {
-                text-align: center;
-                /* padding: 4px 8px; */
-                /* border-radius: 4px; */
-                /* min-width: 100px; */
-                color: rgb(var(--lightest));
-                transition: var(--transition-regular);
-                /* background-color: rgb(var(--darkest)); */
-                &:hover {
-                    /* font-variation-settings: var(--wide-semibold); */
-                }
-                &.active {
-                    color: rgb(var(--primary));
-                    /* font-variation-settings: var(--wide-semibold); */
-                }
-            }
-
         }
     }
 </style>
