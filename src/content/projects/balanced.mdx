@@ -5,13 +5,13 @@ subtitle: Apparel graphic
 year: "2021"
 role: Graphic designer
 client: Cycle Labs
-studio: Cycle Labs – Marketing
+studio: "Cycle Labs – Marketing"
 cover: "@images/balanced/balanced-cover.jpg"
 coverAlt: Some text
 description: "I was asked to provide a shirt graphic for the first company-wide in-person meeting under the new Cycle Labs identity. I wanted to emphasize the fun culture we share at work but do justice to the new mark and marketing message, all of which pairs quite neatly with a breakfast favorite – the pancake."
 ---
-import ProjectSection from "../../components/ProjectSection.astro"
-import {Image} from "astro:assets";
+import ProjectSection from "@components/ProjectSection.astro";
+import GalleryItem from "@components/GalleryItem.astro";
 import sketch from "@assets/images/balanced/balanced-sketch.png";
 
 <ProjectSection sectionTitle="Setup">
@@ -37,12 +37,7 @@ import sketch from "@assets/images/balanced/balanced-sketch.png";
         Massa phasellus ut inceptos facilisis cras vivamus dignissim eget vivamus. Dui orci eu netus cubilia, nunc sagittis imperdiet sed. In fermentum justo semper nibh amet leo eu. Sem malesuada vulputate lectus turpis, quam interdum. Hendrerit luctus varius nec nec felis duis ipsum. Adipiscing cubilia eget magna molestie massa, euismod nascetur. Ipsum varius et, nam nascetur mus nam?
     </Fragment>
     <Fragment slot="gallery">
-        <a href={sketch.src} data-caption="Sketches">
-            <Image src={sketch} width={850} alt="Sketches" />
-        </a>
-        <a href={sketch.src} data-caption="Sketches">
-            <Image src={sketch} width={850} alt="Sketches" />
-        </a>
+        <GalleryItem image={sketch} caption="Sketches for my project" />
     </Fragment>
 </ProjectSection>
 
