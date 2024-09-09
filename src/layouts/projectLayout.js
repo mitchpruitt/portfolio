@@ -1,4 +1,10 @@
 import {gsap, splitType, cleanText} from "../scripts/animation";
+import baguetteBox from 'baguettebox.js';
+
+// Create galleries
+baguetteBox.run('.content-gallery', {
+    overlayBackgroundColor: "rgba(var(--darkest), .95)"
+});
 
 // Fixes jumpy text on revert()
 cleanText('.description');

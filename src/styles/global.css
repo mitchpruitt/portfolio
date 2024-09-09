@@ -1,5 +1,6 @@
 @import url(reset.css);
 @import url(type.css);
+@import "/node_modules/baguettebox.js/dist/baguetteBox.css";
 
 :root {
     --h-padding: 32px;
