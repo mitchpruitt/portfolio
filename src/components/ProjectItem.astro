@@ -1,11 +1,11 @@
 ---
-import { Image, Picture } from "astro:assets"
+import { Picture } from "astro:assets"
 const {title, url, subtitle, cover, coverAlt} = Astro.props
 ---
 <li class="project-item">
     <a href={url}>
         <div class="project-image">
-            <Picture src={cover} alt={coverAlt} loading={"eager"} width={760}/>
+            <Picture src={cover} alt={coverAlt} loading={"eager"} width={850}/>
         </div>
         <p class="title">{title}</p>
         <p class="subtitle label">{subtitle}</p>
@@ -54,8 +54,12 @@ const {title, url, subtitle, cover, coverAlt} = Astro.props
         }
 
         &:hover {
+            .title {
+                color: rgb(var(--dark));
+            }
+
             .project-image {
-                box-shadow: var(--shadow-elevation-medium);
+                box-shadow: var(--shadow-elevation-high);
 
                 img {
                     transform: scale(1.025);
