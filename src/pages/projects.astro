@@ -32,7 +32,18 @@ const description = "Every project is a new opportunity to grow my capabilities,
 
 <script>
 
-	import {gsap, splitType} from "../scripts/animation";
+	import {gsap, splitType, cleanText} from "../scripts/animation";
+
+	cleanText('.description');
+
+	const headText = new splitType('.project-header .title', { types: 'words'});
+	const headline = headText.words;
+
+	const subtitleText = new splitType('.project-header .subtitle', { types: 'words'});
+	const subtitle = subtitleText.words;
+
+	const descriptionText = new splitType('.description', {types: 'lines'});
+	const description = descriptionText.lines;
 
 	const projectItemHeadText = new splitType('.project-item .title', { types: 'words'});
 	const projectItemHead = projectItemHeadText.words;
@@ -40,9 +51,55 @@ const description = "Every project is a new opportunity to grow my capabilities,
 	const projectItemSubtitleText = new splitType('.project-item .subtitle', { types: 'words'});
 	const projectItemSubtitle = projectItemSubtitleText.words;
 
+	const animatedElements = [headText, subtitleText, descriptionText, projectItemHeadText, projectItemSubtitleText];
+
 	var tl = gsap.timeline()
 
 	tl.set('main', {visibility: "visible"});
+
+	tl.fromTo(
+		headline, { 
+			y: 100,
+			opacity: 0
+		},
+		{
+			y: 0,
+			opacity: 1,
+			stagger: 0.05,
+			duration: 1,
+			ease: 'power4.out',
+		}, "<"
+	)
+
+	tl.fromTo(
+		subtitle, { 
+			y: -100,
+			opacity: 0
+		},
+		{
+			y: 0,
+			opacity: 1,
+			stagger: 0.05,
+			duration: 1,
+			ease: 'power4.out',
+		}, "<"
+	)
+
+	tl.fromTo(
+		description, { 
+			y: -10,
+			opacity: 0
+		}, {
+			y: 0,
+			opacity: 1,
+			stagger: 0.05,
+			duration: 1,
+			ease: 'power4.out',
+			onComplete() {
+				descriptionText.revert()
+			}
+		}, ">-=.75",
+	)
 
 	tl.fromTo(
 		".project-item", {
@@ -53,7 +110,7 @@ const description = "Every project is a new opportunity to grow my capabilities,
 			stagger: .05,
 			duration: 2,
 			ease: 'power4.out'
-		}
+		}, "<"
 	)
 
 	tl.fromTo(
@@ -82,5 +139,9 @@ const description = "Every project is a new opportunity to grow my capabilities,
 			ease: 'power4.out',
 		}, "<"
 	)
+
+	tl.eventCallback("onComplete", function() {
+		animatedElements.forEach(element => element.revert())
+	})
 
 </script>
