@@ -1,6 +1,6 @@
 ---
 const currentPath = Astro.url.pathname;
-const {headerColor} = Astro.props;
+const {headerColor = "dark"} = Astro.props;
 ---
 <header class={`site-header ${headerColor}`}>
     <div class="name">
