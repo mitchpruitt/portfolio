@@ -1,0 +1,63 @@
+---
+const {sectionTitle} = Astro.props;
+---
+<section class="project-section">
+    <h3>{sectionTitle}</h3>
+    <div class="project-section-content">
+        <div class="content-text">
+            <slot name="text" />
+        </div>
+        <div class="content-gallery">
+            <slot name="gallery" />
+        </div>
+    </div>
+</section>
+
+<style>
+    .project-section {
+        margin-bottom: 32px;
+    }
+
+    h3 {
+        font-size: 20px;
+        text-transform: uppercase;
+        color: rgb(var(--dark));
+        padding-bottom: 8px;
+        margin-bottom: 8px;
+        border-bottom: 1px dotted rgb(var(--dark));
+    }
+
+    .project-section-content {
+        height: 100%;
+        display: flex;
+        gap: 60px;
+
+        .content-text {
+            flex: 1;
+
+            p {
+                margin-bottom: 16px;
+            }
+        }
+
+        .content-gallery {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            div {
+                flex: 1;
+                min-width: 45%;
+            }
+        }
+    }
+
+    @media only screen and (max-width:912px) { 
+        .project-section-content {
+            flex-direction: column;
+            gap: 16px
+        }
+    }
+</style>
