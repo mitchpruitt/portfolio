@@ -34,10 +34,20 @@ const {sectionTitle} = Astro.props;
             align-content: flex-start;
             gap: 8px;
 
-            a {
+            .gallery-item {
+                display: block;
                 width: 250px;
                 height: 250px;
                 overflow: hidden;
+                text-align: center;
+                box-shadow: var(--shadow-elevation-low);
+                transition: var(--transition-regular);
+                &:hover {
+                    box-shadow: var(--shadow-elevation-high);
+                    img {
+                        transform: scale(1.025);
+                    }
+                }
             }
         }
     }

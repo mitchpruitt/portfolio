@@ -42,17 +42,17 @@
     }
 
     p + ul {
-        margin-top: var(--space);
+        margin: 16px 0;
     }
 
     ul {
-        padding-inline-start: 8px;
-        list-style-position: inside;
+        list-style-position: outside;
         list-style-type: square;
+        padding-left: 1.25em;
 
         li {
             font-size: 16px;
-            margin-bottom: var(--space);
+            margin-bottom: 8px;
             &::marker {
                 color: rgb(var(--primary));
             }        
