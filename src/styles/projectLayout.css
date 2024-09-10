@@ -41,9 +41,20 @@
         color: rgb(var(--darkest));
     }
 
-    p + ul {
-        margin: 16px 0;
+    em {
+        font-style: normal;
+        font-variation-settings: var(--regular-italic);
     }
+
+    p {
+        + ul {
+            margin: 16px 0;
+        }
+        + p {
+            margin-top: 16px;
+        }
+    }
+
 
     ul {
         list-style-position: outside;
