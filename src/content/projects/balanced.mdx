@@ -8,28 +8,31 @@ client: Cycle Labs
 studio: "Cycle Labs – Marketing"
 cover: "@images/balanced/balanced-cover.jpg"
 coverAlt: Some text
-description: "I was asked to provide a shirt graphic for the first company-wide in-person meeting under the new Cycle Labs identity. I wanted to emphasize the fun culture we share at work but do justice to the new mark and marketing message, all of which pairs quite neatly with a breakfast favorite – the pancake."
+description: "Cycle Labs was a new company spun out of Tryon Solutions in order to seek external funding for their flagship product. The change involved a new brand and some new teammates, so Marketing asked if I could create a shirt for distribution at our first all-hands meeting under the new banner."
 ---
-
 import ProjectSection from "@components/ProjectSection.astro";
 import GalleryItem from "@components/GalleryItem.astro";
-import sketch from "@assets/images/balanced/balanced-sketch.png";
+import sketch from "@images/balanced/balanced-sketch.png";
+import meeting from "@images/balanced/meeting.jpeg";
+import karting from "@images/balanced/karting.jpeg";
 
-<ProjectSection sectionTitle="Setup">
+<ProjectSection sectionTitle="Approach">
     <Fragment slot="text">
-        I didn't have a lot of time to plan for this project, but luck was on my side given I stumbled across this pancake concept pretty early on. 
+        I began by considering the elements that made Cycle Labs stand out among other enterprise software companies: 
+        - **Expertise** &mdash; Cycle Labs' employees accrued years worth of experience in fields including quality assurance, warehouse operations, and software development prior to joining the company, informing our market strategy and feature set.
+        - **Cheerfulness** &mdash; While the organization was serious about delivering quality products and experiences, it was also dedicated to being a fun place to work. Teams were frequently invited to go-kart races, laser tag battles, and nights out on the town, which fostered cohesion and happiness.
+        - **Authenticity** &mdash; Workers were encouraged to be their 'true selves'  to share their passions, ideas, and critiques openly, as well as receive them from others gracefully.
 
-        I drew a few refined versions, scanned and enlarged the best, then traced and re-inked the final. 
-
-        From there I scanned into Illustrator, adding additional detail and color to create the final image.
+        Ultimately, Cycle Labs was an interesting place to work and I wanted to design a graphic that matched its energy while still highlighting the new brand. This meeting would also be the first time everyone would be in the same place at the same time following the onset of COVID-19. It was important to me that this shirt be light-hearted and enjoyable.
     </Fragment>
 
     <Fragment slot="gallery">
-        <div>![Tshirt](@images/balanced/balanced-sketch.png)</div>
+        <GalleryItem image={meeting} height={250} caption="Meetings by day" />
+        <GalleryItem image={karting} width={250} caption="Karting by night" />
     </Fragment>
 </ProjectSection>
 
-<ProjectSection sectionTitle="Process work">
+<ProjectSection sectionTitle="Process">
     <Fragment slot="text">
         Suspendisse torquent malesuada hac faucibus morbi odio libero sit ultricies. Venenatis natoque ad tincidunt, mi orci luctus consequat. Adipiscing cras conubia dis ad montes pretium; auctor elementum. Nullam fermentum feugiat integer ultricies platea luctus class facilisis. Dictum inceptos curabitur eleifend sodales morbi est. Habitant parturient class rhoncus ante est scelerisque.
 
