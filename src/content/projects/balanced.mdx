@@ -10,15 +10,21 @@ cover: "@images/balanced/balanced-cover.jpg"
 coverAlt: Some text
 description: "Cycle Labs was a new company spun out of Tryon Solutions in order to seek external funding for their flagship product. The change involved a new brand and some new teammates, so Marketing asked if I could create a shirt for distribution at our first all-hands meeting under the new banner."
 ---
-import ProjectSection from "@components/ProjectSection.astro";
-import GalleryItem from "@components/GalleryItem.astro";
-import sketch from "@images/balanced/balanced-sketch.png";
-import meeting from "@images/balanced/meeting.jpeg";
-import karting from "@images/balanced/karting.jpeg";
+import ProjectSection from "@components/ProjectSection.astro"
+import GalleryItem from "@components/GalleryItem.astro"
+import meeting from "@images/balanced/meeting.jpeg"
+import karting from "@images/balanced/karting.jpeg"
+import sketchrefined from "@images/balanced/balanced-sketch-refined.jpg"
+import sketch1 from "@images/balanced/balanced-sketch-1.jpg"
+import sketch2 from "@images/balanced/balanced-sketch-2.jpg"
+import sketch3 from "@images/balanced/balanced-sketch-3.jpg"
+import logo from "@images/balanced/main-logo-color-100.jpg"
+import pedalvector from "@images/balanced/pedal-midway.jpg"
+import pancakefinal from "@images/balanced/pancake-final.jpg"
 
 import model from "@images/balanced/balanced-model.png";
 
-<ProjectSection sectionTitle="Approach">
+<ProjectSection sectionTitle="Concept">
     <Fragment slot="text">
         I began by considering the elements that made Cycle Labs stand out among other enterprise software companies: 
         - **Expertise** &mdash; Cycle Labs' employees accrued years worth of experience in fields including quality assurance, warehouse operations, and software development prior to joining the company, informing our market strategy and feature set.
@@ -26,32 +32,47 @@ import model from "@images/balanced/balanced-model.png";
         - **Authenticity** &mdash; Workers were encouraged to be their 'true selves'  to share their passions, ideas, and critiques openly, as well as receive them from others gracefully.
 
         Ultimately, Cycle Labs was an interesting place to work and I wanted to design a graphic that matched its energy while still highlighting the new brand. This meeting would also be the first time everyone would be in the same place at the same time following the onset of COVID-19. It was important to me that this shirt be light-hearted and enjoyable.
+
+        The only caveat was that I had one week to turn around a final graphic. Given I was already swamped helping migrate Cycle's front-end to custom Material UI components, I had to think and act fast. 
     </Fragment>
 
     <Fragment slot="gallery">
-        <GalleryItem image={meeting} height={250} caption="Meetings by day" />
-        <GalleryItem image={karting} width={250} caption="Karting by night" />
+        <GalleryItem image={meeting} height={250} caption="In the mornings, we meet." />
+        <GalleryItem image={karting} width={250} caption="But at night, we shred." />
     </Fragment>
 </ProjectSection>
 
 <ProjectSection sectionTitle="Process">
     <Fragment slot="text">
-        Suspendisse torquent malesuada hac faucibus morbi odio libero sit ultricies. Venenatis natoque ad tincidunt, mi orci luctus consequat. Adipiscing cras conubia dis ad montes pretium; auctor elementum. Nullam fermentum feugiat integer ultricies platea luctus class facilisis. Dictum inceptos curabitur eleifend sodales morbi est. Habitant parturient class rhoncus ante est scelerisque.
+        I wanted to find a way to appreciate the new Cycle Labs mark while avoiding the corporate tendency to "slap it on the front and call it a day."
+        
+        When sketching, I looked for ways to integrate the mark into other forms or find objects that echoed its shape. Additionally, I wanted a strong thematic link to the company and its values.
 
-        Sodales ligula porttitor leo tempor ornare lacus mus. Semper suspendisse eleifend volutpat vulputate gravida sagittis. Bibendum rhoncus montes aliquam nunc pharetra. Volutpat mauris integer nulla suscipit dictumst malesuada per. Turpis mollis vitae nam natoque dui proin. Penatibus inceptos pharetra cursus; erat dapibus bibendum. Porttitor enim sit augue nunc suspendisse sollicitudin, duis pharetra urna.
+        Three ideas stood out as contenders:
+        - **Dramatic button** &mdash; Think of an action movie where the president has to authorize some sort of nuclear strike or the scientist prepares to power up their new machine, this is that button. Paired with the company tagline “Deploy with confidence” as the label, Cycle Labs could send a strong message about the impact of its work.
+        - **Guitar FX pedal** &mdash; A pedal modifies an electric guitar's signal the same way Cycle modifies the testing process. Considering most effects have names like *supercharge,* *amplify,* and *overdrive,* positively linking the two concepts was a breeze.
+        - **Pancake stack** &mdash; Recognizing the similarity between the new logo and a stack of artfully decorated pancakes allowed me to put it front and center, while hiding it in plain sight. From here, I developed a theme based on the company's desire to evenly distribute testing efforts across the lifecycle of a WMS implementation. In other words, make testing part of a balanced development process.
 
-        Massa phasellus ut inceptos facilisis cras vivamus dignissim eget vivamus. Dui orci eu netus cubilia, nunc sagittis imperdiet sed. In fermentum justo semper nibh amet leo eu. Sem malesuada vulputate lectus turpis, quam interdum. Hendrerit luctus varius nec nec felis duis ipsum. Adipiscing cubilia eget magna molestie massa, euismod nascetur. Ipsum varius et, nam nascetur mus nam?
+        I dropped the Dramatic Button concept based on the its lack of 'cheerfulness,' and focused my efforts on vectorizing the other two ideas for my check-in with marketing. Much to my pleasure, pancakes won the day, though I was asked to keep the FX pedal idea in my back pocket for future use.
     </Fragment>
     <Fragment slot="gallery">
-        <GalleryItem image={sketch} caption="Sketches for my project" />
+        <GalleryItem image={logo} width={250} caption="The new Cycle Labs logo and wordmark." />
+        <GalleryItem image={sketch1} width={250} caption="Early sketch work demonstrating the pancake and button concepts." />
+        <GalleryItem image={sketch2} width={250} caption="More early sketches, including the FX pedal." />
+        <GalleryItem image={sketch3} width={250} caption="Another attempt at an FX pedal, this time incorporating themes like 'supercharging' and 'amplifying'." />
+        <GalleryItem image={sketchrefined} height={250} caption="Second and third iterations on my pancake illustration. I spend so much time on the computer that I enjoy drawing by hand whenever possible." />
+        <GalleryItem image={pedalvector} width={250} caption="Scanned and vectorized in-progress art for the pedal concept." />        
     </Fragment>
 </ProjectSection>
 
 <ProjectSection sectionTitle="Outcome">
     <Fragment slot="text">
-        The shirt was good!
+        Marketing was pleased with my work and my timeliness, the project was ready well before deadline despite my other responsibilities.
+
+        The shirts were distributed along with stickers, snacks, and drinks as a welcome package for team members. Many people immediately changed into their new attire, while others asked if there were leftovers they could take home to their kids. This was the attitude I wished to embody with this project &mdash; I wanted us to be proud of our organization, come together to achieve a common goal, and enjoy ourselves in the process.
     </Fragment>
     <Fragment slot="gallery">
-        <GalleryItem image={model} width={250} caption="A model showcasing my design" />
+        <GalleryItem image={pancakefinal} width={250} caption="The final shirt graphic." />
+        <GalleryItem image={model} width={250} caption="A model showcasing my design." />
     </Fragment>
 </ProjectSection>
