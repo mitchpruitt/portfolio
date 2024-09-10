@@ -16,25 +16,47 @@
     }
 }
 
+/* Markdown styles */
 .project-body {
+    --space: 8px;
+    color: rgb(var(--dark));
+
     h3 {
         font-size: 20px;
         text-transform: uppercase;
-        color: rgb(var(--dark));
-        padding-bottom: 8px;
-        margin-bottom: 8px;
+        color: rgb(var(--darkest));
+        padding-bottom: 4px;
+        margin-bottom: 16px;
         border-bottom: 1px dotted rgb(var(--dark));
         & ~ h3 {
             margin-top: 32px;
         }
     }
 
+
+    strong {
+        font-weight: normal;
+        font-variation-settings: var(--wide-medium);
+        font-size: 18px;
+        color: rgb(var(--darkest));
+    }
+
     p + ul {
-        margin-top: 8px;
+        margin-top: var(--space);
     }
 
     ul {
+        padding-inline-start: 8px;
         list-style-position: inside;
+        list-style-type: square;
+
+        li {
+            font-size: 16px;
+            margin-bottom: var(--space);
+            &::marker {
+                color: rgb(var(--primary));
+            }        
+        }
     }
 }
 
