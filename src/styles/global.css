@@ -5,7 +5,7 @@
 :root {
     --h-padding: 32px;
     --v-padding: 64px;
-    --transition-regular: all .135s ease-out;
+    --transition-regular: .135s ease-out;
     --full-clip: rect(0% 100% 100% 0%);
 
     /* colors */
