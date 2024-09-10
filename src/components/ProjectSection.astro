@@ -35,11 +35,14 @@ const {sectionTitle} = Astro.props;
             gap: 8px;
 
             .gallery-item {
-                display: block;
-                width: 250px;
-                height: 250px;
+                flex: 1;
+                display: flex;
+                max-width: 250px;
+                min-width: 200px;
+                aspect-ratio: 1/1;
                 overflow: hidden;
-                text-align: center;
+                justify-content:center;
+                align-items: center;
                 box-shadow: var(--shadow-elevation-low);
                 transition: var(--transition-regular);
                 &:hover {
