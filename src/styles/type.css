@@ -5,6 +5,7 @@
     /* Regular */
     --extra-light: 'wght' 200, 'wdth' 100, 'slnt' 0;
     --regular: 'wght' 400, 'wdth' 100, 'slnt' 0;
+    --regular-italic: 'wght' 400, 'wdth' 100, 'slnt' -12;
     --semibold: 'wght' 600, 'wdth' 100, 'slnt' 0;
 
     /* Wide */
