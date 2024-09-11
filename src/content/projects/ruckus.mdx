@@ -8,15 +8,31 @@ client: Ruckus Climbing Gym
 studio: Freelance
 cover: "@images/ruckus/ruckus-cover.jpg"
 coverAlt: Some text
-description: "The team behind Ruckus discovered a love of indoor climbing through their daughter, who took an interest in the activity at a young age. Dissatisfied with the lack of quality climbing options in their area, they built a new facility and wanted an identity to match the rambunctious spirit of kids and the kids-at-heart."
+description: "The team behind Ruckus discovered a love of indoor climbing through their daughter, who took an interest in the activity at a young age. Dissatisfied with the lack of climbing options in their area, they built a new facility and wanted an identity to match the rambunctious spirit of kids and the kids-at-heart."
 ---
+import ProjectSection from "@components/ProjectSection.astro"
+import GalleryItem from "@components/GalleryItem.astro"
+import moodboard from "@images/ruckus/ruckus-moodboard.jpg"
+import analysis from "@images/ruckus/ruckus-competition.jpg"
 
-### Setup
-Working with the Ruckus team, I developed a moodboard to serve as a visual menu of ideas that we could draw on to develop a brand. Using this board, we created a list of qualities that we wanted to focus on: 
-- Dimension – Depth in addition to width and height.
-- Primitive forms – Big basic shapes that look like something you can climb on.
-- Energy and motion – A playful vibe that echoes the energy of a day of fun.
-- Punchy colors – Avoid primary colors and instead opt for more bold natural tones.
+<ProjectSection sectionTitle="Concept">
+    <Fragment slot="text">
+        Working with the Ruckus team, I developed a moodboard to serve as a visual menu of ideas that we could draw on to develop a brand. Using this board, we created a list of qualities that we wanted to include:
+        - **Dimension** &mdash; Depth in addition to width and height.
+        - **Primitive forms** &mdash; Big basic shapes that look like something you can climb on.
+        - **Energy and motion** &mdash; A playful vibe that echoes the energy of a day of fun.
+        - **Punchy colors** &mdash; Avoid primary colors and instead opt for more bold natural tones.
+
+        Additionally, I did a competitve analysis of other climbing gyms in the state to see what we could learn from their identities. This took the form of a simple tier list, where I ranked other climbing gyms based on the quality of their logo concept and execution. (I would like to point out that my ranking is not an indictment of the facilities themselves. For instance, Wilmington Rock Gym is a great place to climb even if their logo is incomprehensible at smaller sizes.)
+        
+        This process immediately highlighted two tropes I wanted to avoid: *mountains* and *climbers.* Anything else was fair game.
+    </Fragment>
+
+    <Fragment slot="gallery">
+        <GalleryItem image={moodboard} height={250} caption="The moodboard drew on inspiration from a wide variety of sources: music labels, video game graphics, lifestyle photography, and children's toys just to name a few." />
+        <GalleryItem image={analysis} width={250} caption="My competitive analysis took the form of a simple tier list, ranking competitor's identities based on the quality of their concept and execution. This ranking is not an indictment of the facilities themselves." />
+    </Fragment>
+</ProjectSection>
 
 ### Process work
 From there I experimented with cut-up paper shapes to develop type concepts, referenced handholds and volumes from actual climbing suppliers, and modeled shapes in Rhino 3D to ultimately shape a mark that combines a youthful spirit with a bold climbable structure.
