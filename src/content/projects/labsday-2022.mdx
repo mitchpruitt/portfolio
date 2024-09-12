@@ -8,7 +8,64 @@ client: Cycle Labs
 studio: Cycle Labs Marketing Dept.
 cover: "@images/labsday-2022/labsday-2022-cover.jpg"
 coverAlt: Some text
-description: "To celebrate the first anniversary of Cycle Labs' founding, I was tasked with creating a commemorative shirt. So much had happened in one year and the business covers so many concepts, it was hard to pin down one central theme. Rather than decide, I was inspired to collect and arrange the best ones instead. Some emblems describe testing strategies we employ, others speak to the company's culture or are inside jokes."
+description: "After a full year under the name Cycle Labs, Leadership decided to honor the founding of the organization with a company-wide holiday: Cycle Labs Day. When the CEO asked me personally to create a shirt for the event, I was eager to deliver something special."
 ---
+import ProjectSection from "@components/ProjectSection.astro"
+import GalleryItem from "@components/GalleryItem.astro"
 
-Content
+import durhamBulls from "@images/labsday-2022/durham-bulls.jpeg"
+import sketch1 from "@images/labsday-2022/labsday-2022-sketch-1.jpg"
+import sketch2 from "@images/labsday-2022/labsday-2022-sketch-2.jpg"
+import drinkTicket from "@images/labsday-2022/drink-ticket.jpg"
+import baseballStyle from "@images/labsday-2022/baseball-style.jpg"
+import carBadge from "@images/labsday-2022/retro-badge.jpg"
+import shirtFinal from "@images/labsday-2022/shirt-final.jpg"
+import model from "@images/labsday-2022/labsday-model.jpg"
+
+<ProjectSection sectionTitle="Concept">
+    <Fragment slot="text">
+        During our initial discussions, Josh, founder and CEO of Cycle Labs, had only two requests regarding the final design of the shirt. He asked to include the following two phrases somewhere in the graphic:
+
+        - **Make Time** &mdash; When founding Cycle Labs, Josh emphasized this phrase and its multiple meanings in regards to our work and culture. Our software aimed to *make time* for warehouse employees by automating the testing process, we as teammates were meant to *make time* for one another in regards to solving problems, and Cycle Labs Day was created as a way to *make time* for employees by giving them an extra day off.
+        - **Cycle Labs Day** &mdash; This one was far more obvious, its the day we are celebrating after all. I was able to negotiate this down to 'Labsday,' a new day that could have its own special positive connotation like Friday or Saturday.
+
+        Once the hard requirements had been set, I started thinking about the company, what it meant to me, and what we had experienced over the last year. Start-ups, like children, grow and change quickly. They develop their own culture, habits, activities, and ways of thinking. I used this framework to rough out some early sketches for the project.
+    </Fragment>
+
+    <Fragment slot="gallery">
+        <GalleryItem image={durhamBulls} caption="The Cycle Labs team assembled to watch the Durham Bulls play a game in early 2022." />
+        <GalleryItem image={drinkTicket} caption="CyCool was our unoffical company mascot, frequently appearing in internal collateral like these drink tickets I illustrated." />
+    </Fragment>
+</ProjectSection>
+
+<ProjectSection sectionTitle="Process">
+    <Fragment slot="text">
+        Start-ups, like children, grow and change quickly. They develop their own culture, habits, activities, and ways of thinking. I used this framework to rough out some ideas for the project.
+
+        - **Baseball** &mdash; Around April 2022, the company attended an all-hands meeting on site, then afterwards were treated to a Durham Bulls game in the VIP section. Many of us were diehard fans of the sport, so borrowing from baseball-style graphics like team monograms and old-school brush scripts seemed like a reasonable avenue.
+        - **Historical brand** &mdash; I also recalled a time where Josh spoke about wanting to make Cycle Labs a sustainable and long-running enterprise, something that he could potentially hand down to his kids. I imagined what a Cycle Labs logo would have looked like if designed a half-century prior, like a 1950s car badge.
+        - **Company artifacts** &mdash; Due to the remote-first position of the company, many of us communicated only by Slack, where we developed a series of memes, emoji, and inside jokes that continued long after their original creators had left the company. Additionally, software testing had a lot of similar artifacts, such as the testing triangle and phrasing like "shift left," that is impenetrable to folks outside the industry. I sought to find a way to surface and combine these ideas into a cohesive unit.
+
+        While working on vector versions of the car badge and baseball concepts, I felt like the ideas were relatively strong, but not enough to anchor the entire graphic. However, once I started combining them into a single layout, they took on much more power. Each individual element was like a chapter, and together they told a full story &mdash; the first year of Cycle Labs. 
+    </Fragment>
+
+    <Fragment slot="gallery">
+        <GalleryItem image={sketch1} caption="Early sketches featuring some baseball-styled elements." />
+        <GalleryItem image={sketch2} caption="Rough attempts at car badges and corporate elements, like a challenge coin and the testing triangle." />
+        <GalleryItem image={baseballStyle} caption="Preliminary vectors for the baseball-inspired logo." />
+        <GalleryItem image={carBadge} vertical="true" caption="Vector tests for the car badge concept." />
+    </Fragment>
+</ProjectSection>
+
+<ProjectSection sectionTitle="Outcome">
+    <Fragment slot="text">
+        Josh was stoked with the final product and spent a few minutes reminiscing over the events and conversations that inspired the graphic. At that point, I knew I'd captured the spirit of the request and looked forward to everyone else's reactions.
+
+        The shirts were distributed, the team responded positively, and I considered my mission a success.
+    </Fragment>
+
+    <Fragment slot="gallery">
+        <GalleryItem image={shirtFinal} vertical="true" caption="The finished work." />
+        <GalleryItem image={model} vertical="true" caption="A model showcasing my design." />
+    </Fragment>
+</ProjectSection>
