@@ -1,11 +1,16 @@
 ---
 import { Image } from "astro:assets";
-const {image, caption, width = "", height = ""} = Astro.props;
-
+const {image, caption, vertical = ""} = Astro.props;
 ---
-
 <a class="gallery-item" href={image.src} title={caption}>
-    <Image src={image} width={width} height={height} alt={caption} />
+    {
+        () => {
+        if (vertical === "true") {
+           return <Image src={image} width={250} alt={caption} />
+        } else {
+           return <Image src={image} height={250} alt={caption} />
+        }
+    }
 </a>
 
 <style>
