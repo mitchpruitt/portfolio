@@ -12,7 +12,9 @@ description: "The team behind Ruckus discovered a love of indoor climbing throug
 ---
 import ProjectSection from "@components/ProjectSection.astro"
 import GalleryItem from "@components/GalleryItem.astro"
+import initialNotes from "@images/ruckus/ruckus-sketch-initialnotes.jpg"
 import moodboard from "@images/ruckus/ruckus-moodboard.jpg"
+import moodboardNotes from "@images/ruckus/ruckus-sketch-moodboardnotes.jpg"
 import analysis from "@images/ruckus/ruckus-competition.jpg"
 
 <ProjectSection sectionTitle="Concept">
@@ -20,18 +22,24 @@ import analysis from "@images/ruckus/ruckus-competition.jpg"
         Working with the Ruckus team, I developed a moodboard to serve as a visual menu of ideas that we could draw on to develop a brand. Using this board, we created a list of qualities that we wanted to include:
         - **Dimension** &mdash; Depth in addition to width and height.
         - **Primitive forms** &mdash; Big basic shapes that look like something you can climb on.
-        - **Energy and motion** &mdash; A playful vibe that echoes the energy of a day of fun.
-        - **Punchy colors** &mdash; Avoid primary colors and instead opt for more bold natural tones.
+        - **Rhythm** &mdash; A playful vibe that echoes the energy of a day of fun.
+        - **Punchy colors** &mdash; Avoid primary colors and instead opt for more bold natural tones that can be mixed and matched and still work well together.
 
-        Additionally, I did a competitve analysis of other climbing gyms in the state to see what we could learn from their identities. This took the form of a simple tier list, where I ranked other climbing gyms based on the quality of their logo concept and execution. (I would like to point out that my ranking is not an indictment of the facilities themselves. For instance, Wilmington Rock Gym is a great place to climb even if their logo is incomprehensible at smaller sizes.)
+        Additionally, I did a competitive analysis of other climbing gyms in the state to see what we could learn from their identities. This took the form of a simple tier list, where I ranked other climbing gyms based on the quality of their logo concept and execution. (I would like to point out that my ranking is not an indictment of the facilities themselves.)
         
-        This process immediately highlighted two tropes I wanted to avoid: *mountains* and *climbers.* Anything else was fair game.
+        This process immediately highlighted two tropes I wanted to avoid: literal depictions of *mountains* and *climbers.* Anything else was fair game.
     </Fragment>
 
     <Fragment slot="gallery">
-        <GalleryItem image={moodboard} height={250} caption="The moodboard drew on inspiration from a wide variety of sources: music labels, video game graphics, lifestyle photography, and children's toys just to name a few." />
-        <GalleryItem image={analysis} width={250} caption="My competitive analysis took the form of a simple tier list, ranking competitor's identities based on the quality of their concept and execution. This ranking is not an indictment of the facilities themselves." />
+        <GalleryItem image={initialNotes} vertical={"true"} caption="Notes from my initial meeting with Ruckus. I used these to develop my moodboard." />
+        <GalleryItem image={analysis} vertical={"true"} caption="My competitive analysis took the form of a simple tier list, ranking competitor's identities based on the quality of their concept and execution. This ranking is not an indictment of the facilities themselves." />
+        <GalleryItem image={moodboard} caption="The moodboard incorporated inspiration from a wide variety of sources: music labels, video game graphics, lifestyle photography, and children's toys just to name a few." />
+        <GalleryItem image={moodboardNotes} caption="These notes captured my thought process while working on the moodboard, keeping track of the elements I used and their meaningful qualities." />
     </Fragment>
+</ProjectSection>
+
+<ProjectSection sectionTitle={"Process"}>
+    {/* <GalleryItem image={} height={} caption="" /> */}
 </ProjectSection>
 
 ### Process work
