@@ -2,13 +2,13 @@
 import { Image } from "astro:assets";
 const {image, caption, vertical = "", group} = Astro.props;
 ---
-<a class="gallery-item" href={image.src} title={caption} data-gallery={`gallery${group}`}>
+<a class="gallery-item" href={image.src} data-description={caption} data-gallery={`gallery${group}`}>
     {
         () => {
         if (vertical === "true") {
-           return <Image src={image} width={250} alt={caption} />
+           return <Image src={image} width={250} title={caption} alt={caption} />
         } else {
-           return <Image src={image} height={250} alt={caption} />
+           return <Image src={image} height={250} title={caption} alt={caption} />
         }
     }
 </a>

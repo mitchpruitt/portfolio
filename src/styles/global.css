@@ -2,8 +2,6 @@
 @import url(type.css);
 @import "/node_modules/glightbox/dist/css/glightbox.css";
 
-
-
 :root {
     --h-padding: 32px;
     --v-padding: 64px;
@@ -149,6 +147,20 @@ main {
         font-size: 15px;
         list-style-type: none;
     }
+}
+
+/* Glightbox Styling */
+.glightbox-clean {
+    .gslide-description {
+        background: rgb(var(--darkest));
+    }
+    
+    .gslide-desc {
+        color: rgb(var(--light));
+        font-family: var(--font-family);
+        font-variation-settings: var(--wide);
+    }
+
 }
 
 
