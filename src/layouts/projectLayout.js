@@ -1,10 +1,8 @@
 import {gsap, splitType, cleanText} from "../scripts/animation";
-import baguetteBox from 'baguettebox.js';
+import GLightbox from 'glightbox';
 
-// Create galleries
-baguetteBox.run('.content-gallery', {
-    overlayBackgroundColor: "rgba(var(--darkest), .95)"
-});
+// Init galleries
+GLightbox({selector: ".gallery-item"});
 
 // Fixes jumpy text on revert()
 cleanText('.description');

@@ -71,15 +71,6 @@
     }
 }
 
-/* Overrides default styling for baguettebox captions */
-#baguetteBox-overlay .full-image figcaption {
-    font-size: 16px;
-    font-family: var(--font-family);
-    font-variation-settings: var(--wide);
-    line-height: 20px;
-    padding: 8px;
-}
-
 @media only screen and (max-width:912px) { 
 
     .project-layout-image {
