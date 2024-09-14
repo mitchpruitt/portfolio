@@ -124,8 +124,9 @@ main {
         .title {
             color: rgb(var(--darkest));
             clip-path: var(--full-clip);
+            padding-bottom: 8px;
             margin-bottom: 8px;
-            line-height: 66px;
+            line-height: 1.1em;
         }
     
         .subtitle {
