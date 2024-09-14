@@ -3,5 +3,5 @@ import { Image } from "astro:assets";
 let {url, thumb, caption, group} = Astro.props;
 ---
 <a class="gallery-item video" href={url} data-description={caption} data-gallery={`gallery${group}`}>
-    <Image src={thumb} width={500} title={caption} alt={caption} />
+    <Image src={thumb} width={520} title={caption} alt={caption} />
 </a>
