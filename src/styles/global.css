@@ -125,6 +125,7 @@ main {
             color: rgb(var(--darkest));
             clip-path: var(--full-clip);
             margin-bottom: 8px;
+            line-height: 66px;
         }
     
         .subtitle {

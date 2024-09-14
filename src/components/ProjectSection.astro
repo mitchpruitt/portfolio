@@ -79,9 +79,12 @@ const {sectionTitle} = Astro.props;
                 max-width: unset;
                 min-width: unset;
     
-                .gallery-item{
-                    max-width: 125px;
-                    min-width: 140px;
+                .gallery-item {
+
+                    &.image {
+                        max-width: 125px;
+                        min-width: 140px;
+                    }
                 }
             }
         }
