@@ -2,7 +2,20 @@ import {gsap, splitType, cleanText} from "../scripts/animation";
 import GLightbox from 'glightbox';
 
 // Init galleries
-GLightbox({selector: ".gallery-item"});
+GLightbox({
+    selector: ".gallery-item",
+    loop: true,
+    autoplayVideos: true,
+    openEffect: 'fade',
+    closeEffect: 'fade',
+    plyr: {
+        config: {
+            loop: {
+                active: true
+            }
+        }
+    }
+});
 
 // Fixes jumpy text on revert()
 cleanText('.description');
