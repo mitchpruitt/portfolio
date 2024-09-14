@@ -11,6 +11,16 @@ coverAlt: Some text
 description: "While the Cycle Labs Product team dedicated serious effort to shipping new and requested features, we noticed that their adoption rate was lower than we expected. Teammate Andy and put our heads together to find out why and rectify the issue."
 ---
 import ProjectSection from "@components/ProjectSection.astro"
+import GalleryImage from "@components/GalleryImage.astro"
+import GalleryVideo from "@components/GalleryVideo.astro"
+import releaseNotes from "@images/release-videos/release-notes.jpg"
+import pendoGuide from "@images/release-videos/pendo-guide.jpg"
+import bumpersThumb from "@images/release-videos/bumpers-thumb.jpg"
+import bumpers from "@images/release-videos/bumpers.mp4"
+import titlesThumb from "@images/release-videos/titles-thumb.jpg"
+import titles from "@images/release-videos/titles.mp4"
+import transitionsThumb from "@images/release-videos/transition-thumb.jpg"
+import transitions from "@images/release-videos/transitions.mp4"
 
 <ProjectSection sectionTitle="Concept">
     <Fragment slot="text">
@@ -23,6 +33,10 @@ import ProjectSection from "@components/ProjectSection.astro"
         These guides ran once on launch and highlighted some component, like a new button or panel within the application, and then provided a series of steps on how to interact with it. They boosted engagement temporarily, but the figures always dropped over time, with users settling back into their previous behaviors.
 
         The burning question I had to answer was “why?”
+    </Fragment>
+    <Fragment slot="gallery">
+        <GalleryImage image={releaseNotes} group="A" caption="Cycle Release Notes as seen on help.cyclelabs.io." />
+        <GalleryImage image={pendoGuide} group="A" caption="An example of a Guide as demonstrated on Pendo.com." />
     </Fragment>
 </ProjectSection>
 
@@ -44,6 +58,11 @@ import ProjectSection from "@components/ProjectSection.astro"
 
         This package dramatically reduced my editing workload and gave my videos a consistent, on-brand aesthetic.
     </Fragment>
+    <Fragment slot="gallery">
+        <GalleryVideo url={bumpers} thumb={bumpersThumb} group="B" caption="I designed an opening bumper with easily updatable text parameters and a closing logo bumper." />
+        <GalleryVideo url={titles} thumb={titlesThumb} group="B" caption="My custom titles helped support spoken information and reinforced the corporate brand while providing visual interest." />
+        <GalleryVideo url={transitions} thumb={transitionsThumb} group="B" caption="The two transitions I animated would either introduce the speaker from the center or a software demo from the left." />
+    </Fragment>
 </ProjectSection>
 
 <ProjectSection sectionTitle="Outcome">
@@ -51,5 +70,9 @@ import ProjectSection from "@components/ProjectSection.astro"
         I produced three walkthrough videos for Cycle Labs and each one significantly boosted engagement with the new features they advertised.
 
         Users demonstrated more confidence having been shown how to perform an action and were inspired to offer more feedback via a comment box and rating system added to each guide.
+    </Fragment>
+
+    <Fragment slot="gallery">
+        <iframe class="gallery-item video" width="560" height="281" src="https://www.youtube-nocookie.com/embed/videoseries?si=nZje29A0vk2ODsQv&amp;list=PLxIYrggzaJWQj-6eXV90cKv20f6FI1D31&amp;rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </Fragment>
 </ProjectSection>

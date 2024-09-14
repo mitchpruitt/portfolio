@@ -11,7 +11,7 @@ coverAlt: Some text
 description: "After a full year under the name Cycle Labs, Leadership decided to honor the founding of the organization with a company-wide holiday: Cycle Labs Day. When the CEO asked me personally to create a shirt for the event, I was eager to deliver something special."
 ---
 import ProjectSection from "@components/ProjectSection.astro"
-import GalleryItem from "@components/GalleryItem.astro"
+import GalleryImage from "@components/GalleryImage.astro"
 
 import durhamBulls from "@images/labsday-2022/durham-bulls.jpeg"
 import sketch1 from "@images/labsday-2022/labsday-2022-sketch-1.jpg"
@@ -33,8 +33,8 @@ import model from "@images/labsday-2022/labsday-model.jpg"
     </Fragment>
 
     <Fragment slot="gallery">
-        <GalleryItem image={durhamBulls} group="A" caption="The Cycle Labs team assembled to watch the Durham Bulls play a game in early 2022." />
-        <GalleryItem image={drinkTicket} group="A" caption="CyCool was our unoffical company mascot, frequently appearing in internal collateral like these drink tickets I illustrated." />
+        <GalleryImage image={durhamBulls} group="A" caption="The Cycle Labs team assembled to watch the Durham Bulls play a game in early 2022." />
+        <GalleryImage image={drinkTicket} group="A" caption="CyCool was our unoffical company mascot, frequently appearing in internal collateral like these drink tickets I illustrated." />
     </Fragment>
 </ProjectSection>
 
@@ -50,10 +50,10 @@ import model from "@images/labsday-2022/labsday-model.jpg"
     </Fragment>
 
     <Fragment slot="gallery">
-        <GalleryItem image={sketch1} group="B" caption="Early sketches featuring some baseball-styled elements." />
-        <GalleryItem image={sketch2} group="B" caption="Rough attempts at car badges and corporate elements, like a challenge coin and the testing triangle." />
-        <GalleryItem image={baseballStyle} group="B" caption="Preliminary vectors for the baseball-inspired logo." />
-        <GalleryItem image={carBadge} group="B" vertical="true" caption="Vector tests for the car badge concept." />
+        <GalleryImage image={sketch1} group="B" caption="Early sketches featuring some baseball-styled elements." />
+        <GalleryImage image={sketch2} group="B" caption="Rough attempts at car badges and corporate elements, like a challenge coin and the testing triangle." />
+        <GalleryImage image={baseballStyle} group="B" caption="Preliminary vectors for the baseball-inspired logo." />
+        <GalleryImage image={carBadge} group="B" vertical="true" caption="Vector tests for the car badge concept." />
     </Fragment>
 </ProjectSection>
 
@@ -65,7 +65,7 @@ import model from "@images/labsday-2022/labsday-model.jpg"
     </Fragment>
 
     <Fragment slot="gallery">
-        <GalleryItem image={shirtFinal} group="C" vertical="true" caption="The finished work." />
-        <GalleryItem image={model} group="C" vertical="true" caption="A model showcasing my design." />
+        <GalleryImage image={shirtFinal} group="C" vertical="true" caption="The finished work." />
+        <GalleryImage image={model} group="C" vertical="true" caption="A model showcasing my design." />
     </Fragment>
 </ProjectSection>
