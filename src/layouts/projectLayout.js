@@ -10,8 +10,14 @@ GLightbox({
     closeEffect: 'fade',
     plyr: {
         config: {
+            muted: true,
             loop: {
                 active: true
+            },
+            youtube: {
+                noCookie: true,
+                rel: 0,
+                showinfo: 0,
             }
         }
     }
