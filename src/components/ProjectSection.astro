@@ -2,92 +2,104 @@
 const {sectionTitle} = Astro.props;
 ---
 <section class="project-section">
-    <h3>{sectionTitle}</h3>
-    <div class="project-section-content">
-        <div class="content-text">
-            <slot name="text" />
-        </div>
-        <div class="content-gallery">
-            <slot name="gallery" />
-        </div>
+    <h3 class="project-title">{sectionTitle}</h3>
+    <div class="content-text">
+        <slot name="text" />
+    </div>
+    <div class="content-gallery">
+        <slot name="gallery" />
     </div>
 </section>
 
 <style>
     .project-section {
         margin-bottom: 32px;
+        display: grid;
+        column-gap: 48px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas: "header header"
+                             "text gallery";
     }
 
-    .project-section-content {
-        height: 100%;
-        display: flex;
-        gap: 60px;
+    .project-title {
+        grid-area: header;
+    }
 
-        .content-text {
-            flex: 1;
-        }
+    .content-text {
+        grid-area: text;
+    }
 
-        .content-gallery {
-            flex: 1;
+    .content-gallery {
+        grid-area: gallery;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: min-content;
+        gap: 16px;
+
+        .gallery-item {
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: var(--shadow-elevation-low);
+            transition: var(--transition-regular);
             display: flex;
-            flex-wrap: wrap;
-            align-content: flex-start;
-            gap: 8px;
-            justify-content: flex-start;
-            max-width: 500px;
-            min-width: 300px;
+            justify-content: center;
+            align-items: center;
+            
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            
+            &.image {
+                aspect-ratio: 1/1;
+            }
 
-            .gallery-item {
-                border-radius: 4px;
-                overflow: hidden;
-                display: flex;
-                box-shadow: var(--shadow-elevation-low);
-                transition: var(--transition-regular);
-                justify-content:center;
-                align-items: center;
-                flex: 1;
-                
-                &.image {
-                    max-width: 250px;
-                    min-width: 180px;
-                    aspect-ratio: 1/1;
-                }
+            &.video, &.video-embed {
+                grid-column: auto / span 2;
+                aspect-ratio: 16 / 9;
+                img {
+                    max-width: 100%;
+                    height: auto;
+                } 
+            }
 
-                &.video {
-                    max-width: 500px;
-                    min-width: 300px;
-                    aspect-ratio: 16/9;
-                }
-
-                &:hover {
-                    box-shadow: var(--shadow-elevation-high);
-                    img {
-                        transform: scale(1.025);
-                    }
+            &:hover {
+                box-shadow: var(--shadow-elevation-high);
+                img {
+                    transform: scale(1.025);
                 }
             }
         }
     }
 
     @media only screen and (max-width:912px) { 
-        .project-section-content {
-            flex-direction: column;
-            gap: 8px;
+        .project-section {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas: "header"
+                                 "text"
+                                 "gallery";
+        }
 
-            .content-gallery {
-                margin-top: 16px;
-                max-width: unset;
-                min-width: unset;
-    
-                .gallery-item {
+        .content-gallery {
+            margin-top: 16px;
+            grid-template-columns: repeat(6, 1fr);
 
-                    &.image {
-                        max-width: 125px;
-                        min-width: 140px;
-                    }
+            .gallery-item {
+                &.image {
+                    grid-column: auto / span 2;
+                }
+
+                &.video {
+                    grid-column: auto / span 3;
+                }
+
+                &.video-embed {
+                    grid-column: 1 / span 6;
                 }
             }
         }
-
     }
 </style>
