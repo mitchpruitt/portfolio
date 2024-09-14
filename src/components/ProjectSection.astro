@@ -34,18 +34,31 @@ const {sectionTitle} = Astro.props;
             align-content: flex-start;
             gap: 8px;
             justify-content: flex-start;
+            max-width: 500px;
+            min-width: 300px;
 
             .gallery-item {
-                flex: 1;
-                display: flex;
-                max-width: 250px;
-                min-width: 180px;
-                aspect-ratio: 1/1;
+                border-radius: 4px;
                 overflow: hidden;
-                justify-content:center;
-                align-items: center;
+                display: flex;
                 box-shadow: var(--shadow-elevation-low);
                 transition: var(--transition-regular);
+                justify-content:center;
+                align-items: center;
+                flex: 1;
+                
+                &.image {
+                    max-width: 250px;
+                    min-width: 180px;
+                    aspect-ratio: 1/1;
+                }
+
+                &.video {
+                    max-width: 500px;
+                    min-width: 300px;
+                    aspect-ratio: 16/9;
+                }
+
                 &:hover {
                     box-shadow: var(--shadow-elevation-high);
                     img {
@@ -63,6 +76,8 @@ const {sectionTitle} = Astro.props;
 
             .content-gallery {
                 margin-top: 16px;
+                max-width: unset;
+                min-width: unset;
     
                 .gallery-item{
                     max-width: 125px;
