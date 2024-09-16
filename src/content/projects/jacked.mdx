@@ -8,7 +8,83 @@ client: RipXFit
 studio: Freelance
 cover: "@images/jacked/jacked-cover.jpg"
 coverAlt: Some text
-description: "When local gym RipXFit wanted to start a new men's fitness class, owner Jean-Pierre said he already had a name in mind – Jacked – but needed something raw and powerful to serve as its mascot. Given the amount of lifting and hanging athletes perform in class, a gorilla seemed like a natural fit."
+description: "When local gym RipXFit wanted to start a new men's fitness class, owner Jean-Pierre said he already had a name in mind, but wanted something powerful to serve as its mascot."
 ---
+import ProjectSection from "@components/ProjectSection.astro"
+import GalleryImage from "@components/GalleryImage.astro"
 
-I started my process by using reference images of silverback gorillas, but was unimpressed with the rounded bon-bon skull shape I'd developed once I started rendering with vectors. Rather than focusing on a simplified icon, I attempted a more maximalist approach like you'd see in pro sports team logos — a gorilla with wild hair; protruding lip and teeth; and a furrowed brow. This approach had just the right amount of edge to serve as the face of a men's group strength class.
+import jpKids from "@images/jacked/jp-kids.jpg"
+import jpFinished from "@images/jacked/jp-finished.jpeg"
+import rig from "@images/jacked/ripxfit-rig.jpeg"
+import fireJump from "@images/jacked/fire.jpg"
+import monkeyBars from "@images/jacked/monkey-bars.jpg"
+import gorilla from "@images/jacked/silverback.jpg"
+import sketch1 from "@images/jacked/jacked-sketch1.jpg"
+import vector1 from "@images/jacked/vector-1.jpg"
+import vector2 from "@images/jacked/vector-2.jpg"
+import vector3 from "@images/jacked/vector-3.jpg"
+import sketch2 from "@images/jacked/jacked-sketch2.jpg"
+import sketch3 from "@images/jacked/jacked-sketch3.jpg"
+import final from "@images/jacked/jacked-final.jpg"
+import model from "@images/jacked/jacked-model-halfsize.png"
+import decal from "@images/jacked/jacked-decals.jpg"
+
+
+<ProjectSection sectionTitle={"Concept"}>
+    <Fragment slot="text">
+        RipXFit got its start as a training facility for Spartan races, events that combined trail running with strength and agility obstacles like monkey bars, bucket carries, and wall climbing. As his client base grew, JP began to offer more general fitness classes for those that desired the same workout intensity, but with far less running. 
+
+        One such class was “Jacked,” an hour-long format for men where we could drop our guards while lifting weights. The smack-talk was plentiful, as was the encouragement when you met your weight loss goal or approached a new personal record. JP’s goal was two-fold with this class: Give men a place to make friends and to center that friendship around a healthy activity.
+
+        However, he would never state something so sentimental to the group, so I framed up his goals  a little differently:
+
+        - **Beasts** &mdash; One of JP's favorite phrases was _beast_, as in 'that guy's a beast,' or 'go beast mode.' He admired raw power and showcased the ability to get his clients to dig deep within themselves and shed their preconceived notions to discover true strength. He also was steadfast in his practice, like a workhorse or mule.
+        - **The pack** &mdash; This is a more aggressive-sounding substitute for the word _camaraderie_. We operated as a group: we ran together, we lifted together, and we supported one another. Missing too many classes meant you'd get a chiding group call or text, but progress and improvement earned you respect and congratulations.
+
+        Based on this information, I knew we needed some powerful animal to represent the group. Given the amount of lifting and hanging athletes performed in class, a gorilla seemed like a natural fit.
+    </Fragment>
+    <Fragment slot="gallery">
+        <GalleryImage image={jpKids} group="A" caption="RipXFit owner Jean-Pierre leads a group of kids in a junior-sized Spartan-style workout." />
+        <GalleryImage image={jpFinished} group="A" caption="JP, left, celebrates with fellow racers after completing an event. (Image credit: Jean-Pierre Saintard)" />
+        <GalleryImage image={rig} group="A" caption="The gym's most prized piece of equipment was known (and feared) as 'The Rig.' (Image credit: Jean-Pierre Saintard)" />
+        <GalleryImage image={fireJump} group="A" caption="Crossing the finish line at my first Spartan event." />
+        <GalleryImage image={monkeyBars} group="A" caption="Grip is a critical training focus for every obstacle course racer because there's no guarantee the bar will be clean or dry on race day." />
+    </Fragment>
+</ProjectSection>
+
+<ProjectSection sectionTitle="Process">
+    <Fragment slot="text">
+        My initial sketches were pretty literal, following the natural shape of a silverback gorilla’s head while using negative space to cut out its face. The animal’s elongated skull combined with the flattening effect of vector art created a distinct bon-bon shape that did not serve the concept well. I was equally disappointed with my early type treatments based on unruly wooden typography. 
+
+        I spent another iteration redrawing the face and exploring additional texture elements to break up the smooth head but was still unsatisfied.
+
+        After another sketch session, I realized my mistake: I was taking this logo in a minimalist direction, when what it called for was a maximalist approach. My new areas of focus would be:
+
+        - **Sports** &mdash; Nobody does aggressive animals quite like professional sports teams. From charging bulls to screaming eagles, team logos have a sense of energy and drama. Their layered colors provide dimension and their sharp corners create an intimidating effect. 
+        - **Attitude** &mdash; Jacked was meant to be a challenging class and the logo needed to reinforce that concept. Rather than focusing on smooth curves and on-model accuracy, I needed to play up the parts of the silverback that made it fearsome: their bulk, power, and ferocity.
+
+        This realignment led to my breakthrough: An angular three-quarter profile complete with furrowed brow, narrowed eyes, protruding lip, and visible teeth.
+    </Fragment>
+
+    <Fragment slot="gallery">
+        <GalleryImage image={gorilla} group="B" caption="A male western silverback gorilla as photographed by Brocken Inaglory." />
+        <GalleryImage image={sketch1} group="B" caption="My early sketches stayed pretty close to the actual form of a gorilla head." />
+        <GalleryImage image={vector1} group="B" caption="An early vector attempt based on my sketches with text treatment inspired by wooden typography." />
+        <GalleryImage image={vector2} group="B" caption="My second iteration introduced a better rendering of the face, but the overall skull shape resembled that of a bon-bon." />
+        <GalleryImage image={vector3} group="B" caption="Additional experiments with texture lead to no improvements." />
+        <GalleryImage image={sketch2} group="B" caption="Going back to my sketchbook with my mistakes in mind led to far more promising results." />
+        <GalleryImage image={sketch3} group="B" caption="The final hand-drawn iteration I rendered broke the figure up into smaller pieces for easier vector drawing in Illustrator." />
+    </Fragment>
+</ProjectSection>
+
+<ProjectSection sectionTitle="Outcome">
+<Fragment slot="text">
+    Lorem
+    </Fragment>
+
+    <Fragment slot="gallery">
+        <GalleryImage image={final} group="C" caption="caption" />
+        <GalleryImage image={model} group="C" caption="caption" />
+        <GalleryImage image={decal} group="C" caption="caption" />
+    </Fragment>
+</ProjectSection>
