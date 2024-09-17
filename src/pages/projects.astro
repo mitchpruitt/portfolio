@@ -6,7 +6,7 @@ import ProjectItem from "../components/ProjectItem.astro";
 
 const pageTitle = "Mitch Pruitt | Projects";
 const allProjects = await getCollection("projects");
-allProjects.sort((a, b) => a.data.order - b.data.order);
+allProjects.sort((a, b) => b.data.year - a.data.year);
 
 const title = "Projects"
 const subtitle = "Show & tell"
