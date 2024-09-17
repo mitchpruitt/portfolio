@@ -1,0 +1,94 @@
+---
+const date = new Date();
+import Logo from "@components/Logo.astro"
+---
+<footer class="footer">
+    <div class="content">
+        <Logo />
+        <h6 class="header-text">Want to know more?</h6>
+
+        <div class="copyright">
+            <p>&#169; {date.getFullYear()} Mitch Pruitt. All rights reserved.</p>
+            <p>All work and text is my own unless otherwise indicated.</p>
+        </div>
+
+        <div class="contact">
+            <p>You can contact me via <a href="https://www.linkedin.com/in/mitch-pruitt/" target="_blank">LinkedIn</a> or email at <a href="mailto:mitch@mitchpruitt.com">mitch@mitchpruitt.com</a>.</p>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        background-color: rgb(var(--darkest));
+        color: rgb(var(--light));
+
+        .content {
+            padding: 32px var(--h-padding);
+            display: grid;
+            align-items: center;
+            grid-template-columns: 3fr 1fr;
+            grid-template-rows: auto auto;
+            grid-template-areas: "logo header"
+                                 "copyright contact";
+            row-gap: 16px;
+
+            p {
+                font-size: 14px;
+                line-height: 17px;
+            }
+        }
+
+        .logo {
+            grid-area: logo;
+            fill: rgb(var(--lightest));
+        }
+
+        .copyright {
+            grid-area: copyright;
+
+            p:first-child {
+                color: rgb(var(--primary));
+                font-variation-settings: var(--semibold);1
+            }
+        }
+
+        .header-text {
+            grid-area: header;
+            color: rgb(var(--lightest));
+        }
+
+        .contact {
+            grid-area: contact;
+            
+            a {
+                color: rgb(var(--primary));
+                font-variation-settings: var(--regular);
+                transition: font-variation-settings var(--transition-regular);
+                
+                &:hover {
+                    font-variation-settings: var(--bold-italic);
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width:912px) { 
+        .footer {
+            .content {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(auto-fit, auto);
+                grid-template-areas: "logo"
+                                    "copyright"
+                                    "header"
+                                    "contact";
+                row-gap: 8px;
+                column-gap: 16px;
+
+                .copyright {
+                    margin-bottom: 16px;
+                }
+            }
+        }
+    }
+</style>

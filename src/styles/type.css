@@ -7,6 +7,7 @@
     --regular: 'wght' 400, 'wdth' 100, 'slnt' 0;
     --regular-italic: 'wght' 400, 'wdth' 100, 'slnt' -12;
     --semibold: 'wght' 600, 'wdth' 100, 'slnt' 0;
+    --bold-italic: 'wght' 700, 'wdth' 100, 'slnt' -12;
 
     /* Wide */
     --wide-extralight: 'wght' 100, 'wdth' 115, 'slnt' 0;
@@ -61,6 +62,7 @@ h5 {
 
 h6 {
     font-family: var(--font-family);
+    font-variation-settings: var(--wide-semibold);
     font-size: 20px;
 }
 
