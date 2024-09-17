@@ -8,7 +8,22 @@ client: Level Up Mobile Fitness
 studio: Freelance
 cover: "@images/levelup/levelup-cover.jpg"
 coverAlt: Some text
-description: "Fitness professional Jonathan came to me with an idea: To take his personal training business on the road. While he possessed the skill and a van, I provided an identity that captured his energy and strength."
+description: "Fitness professional Jonathan came to me with an idea: To take his personal training business on the road. While he possessed the skill and a van, what he lacked was an identity that captured his energy and strength."
 ---
+import ProjectSection from "@components/ProjectSection.astro"
+import GalleryImage from "@components/GalleryImage.astro"
+import group from "@images/levelup/jonathan-group.jpg"
+import fitTruk from "@images/levelup/fit-truk.jpg"
+import sketch1 from "@images/levelup/levelup-sketch-1.jpg"
+import sketch2 from "@images/levelup/levelup-sketch-2.jpg"
+import vector1 from "@images/levelup/levelup-vector-1.jpg"
+import vector2 from "@images/levelup/levelup-vector-2.jpg"
+import vector3 from "@images/levelup/levelup-vector-3.jpg"
+import vector4 from "@images/levelup/levelup-vector-4.jpg"
+import vector5 from "@images/levelup/levelup-vector-5.jpg"
+import vector6 from "@images/levelup/levelup-vector-6.jpg"
+import model from "@images/levelup/levelup-sweatshirt.jpg"
+import truckMock from "@images/levelup/truck-wrap.jpg"
+import truckFinal from "@images/levelup/truck-complete.jpg"
 
-Content goes here
+<ProjectSection sectionTitle={"Concept"}>    <Fragment slot="text">        Level Up    </Fragment>    <Fragment slot="gallery">        <GalleryImage image={group} group="A" caption="Jonathan, center, celebrated the effort I and the rest of the small group put in at one of his boxing-inspired workouts." />        <GalleryImage image={fitTruk} group="A" caption="Fit Truk was one of the sources of inspiration Jonathan pointed to when talking about his dream of opening a mobile fitness studio. (Image credit: fittrukkc.com)" />    </Fragment></ProjectSection><ProjectSection sectionTitle={"Process"}>    <Fragment slot="text">        Level Up    </Fragment>    <Fragment slot="gallery">        <GalleryImage image={sketch1} group="B" caption="" />        <GalleryImage image={sketch2} group="B" caption="" />        <GalleryImage image={vector1} group="B" caption="" />        <GalleryImage image={vector2} group="B" caption="" />        <GalleryImage image={vector3} group="B" caption="" />        <GalleryImage image={vector4} group="B" caption="" />        <GalleryImage image={vector5} group="B" caption="" />        <GalleryImage image={vector6} group="B" caption="" />    </Fragment></ProjectSection><ProjectSection sectionTitle={"Outcome"}>    <Fragment slot="text">        Level Up    </Fragment>    <Fragment slot="gallery">        <GalleryImage image={model} group="C" caption="A sweatshirt mockup featuring the light version the logo." />        <GalleryImage image={truckMock} group="C" caption="As part of my deliverables, I also mocked up a sample van wrap to show how brand elements could be used to adorn a large vehicle." />        <GalleryImage image={truckFinal} group="C" caption="Jonathan trains on his completed fitness truck." />    </Fragment></ProjectSection>
