@@ -9,16 +9,16 @@ import MetaItem from "./MetaItem.astro";
         </header>
         <h5 class="description">Regardless of the role, I deliver quality results and relish a good challenge.</h5>
         <ul class="meta">
-            <MetaItem label="LinkedIn" value={'linkedin.com/in/mitch-pruitt/'} />
-            <MetaItem label="Email" value={'mitch@mitchpruitt.com'} />
+            <MetaItem label="LinkedIn" href="https://linkedin.com/in/mitch-pruitt/" value={'linkedin.com/in/mitch-pruitt/'} />
+            <MetaItem label="Email" href="mailto:mitch@mitchpruitt.com" value={'mitch@mitchpruitt.com'} />
         </ul>
         <div class="text">
             <h3>Need a secret weapon?</h3>
             <p>I'm on the lookout for my next big project. If you or your organization needs one of the following roles filled, I'm your guy.</p>
             <ul>
                 <li><strong>Graphic design</strong> &mdash; I've pushed pixels, points, and paths for as long as I can remember. I got my BFA in graphic design from East Carolina University and have applied my skills to publications, brands, websites, applications, videos, and illustrations across a number of industries.</li>
-                <li><strong>Product design</strong> &mdash; This role is known by many names and encompasses about as many skills: UI/UX, interface design, design systems, user research, user flows, information architecture, etc. With 12 years of experience as a product designer, I'm equipped to build software that is as delightful as it is useful.</li>
-                <li><strong>Front-end dev</strong> &mdash; I've been making websites since the days of Geocities. Thankfully, I've upskilled since then: 16+ years of experience with HTML, CSS/SCSS, and JS; three years with React and Typescript. I designed and developed this portfolio by hand, alone, and without AI.</li>
+                <li><strong>Product design</strong> &mdash; Good software requires more than just pumping out Figma boards: You need a solid grip on UI/UX, design systems, user research, user flows, information architecture, development workflows, pitching to leadership, as well as experience with <em>actual</em> graphic design. Having spent 12 years as a product designer, I'm equipped to build applications that are as delightful as they are useful.</li>
+                <li><strong>Front-end dev</strong> &mdash; I made my first website in the mid '90s on Geocities. Thankfully, I've upskilled since then: 16+ years of professional experience with HTML, CSS/SCSS, and JS; three years with React and Typescript. I developed this portfolio by hand, alone, and without AI.</li>
             </ul>
             <p>Full-time positions are preferred, but long-term contracts are acceptable.</p>
         </div>
@@ -76,6 +76,19 @@ import MetaItem from "./MetaItem.astro";
                                     "content content";
                 row-gap: 16px;
                 column-gap: 16px;
+
+                a {
+                    font-size: 24px; 
+                    color: rgb(var(--darkest));
+
+                    &:hover {
+                        color: rgb(var(--primary));
+                    }
+                    
+                    &:focus-visible {
+                        outline: none;
+                    } 
+                }
 
                 .project-header {
                     grid-area: header;
@@ -139,18 +152,7 @@ import MetaItem from "./MetaItem.astro";
                     justify-self: flex-end;
                     margin-bottom: -16px;
                     position: sticky;
-                    top: 0px;
-
-                    a {
-                        font-size: 24px; 
-                        color: rgb(var(--darkest));
-                        &:hover {
-                            color: rgb(var(--primary));
-                        }
-                        
-                        &:focus-visible {
-                            outline: none;
-                        }   
+                    top: 0px;  
                 }
             }
         }
