@@ -1,10 +1,17 @@
 ---
-const {label, value} = Astro.props
+const {label, value, href=""} = Astro.props
 ---
-
 <li class="meta-item">
     <small class="label">{label}</small>
-    <p class="data">{value}</p>
+    {
+        () => {
+            if (href !== "") {
+                return <a href={href} target="_blank" class="data"><p>{value}</p></a>
+            } else {
+                return <p class="data">{value}</p>
+            }
+        }
+    }
 </li>
 
 <style>
