@@ -1,7 +1,7 @@
 ---
 const currentPath = Astro.url.pathname;
 const {headerColor = "dark"} = Astro.props;
-import MetaItem from "./MetaItem.astro";
+import Modal from "@components/Modal.astro";
 ---
 <header class={`site-header ${headerColor}`}>
     <div class="name">
@@ -11,32 +11,7 @@ import MetaItem from "./MetaItem.astro";
         <a href="/projects" class={currentPath === '/projects' ? 'active' : ''}>Projects</a>
         <a id="open-modal" href="javascript:null">Contact</a>
     </nav>
-
-    <dialog class="dialog" id="contact">
-        <div class="dialog-content">
-            <header class="project-header">
-                <h3 class="title">Contact</h3>
-            </header>
-            <h5 class="description">Regardless of the role, I deliver quality results and relish a good challenge.</h5>
-            <ul class="meta">
-                <MetaItem label="LinkedIn" value={'linkedin.com/in/mitch-pruitt/'} />
-                <MetaItem label="Email" value={'mitch@mitchpruitt.com'} />
-            </ul>
-            <div class="text">
-                <h3>Need a secret weapon?</h3>
-                <p>I'm on the lookout for my next big project. If you or your organization needs one of the following roles filled, I'm your guy.</p>
-                <ul>
-                    <li><strong>Graphic design</strong> &mdash; I've pushed pixels, points, and paths for as long as I can remember. I got my BFA in graphic design from East Carolina University and have applied my skills to publications, brands, websites, applications, videos, and illustrations across a number of industries.</li>
-                    <li><strong>Product design</strong> &mdash; This role is known by many names and encompasses about as many skills: UI/UX, interface design, design systems, user research, user flows, information architecture, etc. With 12 years of experience as a product designer, I'm equipped to build software that is as delightful as it is useful.</li>
-                    <li><strong>Front-end dev</strong> &mdash; I've been making websites since the days Geocities. Thankfully, I've upskilled since then: 16+ years of experience with HTML, CSS/SCSS, and JS; three years with React and Typescript. I designed and developed this portfolio by hand, alone, and without AI assistance.</li>
-                </ul>
-                <p>Full-time positions are preferred, but long-term contracts are acceptable.</p>
-            </div>
-            <div class="close">
-                <a id="close-modal" href="javascript:null">&times;</a>
-            </div>
-        </div>
-    </dialog>
+    <Modal />
 </header>
 
 <style>
@@ -91,145 +66,6 @@ import MetaItem from "./MetaItem.astro";
             gap: var(--h-padding);
             font-size: 16px;
             font-variation-settings: 'wght' 400, 'wdth' 100, 'slnt' 0;
-        }
-
-        /* Modal window styles */
-        .dialog {
-            --bg-opacity: .9;
-            --shadow-color: 33 5.1% 42.5%;
-            --shadow-elevation-high:
-            0px 0.6px 0.9px hsl(var(--shadow-color) / 0.04),
-            0px 3.2px 4.5px -0.1px hsl(var(--shadow-color) / 0.07),
-            0px 5.5px 7.8px -0.2px hsl(var(--shadow-color) / 0.1),
-            0px 8.1px 11.5px -0.2px hsl(var(--shadow-color) / 0.13),
-            0.1px 11.4px 16.2px -0.3px hsl(var(--shadow-color) / 0.16),
-            0.1px 16px 22.7px -0.4px hsl(var(--shadow-color) / 0.19),
-            0.1px 22.5px 31.9px -0.5px hsl(var(--shadow-color) / 0.23),
-            0.2px 31.3px 44.4px -0.5px hsl(var(--shadow-color) / 0.26);
-
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: fit-content;
-            border: none;
-            border-radius: 4px;
-            box-shadow: var(--shadow-elevation-high);
-            background-color: rgb(var(--light));
-            padding: 16px 32px 32px;
-
-            &::backdrop {
-                position: fixed;
-                top: 0px;
-                right: 0px;
-                bottom: 0px;
-                left: 0px;
-                background: rgba(var(--darkest), var(--bg-opacity));
-            }
-
-            .dialog-content {
-                color: rgb(var(--dark));
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: repeat(autofill, auto);
-                grid-template-areas: 
-                                    "close close"
-                                    "header header"
-                                    "meta description"
-                                    "content content";
-                row-gap: 16px;
-                column-gap: 16px;
-
-                .project-header {
-                    grid-area: header;
-
-                    .title {
-                        color: rgb(var(--darkest));
-                    }
-                }
-
-                .description {
-                    grid-area: description;
-                    font-size: 19px;
-                    line-height: 23px;
-                }
-
-                .text {
-                    grid-area: content;
-                    margin-top: 16px;
-
-                    color: rgb(var(--dark));
-
-                    h3 {
-                        font-size: 20px;
-                        text-transform: uppercase;
-                        color: rgb(var(--darkest));
-                        padding-bottom: 4px;
-                        margin-bottom: 16px;
-                        border-bottom: 1px dotted rgb(var(--dark));
-                        & ~ h3 {
-                            margin-top: 32px;
-                        }
-                    }
-
-                    p {
-                        + ul {
-                            margin: 16px 0;
-                        }
-                        + p {
-                            margin-top: 16px;
-                        }
-                    }
-
-
-                    ul {
-                        list-style-position: outside;
-                        list-style-type: square;
-                        padding-left: 1.25em;
-
-                        li {
-                            font-size: 16px;
-                            margin-bottom: 8px;
-                            &::marker {
-                                color: rgb(var(--primary));
-                            }        
-                        }
-                    }
-                }
-
-                .close {
-                    grid-area: close;
-                    justify-self: flex-end;
-                    margin-bottom: -16px;
-                    position: sticky;
-                    top: 0px;
-
-                    a {
-                        font-size: 24px; 
-                        color: rgb(var(--darkest));
-                        &:hover {
-                            color: rgb(var(--primary));
-                        }
-                        
-                        &:focus-visible {
-                            outline: none;
-                        }   
-                }
-            }
-        }
-    }
-
-    @media only screen and (max-width:912px) {
-        .dialog {
-            .dialog-content {
-                grid-template-columns: 1fr !important;
-                grid-template-areas:"close"
-                                    "header"
-                                    "meta"
-                                    "description"
-                                    "content";
-            }
         }
     }
 </style>
