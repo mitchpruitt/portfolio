@@ -82,3 +82,15 @@ figcaption {
     font-family: var(--font-family);
     font-size: 11.24px;
 }
+
+strong {
+    font-weight: normal;
+    font-variation-settings: var(--wide-medium);
+    font-size: 18px;
+    color: rgb(var(--darkest));
+}
+
+em {
+    font-style: normal;
+    font-variation-settings: var(--regular-italic);
+}

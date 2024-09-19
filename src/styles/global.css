@@ -141,14 +141,15 @@ main {
         font-kerning: none;
     }
     
-    .meta {
-        display: flex;
-        grid-area: meta;
-        gap: 16px;
-        flex-direction: column;
-        font-size: 15px;
-        list-style-type: none;
-    }
+}
+
+.meta {
+    display: flex;
+    grid-area: meta;
+    gap: 16px;
+    flex-direction: column;
+    font-size: 15px;
+    list-style-type: none;
 }
 
 /* Glightbox Styling */
