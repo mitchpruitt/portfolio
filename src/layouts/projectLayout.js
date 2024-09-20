@@ -36,7 +36,7 @@ const headline = headText.words;
 const subtitleText = new splitType('.project-header .subtitle', { types: 'words'});
 const subtitle = subtitleText.words;
 
-const descriptionText = new splitType('.description', {types: 'lines'});
+const descriptionText = new splitType('.project-header .description', {types: 'lines'});
 const description = descriptionText.lines;
 
 const labelText = new splitType('.meta-item .label', {types: 'words'});
@@ -133,16 +133,30 @@ tl.fromTo(data, {
     }, "<"
 )
 
-tl.fromTo(".project-body *", {
+tl.fromTo(".project-body .project-section", {
         opacity: 0
     }, {
         y: 0,
         opacity: 1,
         duration: 1,
-        stagger: 0.1,
+        stagger: 0.35,
         ease: "power4.out",
     }, ">-=.5"
 )
+
+const siteHeader = document.querySelector(".site-header");
+    
+    gsap.to(siteHeader, {
+        scrollTrigger: {
+            trigger: ".project-layout-image",
+            // markers: true,
+            onEnter: () => siteHeader?.classList.add("light"),
+            onLeave: () => siteHeader?.classList.remove("light"),
+            onEnterBack: () => siteHeader?.classList.add("light"),
+            onLeaveBack: () => siteHeader?.classList.remove("light"),
+        },
+        duration: 1
+    });
 
 
 // Reverts text back to original state after animation completes
