@@ -39,16 +39,19 @@ import Modal from "@components/Modal.astro";
             }
         }
 
-        a {
-            transition: var(--transition-regular);
 
-            &:hover {
-                color: rgb(var(--primary));
-            }
-
-            &.active {
-                color: rgb(var(--primary));
-                border-bottom: 1px dotted rgb(var(--primary));
+        .name, .site-nav {
+            a {
+                transition: var(--transition-regular);
+    
+                &:hover {
+                    color: rgb(var(--primary));
+                }
+    
+                &.active {
+                    color: rgb(var(--primary));
+                    border-bottom: 1px dotted rgb(var(--primary));
+                }
             }
         }
         
