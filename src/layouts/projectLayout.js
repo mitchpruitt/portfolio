@@ -36,7 +36,7 @@ const headline = headText.words;
 const subtitleText = new splitType('.project-header .subtitle', { types: 'words'});
 const subtitle = subtitleText.words;
 
-const descriptionText = new splitType('.project-header .description', {types: 'lines'});
+const descriptionText = new splitType('.description', {types: 'lines'});
 const description = descriptionText.lines;
 
 const labelText = new splitType('.meta-item .label', {types: 'words'});
