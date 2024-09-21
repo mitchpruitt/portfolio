@@ -24,7 +24,7 @@ const description = "Every project is a new opportunity to grow my capabilities,
         </div>
 		<ul class="project-list">
 			{allProjects.map((project) => 
-				<ProjectItem url={`/projects/${project.slug}`} title={project.data.title} subtitle={project.data.subtitle} cover={project.data.cover} coverAlt={project.data.coverAlt}/>
+				<ProjectItem url={`/projects/${project.slug}/`} title={project.data.title} subtitle={project.data.subtitle} cover={project.data.cover} coverAlt={project.data.coverAlt}/>
 			)}
 		</ul>
 	</section>
