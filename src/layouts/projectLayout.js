@@ -149,7 +149,6 @@ const siteHeader = document.querySelector(".site-header");
     gsap.to(siteHeader, {
         scrollTrigger: {
             trigger: ".project-layout-image",
-            // markers: true,
             onEnter: () => siteHeader?.classList.add("light"),
             onLeave: () => siteHeader?.classList.remove("light"),
             onEnterBack: () => siteHeader?.classList.add("light"),
