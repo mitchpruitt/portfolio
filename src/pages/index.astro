@@ -6,13 +6,25 @@ const pageTitle = "Mitch Pruitt | Designer & Developer";
 <BaseLayout pageTitle={pageTitle} headerColor={"light"} footer={false}>
 	<div class="intro-container">
 		<section class="one">
-			<h1>section 1</h1>
+			<div>
+				<h2>howdy I'm mitch</h2>
+				<h1>graphic designer</h1>
+				<h1>product designer</h1>
+				<h1>& front-end dev</h1>
+			</div>
 		</section>
 		<section class="two">
-			<h1>section 2</h1>
-		</section>
+			<div>
+				<h1>I take products</h1>
+				<h1>from zero to one</h1>
+				<h1>& beyond</h1>
+			</div>
+			</section>
 		<section class="three">
-			<h1>section 3</h1>
+			<div>
+				<h1>Don't take my<br />word for it</h1>
+				<h1>Check out my projects</h1>
+			</div>
 		</section>
 	</div>
 </BaseLayout>
@@ -57,7 +69,7 @@ const pageTitle = "Mitch Pruitt | Designer & Developer";
 			color: rgb(var(--primary));
 			font-variation-settings: var(--condensed-black);
 			text-transform: uppercase;
-			font-size: 15vw;
+			font-size: 10vw;
 			line-height: .85;
 		}
 	}
@@ -73,17 +85,16 @@ import {gsap, splitType, cleanText} from "../scripts/animation";
 			trigger: ".one",
 			// markers: true,
 			pin: true,
-			// scrub: 1,
+			scrub: 1,
 			start: "top top",
 			toggleActions: "play none none reverse"
 		}
 	})
-	.from(".one", {
-		duration: .5
-	})
 	.from(".one h1", {
 		opacity: 0,
 		x: 100,
+		stagger: 0.5,
+		duration: 1
 	})
 	
 	gsap.timeline({
@@ -91,35 +102,34 @@ import {gsap, splitType, cleanText} from "../scripts/animation";
 			trigger: ".two",
 			// markers: true,
 			pin: true,
-			// scrub: 1,
+			scrub: 1,
 			start: "top top",
+			end: "+=2000",
 			toggleActions: "play none none reverse"
 		}
 	})
-	.from(".two", {
-		duration: .5
-	})
 	.from(".two h1", {
 		opacity: 0,
-		x: -100
-	}, "<")
+		stagger: 0.5,
+		x: -100,
+		duration: 1
+	})
 
 	gsap.timeline({
 		scrollTrigger: {
 			trigger: ".three",
 			// markers: true,
 			pin: true,
-			// scrub: 1,
+			scrub: 1,
 			start: "top top",
 			toggleActions: "play none none reverse"
 		}
 	})
-	.from(".three", {
-		duration: .5
-	})
 	.from(".three h1", {
 		opacity: 0,
-		x: 100
-	}, "<")
+		x: 100,
+		stagger: .5,
+		duration: 1
+	})
 
 </script>
