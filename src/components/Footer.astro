@@ -1,22 +1,31 @@
 ---
 const date = new Date();
 import Logo from "@components/Logo.astro"
+const { display } = Astro.props
 ---
-<footer class="footer">
-    <div class="content">
-        <Logo />
-        <h6 class="header-text">Want to know more?</h6>
+{ 
+    () => {
+        if (display == false) {
+            return
+        } else {
+            return <footer class="footer">
+                <div class="content">
+                    <Logo />
+                    <h6 class="header-text">Want to know more?</h6>
 
-        <div class="copyright">
-            <p>&#169; {date.getFullYear()} Mitch Pruitt. All rights reserved.</p>
-            <p>All work and text is my own unless otherwise indicated.</p>
-        </div>
+                    <div class="copyright">
+                        <p>&#169; {date.getFullYear()} Mitch Pruitt. All rights reserved.</p>
+                        <p>All work and text is my own unless otherwise indicated.</p>
+                    </div>
 
-        <div class="contact">
-            <p>Contact me via <a href="https://www.linkedin.com/in/mitch-pruitt/" target="_blank">LinkedIn</a> or email <a href="mailto:hello@mitchpruitt.com">hello@mitchpruitt.com</a>.</p>
-        </div>
-    </div>
-</footer>
+                    <div class="contact">
+                        <p>Contact me via <a href="https://www.linkedin.com/in/mitch-pruitt/" target="_blank">LinkedIn</a> or email <a href="mailto:hello@mitchpruitt.com">hello@mitchpruitt.com</a>.</p>
+                    </div>
+                </div>
+            </footer>
+        }
+    }
+}
 
 <style>
     .footer {

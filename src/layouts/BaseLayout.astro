@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "@components/Footer.astro";
-const {pageTitle, headerColor} = Astro.props;
+const {pageTitle, headerColor, footer} = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +25,6 @@ const {pageTitle, headerColor} = Astro.props;
 		<main>
 			<slot />
 		</main>
-		<Footer />
+		<Footer display={footer}/>
 	</body>
 </html>
