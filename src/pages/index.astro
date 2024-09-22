@@ -3,38 +3,120 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Mitch Pruitt | Designer & Developer";
 ---
 
-<BaseLayout pageTitle={pageTitle} headerColor={"light"}>
-	<div class="bigassheader">
-		<div>
-			<h2>I take products and brands from</h2>
-			<h1>zero to one</h1>
-			<h1>& beyond</h1>
-		</div>
+<BaseLayout pageTitle={pageTitle} headerColor={"light"} footer={false}>
+	<div class="intro-container">
+		<section class="one">
+			<h1>section 1</h1>
+		</section>
+		<section class="two">
+			<h1>section 2</h1>
+		</section>
+		<section class="three">
+			<h1>section 3</h1>
+		</section>
 	</div>
 </BaseLayout>
 
 <style>
-	.bigassheader {
-		height: 100vh;
-		background-color: rgb(var(--darkest));
-		display: flex;
-		align-items: center;
-		padding: var(--h-padding) var(--v-padding);
+	.intro-container {
+		section {
+			height: 100vh;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: var(--h-padding) var(--v-padding);
+
+			&.one {
+				background-color: rgb(var(--darkest));
+			}
+
+			&.two {
+				background-color: rgb(var(--primary));
+				h1 {
+					color: rgb(var(--lightest));
+				}
+			}
+
+			&.three {
+				background-color: rgb(var(--lightest));
+				h1 {
+					color: rgb(var(--darkest));
+				}
+			}
+		}
 
 		h2 {
 			color: rgb(var(--light));
 			font-size: 4vw;
+			clip-path: var(--full-clip);
 		}
 
 		h1 {
 			color: rgb(var(--primary));
 			font-variation-settings: var(--condensed-black);
 			text-transform: uppercase;
-			font-size: 16vw;
+			font-size: 15vw;
 			line-height: .85;
-			&:last-of-type {
-				font-variation-settings: var(--wide-light);
-			}
 		}
 	}
 </style>
+
+<script>
+import {gsap, splitType, cleanText} from "../scripts/animation";
+
+	gsap.set('main', {visibility: "visible"})
+
+	gsap.timeline({
+		scrollTrigger: {
+			trigger: ".one",
+			markers: true,
+			pin: true,
+			start: "top top",
+			toggleActions: "play none none reverse"
+		}
+	})
+	.from(".one", {
+		// opacity: 0,
+		duration: .5
+	})
+	.from(".one h1", {
+		opacity: 0,
+		x: 100
+	})
+	
+	gsap.timeline({
+		scrollTrigger: {
+			trigger: ".two",
+			markers: true,
+			pin: true,
+			start: "top top",
+			toggleActions: "play none none reverse"
+		}
+	})
+	.from(".two", {
+		// opacity: 0,
+		duration: .5
+	})
+	.from(".two h1", {
+		opacity: 0,
+		x: -100
+	}, "<")
+
+	gsap.timeline({
+		scrollTrigger: {
+			trigger: ".three",
+			markers: true,
+			pin: true,
+			toggleActions: "play none none reverse"
+		}
+	})
+	.from(".three", {
+		duration: .5
+	})
+	.from(".three h1", {
+		opacity: 0,
+		x: 100
+	}, "<")
+
+</script>
