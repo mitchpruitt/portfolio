@@ -1,9 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
 const pageTitle = "Mitch Pruitt | Designer & Developer";
+
+import { getCollection } from "astro:content";
+const allProjects = await getCollection("projects");
+allProjects.sort((a, b) => b.data.year - a.data.year);
 ---
 
-<BaseLayout pageTitle={pageTitle} headerColor={"light"} footer={false}>
+<BaseLayout pageTitle={pageTitle} headerColor={"light"} footer={true}>
 	<div class="intro-container">
 		<section class="panel one">
 			<div class="panel-content">
@@ -20,9 +25,14 @@ const pageTitle = "Mitch Pruitt | Designer & Developer";
 			</div>
 			</section>
 		<section class="panel three">
-			<div>
-				<h1>Don't take my<br />word for it</h1>
-				<h1>Check out my projects</h1>
+			<div class="panel-content">
+				<div class="image-stack">
+					{allProjects.map((project) => 
+						<Image src={project.data.cover} alt={project.data.coverAlt}/>
+					)}
+				</div>
+				<h1 class="see">See for yourself</h1>
+				<a href="projects/"><h2 class="view">View Projects</h2></a>
 			</div>
 		</section>
 	</div>
@@ -39,10 +49,14 @@ const pageTitle = "Mitch Pruitt | Designer & Developer";
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			padding: var(--h-padding) var(--v-padding);
+			/* padding: var(--h-padding) var(--v-padding); */
 
 			&.one {
 				background-color: rgb(var(--darkest));
+
+				.howdy {
+					color: rgb(var(--lightest));
+				}
 
 				.graphic, .product, .dev {
 					margin-top: 16px;
@@ -71,14 +85,44 @@ const pageTitle = "Mitch Pruitt | Designer & Developer";
 
 			&.three {
 				background-color: rgb(var(--lightest));
-				h1 {
-					color: rgb(var(--darkest));
+				position: relative;
+
+				.image-stack {
+					position: absolute;
+					top: 0;
+					left: 0;
+					display: flex;
+				}
+
+				.see {
+					color: rgb(var(--lightest));
+					margin-bottom: 64px;
+					mix-blend-mode: difference;
+				}
+
+				.view {
+					width: fit-content;
+					margin: auto;
+					padding: 8px 16px;
+					background: rgba(var(--darkest), .5);
+					border-radius: 4px;
+					transition: var(--transition-regular);
+					&:hover {
+						font-variation-settings: var(--wide-bold);
+					}
+				}
+				
+				a {
+					width: fit-content;
+					color: rgb(var(--lightest));
+					&:hover {
+						color: rgb(var(--primary));
+					}
 				}
 			}
 		}
 
 		h2 {
-			color: rgb(var(--light));
 			font-size: 4vw;
 			clip-path: var(--full-clip);
 		}
@@ -112,6 +156,15 @@ import {gsap, splitType, cleanText} from "../scripts/animation";
 	// Panel Two
 	const counter = document.querySelector(".numerals")
 
+	// Panel Three
+	const imageStack = document.querySelector(".image-stack");
+
+	//@ts-ignore
+	const finalImagePercent = -100 + (100/imageStack?.childElementCount)
+
+	const seeText = new splitType(".see", {types: 'words'})
+	const see = seeText.words
+
 
 	gsap.timeline({
 		scrollTrigger: {
@@ -126,7 +179,7 @@ import {gsap, splitType, cleanText} from "../scripts/animation";
 	},)
 	.from(".howdy", {
 		opacity: 1,
-		xPercent: 7,
+		xPercent: 6,
 		yPercent: 50,
 		fontSize: "8vw",
 		duration: 1,
@@ -161,7 +214,7 @@ import {gsap, splitType, cleanText} from "../scripts/animation";
 			pin: true,
 			scrub: 1,
 			start: "top top",
-			end: "+=6000",
+			end: "+=4000",
 			toggleActions: "play none none reverse"
 		}
 	})
@@ -184,20 +237,26 @@ import {gsap, splitType, cleanText} from "../scripts/animation";
 	}, ">+1")
 
 	gsap.timeline({
-		// scrollTrigger: {
-		// 	trigger: ".three",
-		// 	// markers: true,
-		// 	pin: true,
-		// 	scrub: 1,
-		// 	start: "top top",
-		// 	toggleActions: "play none none reverse"
-		// }
+		scrollTrigger: {
+			trigger: ".three",
+			// markers: true,
+			pin: true,
+			scrub: 1,
+			start: "top top",
+			end: "+=6000",
+			toggleActions: "play none none reverse"
+		}
 	})
-	.from(".three h1", {
+	.from(see, {
 		opacity: 0,
-		x: 100,
-		stagger: .5,
-		duration: 1
+		y: -100,
+		stagger: .25,
+		duration: .5
 	})
+	.to(imageStack, {
+		xPercent: finalImagePercent,
+		duration: 6,
+		ease: "power4.out"
+	}, "<+.5")
 
 </script>
