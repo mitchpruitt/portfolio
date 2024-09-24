@@ -8,7 +8,6 @@ import { getCollection } from "astro:content";
 const allProjects = await getCollection("projects");
 allProjects.sort((a, b) => b.data.year - a.data.year);
 ---
-
 <BaseLayout pageTitle={pageTitle} headerColor={"light"} footer={true}>
 	<div class="intro-container">
 		<section class="panel one">
