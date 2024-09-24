@@ -28,11 +28,13 @@ allProjects.sort((a, b) => b.data.year - a.data.year);
 			<div class="panel-content">
 				<div class="image-stack">
 					{allProjects.map((project) => 
-						<Image src={project.data.cover} alt={project.data.coverAlt}/>
+						<div class="stack-item">
+							<Image src={project.data.cover} alt={project.data.coverAlt}/>
+						</div>
 					)}
 				</div>
 				<h1 class="see">See for yourself</h1>
-				<a href="projects/"><h2 class="view">View Projects</h2></a>
+				<a class="view-link" href="projects/"><h2 class="view">View Projects</h2></a>
 			</div>
 		</section>
 	</div>
@@ -94,6 +96,18 @@ allProjects.sort((a, b) => b.data.year - a.data.year);
 					display: flex;
 				}
 
+				.stack-item {
+					width: 100vw;
+					height: 100vh;
+					overflow: hidden;
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+				}
+
 				.see {
 					color: rgb(var(--lightest));
 					margin-bottom: 64px;
@@ -103,7 +117,7 @@ allProjects.sort((a, b) => b.data.year - a.data.year);
 				.view {
 					width: fit-content;
 					margin: auto;
-					padding: 8px 16px;
+					padding: 8px 16px 12px;
 					background: rgba(var(--darkest), .5);
 					border-radius: 4px;
 					transition: var(--transition-regular);
@@ -112,7 +126,7 @@ allProjects.sort((a, b) => b.data.year - a.data.year);
 					}
 				}
 				
-				a {
+				.view-link {
 					width: fit-content;
 					color: rgb(var(--lightest));
 					&:hover {
@@ -214,9 +228,14 @@ import {gsap, splitType, cleanText} from "../scripts/animation";
 			pin: true,
 			scrub: 1,
 			start: "top top",
-			end: "+=4000",
-			toggleActions: "play none none reverse"
+			end: "+=2000",
+			toggleActions: "play none none reverse",
 		}
+	})
+	.to(".name .active", {
+		color: "rgb(var(--lightest))",
+		borderColor: "rgb(var(--lightest))",
+		duration: .25,
 	})
 	.from(counter, {
 	textContent: 0.000000,
@@ -247,16 +266,33 @@ import {gsap, splitType, cleanText} from "../scripts/animation";
 			toggleActions: "play none none reverse"
 		}
 	})
+	.to(".name .active", {
+		color: "rgb(var(--primary))",
+		borderColor: "rgb(var(--primary))",
+		duration: .25,
+	})
+	.to(".site-nav", {
+		color:"rgb(var(--darkest))",
+		duration: .25,
+	}, "<")
 	.from(see, {
 		opacity: 0,
 		y: -100,
 		stagger: .25,
 		duration: .5
-	})
+	}, "<")
+	.from(".view-link", {
+		opacity: 0,
+		duration: .5
+	},"<")
+	.from(imageStack, {
+		opacity: 0,
+		duration: .5
+	}, "<")
 	.to(imageStack, {
 		xPercent: finalImagePercent,
 		duration: 6,
-		ease: "power4.out"
-	}, "<+.5")
+		// ease: "power4.out"
+	}, ">-.25")
 
 </script>
