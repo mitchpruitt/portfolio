@@ -15,6 +15,7 @@
     --wide: 'wght' 383, 'wdth' 115, 'slnt' 0;
     --wide-medium: 'wght' 500, 'wdth' 115, 'slnt' 0;
     --wide-semibold: 'wght' 600, 'wdth' 115, 'slnt' 0;
+    --wide-semibold-italic: 'wght' 600, 'wdth' 115, 'slnt' -12;
     --wide-bold: 'wght' 700, 'wdth' 115, 'slnt' 0;
     --wide-black: 'wght' 800, 'wdth' 115, 'slnt' 0;
 
