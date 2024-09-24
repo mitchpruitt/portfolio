@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectItem from "../components/ProjectItem.astro";
 
-const pageTitle = "Mitch Pruitt | Projects";
+const pageTitle = "Projects";
 const allProjects = await getCollection("projects");
 allProjects.sort((a, b) => b.data.year - a.data.year);
 
@@ -13,7 +13,7 @@ const subtitle = "Show & tell"
 const description = "Every project is a new opportunity to grow my capabilities, support my clients, and delight my users. Given my extensive background in graphic design, UI/UX, illustration, animation, and web development, there's no design challenge I can't surmount."
 ---
 
-<BaseLayout pageTitle={pageTitle} headerColor={"dark"}>
+<BaseLayout pageTitle={pageTitle} headerColor={"dark"} description={description}>
 	<section id="projects" class="content">
 		<div class="project-header-grid no-meta">
             <header class="project-header">
