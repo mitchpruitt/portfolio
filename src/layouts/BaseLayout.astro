@@ -3,10 +3,9 @@ import "@styles/global.css";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import { AstroSeo } from "@astrolib/seo"
-// const baseURL = "https://mitchpruitt.com"
-const baseURL = "https://staging--mpportfolio-5.netlify.app"
+const baseURL = "https://mitchpruitt.com"
 const currentPath = Astro.url.pathname;
-const {pageTitle, headerColor, footer, description} = Astro.props;
+const {pageTitle, headerColor, footer, description, ogImage=""} = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -16,17 +15,17 @@ const {pageTitle, headerColor, footer, description} = Astro.props;
 		description={description}
 		canonical={baseURL}
 		openGraph={{
+			type: "website",
 			url: baseURL + currentPath,
 			title: `Mitch Pruitt | ${pageTitle}`,
 			site_name: "mitchpruitt.com",
 			images: [
 				{
-					url: `${baseURL}/ruckus.png`,
-					secureUrl: `${baseURL}/ruckus.png`,
+					url: `${baseURL}/og/${ogImage}`,
+					secureUrl: `${baseURL}/og/${ogImage}`,
 					width: 1200,
 					height: 630,
-					alt: 'Og Image Alt',
-					type: 'image/png',
+					type: 'image/jpg',
 				},
 			]
 		}}

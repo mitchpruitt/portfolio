@@ -9,6 +9,7 @@ const { frontmatter } = Astro.props;
 <BaseLayout 
     pageTitle={frontmatter.title} 
     description={frontmatter.description}
+    ogImage={frontmatter.ogImage}
 >
     <div class="project-layout-image">
        <Image src={frontmatter.cover} alt={frontmatter.coverAlt} loading={"eager"} />
