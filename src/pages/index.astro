@@ -34,7 +34,7 @@ allProjects.sort((a, b) => b.data.year - a.data.year);
 					)}
 				</div>
 				<h1 class="see">See for yourself</h1>
-				<a class="view-link" href="projects/"><h2 class="view">View Projects</h2></a>
+				<h2 class="view"><a href="projects/">View Projects &#10132;</a></h2>
 			</div>
 		</section>
 	</div>
@@ -51,7 +51,6 @@ allProjects.sort((a, b) => b.data.year - a.data.year);
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			/* padding: var(--h-padding) var(--v-padding); */
 
 			&.one {
 				background-color: rgb(var(--darkest));
@@ -89,6 +88,10 @@ allProjects.sort((a, b) => b.data.year - a.data.year);
 				background-color: rgb(var(--lightest));
 				position: relative;
 
+				.panel-content {
+					text-align: center;
+				}
+
 				.image-stack {
 					position: absolute;
 					top: 0;
@@ -115,22 +118,21 @@ allProjects.sort((a, b) => b.data.year - a.data.year);
 				}
 
 				.view {
-					width: fit-content;
+					text-align: center;
+					padding: 8px 16px;
 					margin: auto;
-					padding: 8px 16px 12px;
-					background: rgba(var(--darkest), .5);
-					border-radius: 4px;
-					transition: var(--transition-regular);
-					&:hover {
-						font-variation-settings: var(--wide-bold);
-					}
-				}
-				
-				.view-link {
 					width: fit-content;
 					color: rgb(var(--lightest));
-					&:hover {
-						color: rgb(var(--primary));
+					mix-blend-mode: difference;
+					border-radius: 16px;
+					background-color: rgb(var(--darkest));
+					
+					a {
+						color: unset;
+						transition: var(--transition-regular);
+						&:hover {
+							font-variation-settings: var(--wide-semibold-italic);
+						}
 					}
 				}
 			}
@@ -185,7 +187,7 @@ import {gsap, splitType, cleanText} from "../scripts/animation";
 			trigger: ".one",
 			// markers: true,
 			pin: true,
-			scrub: 1,
+			// scrub: 1,
 			start: "top top",
 			end: "+=2000",
 			toggleActions: "play none none reverse"
@@ -279,12 +281,15 @@ import {gsap, splitType, cleanText} from "../scripts/animation";
 		opacity: 0,
 		y: -100,
 		stagger: .25,
-		duration: .5
+		duration: .5,
+		ease: "power4.out",
 	}, "<")
-	.from(".view-link", {
+	.from(".view", {
 		opacity: 0,
-		duration: .5
-	},"<")
+		x: -100,
+		duration: .5,
+		ease: "power4.out",
+	}, ">-.25")
 	.from(imageStack, {
 		opacity: 0,
 		duration: .5
@@ -292,7 +297,7 @@ import {gsap, splitType, cleanText} from "../scripts/animation";
 	.to(imageStack, {
 		xPercent: finalImagePercent,
 		duration: 6,
-		// ease: "power4.out"
+		ease: "power4.out"
 	}, ">-.25")
 
 </script>
