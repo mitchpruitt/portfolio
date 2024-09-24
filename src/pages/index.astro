@@ -2,13 +2,13 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import "@styles/index.css";
-const pageTitle = "Mitch Pruitt | Designer & Developer";
+const pageTitle = "Designer & Developer";
 
 import { getCollection } from "astro:content";
 const allProjects = await getCollection("projects");
 allProjects.sort((a, b) => b.data.year - a.data.year);
 ---
-<BaseLayout pageTitle={pageTitle} headerColor={"light"} footer={true}>
+<BaseLayout pageTitle={pageTitle} headerColor={"light"} footer={true} pageURL={Astro.url.pathname}>
 	<div class="intro-container">
 		<section class="panel one">
 			<div class="panel-content">
