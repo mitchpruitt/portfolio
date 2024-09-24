@@ -102,12 +102,17 @@ import {gsap, splitType, cleanText} from "../scripts/animation";
 			toggleActions: "play reverse restart none"
 		}
 	},)
+	.to(".name .active", {
+		color: "rgb(var(--primary))",
+		borderColor: "rgb(var(--primary))",
+		duration: 0,
+	})
 	.from(".howdy", {
 		opacity: 0,
 		x: 200,
 		duration: 1,
 		ease: "power4.out"
-	})
+	},"<")
 	.from(graphic, {
 		opacity: 0,
 		y: -200,
@@ -145,8 +150,7 @@ import {gsap, splitType, cleanText} from "../scripts/animation";
 	})
 	.to(".name .active", {
 		color: "rgb(var(--lightest))",
-		borderColor: "rgb(var(--lightest))",
-		duration: .25,
+		borderColor: "rgb(var(--lightest))"
 	})
 	.from(counter, {
 	textContent: 0.000000,
@@ -181,11 +185,6 @@ import {gsap, splitType, cleanText} from "../scripts/animation";
 	.to(".name .active", {
 		color: "rgb(var(--primary))",
 		borderColor: "rgb(var(--primary))",
-		duration: .25,
-	})
-	.to(".site-nav", {
-		color:"rgb(var(--darkest))",
-		duration: .25,
 	}, "<")
 	.from(see, {
 		opacity: 0,
