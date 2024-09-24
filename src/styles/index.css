@@ -89,19 +89,20 @@
 
             .view {
                 text-align: center;
-                padding: 8px 16px;
                 margin: auto;
+                padding-bottom: 8px;
                 width: fit-content;
                 color: rgb(var(--lightest));
                 mix-blend-mode: difference;
-                border-radius: 16px;
-                background-color: rgb(var(--darkest));
                 
                 a {
                     color: unset;
                     transition: var(--transition-regular);
+                    border-bottom: solid rgb(var(--lightest));
+                    border-bottom-width: 4px;
                     &:hover {
                         font-variation-settings: var(--wide-semibold-italic);
+                        border-bottom-width: 8px;
                     }
                 }
             }
