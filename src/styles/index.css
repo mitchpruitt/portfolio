@@ -1,0 +1,124 @@
+.intro-container {
+    /* Keeps offscreen elements from blowing out layout */
+    overflow-x: hidden;
+
+    .panel {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.one {
+            background-color: rgb(var(--darkest));
+            position: relative;
+
+            .howdy {
+                color: rgb(var(--lightest));
+            }
+
+            .graphic, .product, .dev {
+                margin-top: 16px;
+            }
+
+            .scroll-indicator {
+                position: absolute;
+                margin-bottom: 16px;
+                bottom: 64px;
+                color: rgb(var(--lightest));
+                clip-path: var(--full-clip);
+
+                .icon {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        &.two {
+            background-color: rgb(var(--primary));
+
+            .panel-content {
+                width: 85%;
+                text-align: center;
+            }
+
+            .take {
+                color: rgb(var(--darkest));
+            }
+
+            .numerals {
+                color: rgb(var(--lightest));
+                font-variation-settings: var(--extracondensed-black);
+                font-size: 26vw;
+                font-variant-numeric: tabular-nums;
+            }
+        }
+
+        &.three {
+            background-color: rgb(var(--lightest));
+            position: relative;
+
+            .panel-content {
+                text-align: center;
+            }
+
+            .image-stack {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: flex;
+            }
+
+            .stack-item {
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .see {
+                color: rgb(var(--lightest));
+                margin-bottom: 64px;
+                mix-blend-mode: difference;
+            }
+
+            .view {
+                text-align: center;
+                padding: 8px 16px;
+                margin: auto;
+                width: fit-content;
+                color: rgb(var(--lightest));
+                mix-blend-mode: difference;
+                border-radius: 16px;
+                background-color: rgb(var(--darkest));
+                
+                a {
+                    color: unset;
+                    transition: var(--transition-regular);
+                    &:hover {
+                        font-variation-settings: var(--wide-semibold-italic);
+                    }
+                }
+            }
+        }
+    }
+
+    h2 {
+        font-size: 4vw;
+        clip-path: var(--full-clip);
+    }
+
+    h1 {
+        color: rgb(var(--primary));
+        font-variation-settings: var(--condensed-black);
+        text-transform: uppercase;
+        font-size: 10vw;
+        line-height: .85;
+        clip-path: var(--full-clip);
+    }
+}
