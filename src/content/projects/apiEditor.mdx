@@ -1,0 +1,72 @@
+---
+title: API Editor
+subtitle: User Interface Design
+year: 2023
+role: Product designer
+client: Cycle Labs
+studio: "Cycle Labs - Product"
+cover: "@images/api-editor/api-editor-cover.jpg"
+coverAlt: ""
+ogImage: "api-editor.jpg"
+description: "Cycle was an application built to streamline the testing of warehouse management systems. It could assess a test suite's change over time, monitor the throughput of a given system, and highlight errors when they arose. Though clients could easily test their own code and hardware, they lacked straightforward way to check their connections."
+---
+import ProjectSection from "@components/ProjectSection.astro"
+import GalleryImage from "@components/GalleryImage.astro"
+
+import meeting from "@images/balanced/meeting.jpeg"
+import karting from "@images/balanced/karting.jpeg"
+import sketchrefined from "@images/balanced/balanced-sketch-refined.jpg"
+import sketch1 from "@images/balanced/balanced-sketch-1.jpg"
+import sketch2 from "@images/balanced/balanced-sketch-2.jpg"
+import sketch3 from "@images/balanced/balanced-sketch-3.jpg"
+import logo from "@images/balanced/main-logo-color-100.jpg"
+import pedalvector from "@images/balanced/pedal-midway.jpg"
+import pancakefinal from "@images/balanced/pancake-final.jpg"
+import model from "@images/balanced/balanced-model.png";
+
+<ProjectSection sectionTitle="Concept">
+    <Fragment slot="text">
+        Test suites were composed of a series of Feature files &mdash; documents containing a series of commands related to a given task, e.g. visiting a login screen, entering a username and password, then clicking _submit_.
+    </Fragment>
+
+    <Fragment slot="gallery">
+        <GalleryImage image={logo} group="A" caption="Cycle Labs' logo and wordmark." />
+        {/* <GalleryImage image={meeting} group="A" caption="The organization met once or twice a year for all-hands presentations. (Image credit: Cycle Labs LinkedIn)" />
+        <GalleryImage image={karting} group="A" vertical={"true"} caption="Ripping it up at Rush Hour Karting after business had concluded. (Image credit: Cycle Labs LinkedIn)" /> */}
+    </Fragment>
+</ProjectSection>
+
+<ProjectSection sectionTitle="Process">
+    <Fragment slot="text">
+        Ipsum
+        {/* I wanted to find a way to appreciate the new Cycle Labs mark while avoiding the corporate tendency to "slap it on the front and call it a day."
+        
+        When sketching, I looked for ways to integrate the mark into other forms or find objects that echoed its shape. Additionally, I wanted a strong thematic link to the company and its values.
+
+        {/* Three ideas stood out as contenders:
+        - **Dramatic button** &mdash; Think of an action movie where the president has to authorize some sort of nuclear strike or the scientist prepares to power up their new machine, this is that button. Paired with the company tagline “Deploy with confidence” as the label, Cycle Labs could send a strong message about the impact of its work.
+        - **Effect pedal** &mdash; A pedal modifies an electric guitar's signal the same way Cycle modifies the testing process. Considering most effects have names like *supercharge,* *amplify,* and *overdrive,* positively linking the two concepts was a breeze.
+        - **Pancake stack** &mdash; Recognizing the similarity between the new logo and a stack of artfully decorated pancakes allowed me to put the mark front and center, while hiding it in plain sight. From here, I developed a theme combining the classic food tagline "part of a complete breakfast" and the company's desire to evenly distribute testing efforts across the lifecycle of a WMS implementation. In other words, make testing part of a balanced development process.
+
+        I dropped the Dramatic Button concept based on the its lack of 'cheerfulness,' and focused my efforts on vectorizing the other two ideas for my check-in with marketing. Much to my pleasure, pancakes won the day, though I was asked to keep the FX pedal idea in my back pocket for future use. */}
+    </Fragment>
+    <Fragment slot="gallery">
+        <GalleryImage image={sketch1} group="B" vertical={"true"} caption="Early sketch work demonstrating the pancake and button concepts." />
+        {/* <GalleryImage image={sketch2} group="B" vertical={"true"} caption="More early sketches, including the FX pedal." />
+        <GalleryImage image={sketch3} group="B" vertical={"true"} caption="Another attempt at an FX pedal, this time incorporating themes like 'supercharging' and 'amplifying'." />
+        <GalleryImage image={sketchrefined} group="B" caption="Second and third iterations of my pancake illustration. I spend so much time on the computer that I enjoy drawing by hand whenever possible." />
+        <GalleryImage image={pedalvector} group="B" vertical={"true"} caption="In-progress art for the pedal concept." />         */}
+    </Fragment>
+</ProjectSection>
+
+<ProjectSection sectionTitle="Outcome">
+    <Fragment slot="text">
+        {/* Marketing was pleased with my work and my timeliness, the project was ready well before deadline despite my other responsibilities.
+
+        The shirts were distributed along with stickers, snacks, and drinks as a welcome package for team members. Many people immediately changed into their new attire, while others asked if there were leftovers they could take home to their kids. This was the attitude I wished to embody with this project &mdash; I wanted us to be proud of our organization, come together to achieve a common goal, and enjoy ourselves in the process. */}
+    </Fragment>
+    <Fragment slot="gallery">
+        <GalleryImage image={pancakefinal} group="C" vertical={"true"} caption="The final shirt graphic." />
+        {/* <GalleryImage image={model} group="C" vertical={"true"} caption="A model showcasing my design." /> */}
+    </Fragment>
+</ProjectSection>
