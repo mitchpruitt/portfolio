@@ -39,9 +39,6 @@ const {pageTitle, headerColor, footer, description, ogImage=""} = Astro.props;
 			}, {
 				name: 'generator',
 				content: Astro.generator
-			}, {
-				name: 'charset',
-				content: 'utf-8'
 			}
 		]}
 		additionalLinkTags={[
@@ -63,6 +60,7 @@ const {pageTitle, headerColor, footer, description, ogImage=""} = Astro.props;
 			}
 		]}
 	/>
+	<meta charset="utf-8">
 	<head>
 		<noscript>
 			<style>
