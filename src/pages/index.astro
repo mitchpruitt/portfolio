@@ -7,8 +7,10 @@ const pageTitle = "Designer & Developer";
 import { getCollection } from "astro:content";
 const allProjects = await getCollection("projects");
 allProjects.sort((a, b) => b.data.year - a.data.year);
+
+const description = "Mitch Pruitt | Graphic Designer, Product Designer & Front-End Dev"
 ---
-<BaseLayout pageTitle={pageTitle} headerColor={"light"} footer={true} pageURL={Astro.url.pathname} ogImage={"intro.jpg"}>
+<BaseLayout pageTitle={pageTitle} headerColor={"light"} footer={true} pageURL={Astro.url.pathname} ogImage={"intro.jpg"} description={description}>
 	<div class="intro-container">
 		<section class="panel one">
 			<div class="panel-content">
