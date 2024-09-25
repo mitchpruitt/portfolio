@@ -8,7 +8,7 @@ const currentPath = Astro.url.pathname;
 const {pageTitle, headerColor, footer, description, ogImage=""} = Astro.props;
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 	<AstroSeo 
 		title={pageTitle}
 		titleTemplate="Mitch Pruitt | %s"
@@ -28,6 +28,9 @@ const {pageTitle, headerColor, footer, description, ogImage=""} = Astro.props;
 					type: 'image/jpg',
 				},
 			]
+		}}
+		twitter={{
+			cardType: 'summary_large_image',
 		}}
 		additionalMetaTags={[
 			{
