@@ -1,0 +1,58 @@
+---
+const {sectionTitle} = Astro.props;
+---
+<section class="project-section">
+    <h3 class="project-title">{sectionTitle}</h3>
+    <div class="content-embed">
+        <slot name="embed" />
+        <figcaption>For the best experience, click the fullscreen arrows at the top right of the embedded prototype or the document name at the bottom left.</figcaption>
+    </div>
+    <div class="content-text">
+        <slot name="text" />
+    </div>
+</section>
+
+<style>
+    .project-section {
+        margin-bottom: 32px;
+        display: grid;
+        column-gap: 48px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas: "header"
+                             "embed"
+                             "text";
+    }
+
+    .project-title {
+        grid-area: header;
+    }
+
+    .content-embed {
+        grid-area: embed;
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        margin-bottom: 16px;
+
+        figcaption {
+            margin-top: 8px;
+            text-align: center;
+        }
+    }
+
+    .content-text {
+        grid-area: text;
+        column-count: 2;
+    }
+
+    @media only screen and (max-width:912px) {
+        .content-embed {
+            figcaption {
+                text-align: left;
+            }
+        }
+        .content-text {
+            column-count: 1;
+        }
+    }
+</style>
