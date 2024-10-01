@@ -8,7 +8,7 @@ studio: "Cycle Labs - Product"
 cover: "@images/api-editor/api-editor-cover.jpg"
 coverAlt: ""
 ogImage: "api-editor.jpg"
-description: "Cycle was an application built to streamline the testing of warehouse management systems. It could assess a test suite's change over time, monitor the throughput of a given system, and highlight errors when they arose. Though clients could easily test their own code and hardware, they lacked straightforward way to check their connections."
+description: "Cycle was an application built to streamline the testing of warehouse management systems. It could assess a test suite's change over time, monitor the throughput of a given system, and highlight errors when they arose. Though clients could easily test their own code and hardware, they lacked a straightforward way to check their connections."
 ---
 import ProjectSection from "@components/ProjectSection.astro"
 import EmbedSection from "@components/EmbedSection.astro"
@@ -27,7 +27,7 @@ import tourThumb from "@images/api-editor/api-editor-tour.jpg"
 
 <ProjectSection sectionTitle="Concept">
     <Fragment slot="text">
-        Test suites were composed of a series of Feature files &mdash; documents containing a series of commands related to a given task, e.g. visiting a login screen, entering a username and password, then clicking _submit_. These files could then be combined into larger Playlists (sequential execution) or Group Tests (concurrent execution) and ran en masse. When one of these tests failed, users would go back to locate the error and being their debug efforts there. 
+        Test suites were composed of a series of Feature files &mdash; documents containing a series of commands related to a given task, e.g. visiting a login screen, entering a username and password, then clicking _submit_. These files could then be combined into larger Playlists (sequential execution) or Group Tests (concurrent execution) and ran en masse. When one of these tests failed, users would go back to locate the error and begin their debug efforts there. 
 
         A test could fail for a number of reasons: an incorrect locator, poorly formed Scenarios, invalid Step syntax, etc. However, a Feature could be perfectly composed and still fail for reasons outside of a developer's control, namely invalid or unreturned API requests.
 
@@ -48,7 +48,7 @@ import tourThumb from "@images/api-editor/api-editor-tour.jpg"
 
     <Fragment slot="gallery">
         <GalleryImage image={cycle} group="A" caption="The main interface I had designed for Cycle 2 included three flexible panels: A project-level view on the left, a tabbed document workspace in the middle, and a detail panel on the right." />
-        <GalleryImage image={postman} group="A" caption="Most users interested in API Testing were familiar with Postman's interface. It provided a useful reference as I designed Cycle's API Editor. (Image credit: Postman.com)" />
+        <GalleryImage image={postman} group="A" caption="Most users interested in API testing were familiar with Postman's interface. It provided a useful reference as I designed Cycle's API Editor. (Image credit: Postman.com)" />
     </Fragment>
 </ProjectSection>
 
@@ -60,7 +60,9 @@ import tourThumb from "@images/api-editor/api-editor-tour.jpg"
 
         Once I understood the value of the feature as well as the software customers were currently using to replicate it, I got to work sketching potential layouts.
 
-        My first few sketches sought to understand where this particular feature should live. When initially designing Cycle, I landed on a three-panel layout: the panel furthest left would be for project-related data like a file tree, project settings, and notifications; the middle was a tabbed interface used to display working documents; and the far-right panel held detailed information regarding the open document or an item selected within it. I figured it could live in one of two areas: the collapsable _detail panel_ where it could be summoned as needed, or in the middle _workspace_ as a tabbed document. Workspace-based views had the requirement of being read from a file, which I knew would have knock-on implications, so I brought my sketches to the rest of the Product team to discuss.
+        My first few sketches sought to understand where this particular feature should live. When initially designing Cycle, I landed on a three-panel layout: the panel furthest left would be for project-related data like a file tree, project settings, and notifications; the middle was a tabbed interface used to display working documents; and the far-right panel held detailed information regarding the open document or an item selected within it. 
+        
+        I figured the API Editor could live in one of two areas: the collapsable _detail panel_ where it could be summoned as needed, or in the middle _workspace_ as a tabbed document. Workspace-based views had the requirement of being read from a file, which I knew would have knock-on implications, so I brought my sketches to the rest of the Product team to discuss.
 
         After refining the feature, we decided to make it file-based and place it within the main workspace. I performed a few more sketches exploring how the Body, Query, and Header sections would interact. My research had informed me that any given API call may have some or none of those three elements, so I decided to make them collapsable, that way Cycle users would be able to focus on the data that mattered without having to deal with empty UI.
 
@@ -73,7 +75,7 @@ import tourThumb from "@images/api-editor/api-editor-tour.jpg"
         <GalleryImage image={sketch2} group="B" vertical={"true"} caption="The layout solidified once I'd called a meeting to refine the concept further." />
         <GalleryImage image={sketch3} group="B" vertical={"true"} caption="The proposed layout eventually included additional panels to contain variables and relationships between the API call and the Features that invoked it." />
         <GalleryImage image={components} group="B" caption="I created a series of stateful components that had their own internal logic so elements like panels would switch properly no matter where they were used." />
-        <GalleryImage image={boards} group="B" caption="By using component variants, I'm able to reduce the number of overall boards needed to create a prototype while properly mimicking a component's true behavior." />
+        <GalleryImage image={boards} group="B" caption="By using component variants, I was able to reduce the number of overall boards needed to create a prototype while properly mimicking a component's true behavior." />
     </Fragment>
 </ProjectSection>
 
@@ -86,7 +88,7 @@ import tourThumb from "@images/api-editor/api-editor-tour.jpg"
         - Clicking the button simulated a network delay, then returned a response from the server within the detail panel.
         - I tucked the response headers away in a collapsible panel since they were typically less meaningful than the body of the response, but still could be useful for debugging errors.
         - Since bad or broken requests are an inevitability during testing, I used the returned body's _copy_ button as a way to quickly demonstrate what an error state looked like.
-        - The detail panel also contained other tabbed views to aide in developing a request: a list of variables present in the body, other Feature files that utilize this particular request, and a place to offer dummy values for a one-off test.
+        - The detail panel also contained other tabbed views to aid in developing a request: a list of variables present in the body, other Feature files that utilize this particular request, and a place to offer dummy values for a one-off test.
         - I designed the main three columns to be collapsible since not every request needs all three inputs. Users could then dedicate that real estate to the inputs that did matter.
         - My prototype was approved and developed for version 2.16.
     </Fragment>
@@ -94,13 +96,15 @@ import tourThumb from "@images/api-editor/api-editor-tour.jpg"
 
 <ProjectSection sectionTitle="Outcome">
     <Fragment slot="text">
+        The API Editor was released November 2023 as part of Cycle 2.16. I collaborated with teammate Andy to produce a video introducing the feature and explaining its usage and value.
+
         My input and impact on this feature was significant:
         - **Increased clarity** &mdash; By questioning the placement and constraints around this product feature, I was able to define more concrete requirements for my developers. More focused coding efforts means less wasted time.
         - **Decreased context switching** &mdash; Eliminating the need to reach outside the Cycle application meant that clients could focus on their testing efforts instead of learning an unrelated tool.
         - **Increased time-in-app** &mdash; A knock-on effect of reducing context switching was the increased amount of time users spent within Cycle, a meaningful metric to investors and leadership that  signals the product has value and is on the right track.
     </Fragment>
     <Fragment slot="gallery">
-       <GalleryVideo url={tour} thumb={tourThumb} group="C" caption="A quick tour of the API Editor interface captured during development." />
+       <GalleryVideo url={tour} thumb={tourThumb} group="C" caption="A user performs a quick demonstration of the API Editor interface." />
        <iframe class="gallery-item video-embed" width="560" height="281" src="https://www.youtube.com/embed/LxR_7sgHh5g?si=oWa1Y_yK3oEIY3ly" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </Fragment>
 </ProjectSection>
