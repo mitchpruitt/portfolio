@@ -1,6 +1,6 @@
 ---
 title: API Editor
-subtitle: User Interface Design
+subtitle: Product Feature Design
 year: 2023
 role: Product designer
 client: Cycle Labs
@@ -11,7 +11,9 @@ ogImage: "api-editor.jpg"
 description: "Cycle was an application built to streamline the testing of warehouse management systems. It could assess a test suite's change over time, monitor the throughput of a given system, and highlight errors when they arose. Though clients could easily test their own code and hardware, they lacked straightforward way to check their connections."
 ---
 import ProjectSection from "@components/ProjectSection.astro"
+import EmbedSection from "@components/EmbedSection.astro"
 import GalleryImage from "@components/GalleryImage.astro"
+import GalleryVideo from "@components/GalleryVideo.astro"
 
 import cycle from "@images/api-editor/cycle.png"
 import postman from "@images/api-editor/postman.jpg"
@@ -20,11 +22,8 @@ import sketch2 from "@images/api-editor/api-editor-sketch2.jpg"
 import sketch3 from "@images/api-editor/api-editor-sketch3.jpg"
 import components from "@images/api-editor/api-editor-components.png"
 import boards from "@images/api-editor/api-editor-boards.png"
-import sketchrefined from "@images/balanced/balanced-sketch-refined.jpg"
-import logo from "@images/balanced/main-logo-color-100.jpg"
-import pedalvector from "@images/balanced/pedal-midway.jpg"
-import pancakefinal from "@images/balanced/pancake-final.jpg"
-import model from "@images/balanced/balanced-model.png";
+import tour from "@images/api-editor/api-editor-tour.mp4"
+import tourThumb from "@images/api-editor/api-editor-tour.jpg"
 
 <ProjectSection sectionTitle="Concept">
     <Fragment slot="text">
@@ -41,7 +40,7 @@ import model from "@images/balanced/balanced-model.png";
         - **Optional variables** &mdash; A list of Cyclescript variables that allowed users to set dummy data to send as part of the test. Clients' operations ran on sensitive information that was unsafe to store in their codebase, so these optional variables allowed testers to check the validity of a connection without revealing any secrets.
         
         The request was to return the following:
-        - **Duration** &mdash; The total length of the operation from request to response, shorter was better.
+        - **Duration** &mdash; The total length of the operation from request to response; shorter is better.
         - **Status** &mdash; A regular numerical code that indicated the outcome of the request, like 200 for success or 500 for internal server error.
         - **Body & Headers** &mdash; Same as before, but from the server's perspective.
         
@@ -63,7 +62,7 @@ import model from "@images/balanced/balanced-model.png";
 
         My first few sketches sought to understand where this particular feature should live. When initially designing Cycle, I landed on a three-panel layout: the panel furthest left would be for project-related data like a file tree, project settings, and notifications; the middle was a tabbed interface used to display working documents; and the far-right panel held detailed information regarding the open document or an item selected within it. I figured it could live in one of two areas: the collapsable _detail panel_ where it could be summoned as needed, or in the middle _workspace_ as a tabbed document. Workspace-based views had the requirement of being read from a file, which I knew would have knock-on implications, so I brought my sketches to the rest of the Product team to discuss.
 
-        After the group refined the feature, we decided to make it file-based and place it within the main workspace. I performed a few more sketches exploring how the Body, Query, and Header sections would interact. My research had informed me that any given API call may have some or none of those three elements, so I decided to make them collapsable, that way Cycle users would be able to focus on the data that mattered without having to deal with empty UI.
+        After refining the feature, we decided to make it file-based and place it within the main workspace. I performed a few more sketches exploring how the Body, Query, and Header sections would interact. My research had informed me that any given API call may have some or none of those three elements, so I decided to make them collapsable, that way Cycle users would be able to focus on the data that mattered without having to deal with empty UI.
 
         Additionally, my research turned up a few easily implementable suggestions: A list to enter variables for substitution within the API request and a list to view what Feature files utilized this particular call. I decided to add these to a tabbed interface along with the actual response data from the server.
 
@@ -71,18 +70,37 @@ import model from "@images/balanced/balanced-model.png";
     </Fragment>
     <Fragment slot="gallery">
         <GalleryImage image={sketch1} group="B" vertical={"true"} caption="Early sketch exploring potential locations for the API Editor." />
-        <GalleryImage image={sketch2} group="B" vertical={"true"} caption="The layout solidfied once I'd called a meeting to refine the concept further." />
+        <GalleryImage image={sketch2} group="B" vertical={"true"} caption="The layout solidified once I'd called a meeting to refine the concept further." />
         <GalleryImage image={sketch3} group="B" vertical={"true"} caption="The proposed layout eventually included additional panels to contain variables and relationships between the API call and the Features that invoked it." />
         <GalleryImage image={components} group="B" caption="I created a series of stateful components that had their own internal logic so elements like panels would switch properly no matter where they were used." />
         <GalleryImage image={boards} group="B" caption="By using component variants, I'm able to reduce the number of overall boards needed to create a prototype while properly mimicking a component's true behavior." />
     </Fragment>
 </ProjectSection>
 
+<EmbedSection sectionTitle="Prototype">
+    <Fragment slot="embed">
+        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="100%" src="https://embed.figma.com/proto/DjMBA9iGTVtHtn8MMxtPDp/API-Editor-Prototype?page-id=0%3A1&node-id=32-487&node-type=frame&viewport=613%2C445%2C0.5&scaling=min-zoom&content-scaling=min-zoom&starting-point-node-id=32%3A487&embed-host=share" allowfullscreen></iframe>
+    </Fragment>
+    <Fragment slot="text">
+        - In my prototype, I assumed a user to have typed in the necessary input data and were ready to click the _Test API_ button.
+        - Clicking the button simulated a network delay, then returned a response from the server within the detail panel.
+        - I tucked the response headers away in a collapsible panel since they were typically less meaningful than the body of the response, but still could be useful for debugging errors.
+        - Since bad or broken requests are an inevitability during testing, I used the returned body's _copy_ button as a way to quickly demonstrate what an error state looked like.
+        - The detail panel also contained other tabbed views to aide in developing a request: a list of variables present in the body, other Feature files that utilize this particular request, and a place to offer dummy values for a one-off test.
+        - I designed the main three columns to be collapsible since not every request needs all three inputs. Users could then dedicate that real estate to the inputs that did matter.
+        - My prototype was approved and developed for version 2.16.
+    </Fragment>
+</EmbedSection>
+
 <ProjectSection sectionTitle="Outcome">
     <Fragment slot="text">
-        Lorem
+        My input and impact on this feature was significant:
+        - **Increased clarity** &mdash; By questioning the placement and constraints around this product feature, I was able to define more concrete requirements for my developers. More focused coding efforts means less wasted time.
+        - **Decreased context switching** &mdash; Eliminating the need to reach outside the Cycle application meant that clients could focus on their testing efforts instead of learning an unrelated tool.
+        - **Increased time-in-app** &mdash; A knock-on effect of reducing context switching was the increased amount of time users spent within Cycle, a meaningful metric to investors and leadership that  signals the product has value and is on the right track.
     </Fragment>
     <Fragment slot="gallery">
-       <GalleryImage image={boards} group="B" caption="By using component variants, I'm able to reduce the number of overall boards needed to create a prototype while properly mimicking a component's true behavior." />
+       <GalleryVideo url={tour} thumb={tourThumb} group="C" caption="A quick tour of the API Editor interface captured during development." />
+       <iframe class="gallery-item video-embed" width="560" height="281" src="https://www.youtube.com/embed/LxR_7sgHh5g?si=oWa1Y_yK3oEIY3ly" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </Fragment>
 </ProjectSection>
