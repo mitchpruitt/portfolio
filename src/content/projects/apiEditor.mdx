@@ -13,12 +13,14 @@ description: "Cycle was an application built to streamline the testing of wareho
 import ProjectSection from "@components/ProjectSection.astro"
 import GalleryImage from "@components/GalleryImage.astro"
 
-import meeting from "@images/balanced/meeting.jpeg"
-import karting from "@images/balanced/karting.jpeg"
+import cycle from "@images/api-editor/cycle.png"
+import postman from "@images/api-editor/postman.jpg"
+import sketch1 from "@images/api-editor/api-editor-sketch1.jpg"
+import sketch2 from "@images/api-editor/api-editor-sketch2.jpg"
+import sketch3 from "@images/api-editor/api-editor-sketch3.jpg"
+import components from "@images/api-editor/api-editor-components.png"
+import boards from "@images/api-editor/api-editor-boards.png"
 import sketchrefined from "@images/balanced/balanced-sketch-refined.jpg"
-import sketch1 from "@images/balanced/balanced-sketch-1.jpg"
-import sketch2 from "@images/balanced/balanced-sketch-2.jpg"
-import sketch3 from "@images/balanced/balanced-sketch-3.jpg"
 import logo from "@images/balanced/main-logo-color-100.jpg"
 import pedalvector from "@images/balanced/pedal-midway.jpg"
 import pancakefinal from "@images/balanced/pancake-final.jpg"
@@ -26,47 +28,61 @@ import model from "@images/balanced/balanced-model.png";
 
 <ProjectSection sectionTitle="Concept">
     <Fragment slot="text">
-        Test suites were composed of a series of Feature files &mdash; documents containing a series of commands related to a given task, e.g. visiting a login screen, entering a username and password, then clicking _submit_.
+        Test suites were composed of a series of Feature files &mdash; documents containing a series of commands related to a given task, e.g. visiting a login screen, entering a username and password, then clicking _submit_. These files could then be combined into larger Playlists (sequential execution) or Group Tests (concurrent execution) and ran en masse. When one of these tests failed, users would go back to locate the error and being their debug efforts there. 
+
+        A test could fail for a number of reasons: an incorrect locator, poorly formed Scenarios, invalid Step syntax, etc. However, a Feature could be perfectly composed and still fail for reasons outside of a developer's control, namely invalid or unreturned API requests.
+
+        Users wanted a way to quickly test an API without having to write an entire Feature dedicated to the task, especially if they were modifying a suite with many dependencies. My mission was to design a view that accepted the following: 
+        - **URL** &mdash; The web address of the API to be tested.
+        - **Method** &mdash; The action to be performed, like _GET_ or _POST_, to retrieve or send data, respectively.
+        - **Body** &mdash; Any content sent as part of a request.
+        - **Headers** &mdash; Text describing how the data transmitted was encoded.
+        - **Queries** &mdash; Additional text following a URL to help refine the data returned.
+        - **Optional variables** &mdash; A list of Cyclescript variables that allowed users to set dummy data to send as part of the test. Clients' operations ran on sensitive information that was unsafe to store in their codebase, so these optional variables allowed testers to check the validity of a connection without revealing any secrets.
+        
+        The request was to return the following:
+        - **Duration** &mdash; The total length of the operation from request to response, shorter was better.
+        - **Status** &mdash; A regular numerical code that indicated the outcome of the request, like 200 for success or 500 for internal server error.
+        - **Body & Headers** &mdash; Same as before, but from the server's perspective.
+        
     </Fragment>
 
     <Fragment slot="gallery">
-        <GalleryImage image={logo} group="A" caption="Cycle Labs' logo and wordmark." />
-        {/* <GalleryImage image={meeting} group="A" caption="The organization met once or twice a year for all-hands presentations. (Image credit: Cycle Labs LinkedIn)" />
-        <GalleryImage image={karting} group="A" vertical={"true"} caption="Ripping it up at Rush Hour Karting after business had concluded. (Image credit: Cycle Labs LinkedIn)" /> */}
+        <GalleryImage image={cycle} group="A" caption="The main interface I had designed for Cycle 2 included three flexible panels: A project-level view on the left, a tabbed document workspace in the middle, and a detail panel on the right." />
+        <GalleryImage image={postman} group="A" caption="Most users interested in API Testing were familiar with Postman's interface. It provided a useful reference as I designed Cycle's API Editor. (Image credit: Postman.com)" />
     </Fragment>
 </ProjectSection>
 
 <ProjectSection sectionTitle="Process">
     <Fragment slot="text">
-        Ipsum
-        {/* I wanted to find a way to appreciate the new Cycle Labs mark while avoiding the corporate tendency to "slap it on the front and call it a day."
-        
-        When sketching, I looked for ways to integrate the mark into other forms or find objects that echoed its shape. Additionally, I wanted a strong thematic link to the company and its values.
+        My first step toward a solution was to gather data from my users. I learned why the API Editor was important: Most Test Suites were deeply nested and contained many dependencies, which meant that an API request could take place at any point but not be easily separable from the code proceeding and following it. This new editor view would act as a way to isolate a single request and test it outside the regular flow of a Suite.
 
-        {/* Three ideas stood out as contenders:
-        - **Dramatic button** &mdash; Think of an action movie where the president has to authorize some sort of nuclear strike or the scientist prepares to power up their new machine, this is that button. Paired with the company tagline “Deploy with confidence” as the label, Cycle Labs could send a strong message about the impact of its work.
-        - **Effect pedal** &mdash; A pedal modifies an electric guitar's signal the same way Cycle modifies the testing process. Considering most effects have names like *supercharge,* *amplify,* and *overdrive,* positively linking the two concepts was a breeze.
-        - **Pancake stack** &mdash; Recognizing the similarity between the new logo and a stack of artfully decorated pancakes allowed me to put the mark front and center, while hiding it in plain sight. From here, I developed a theme combining the classic food tagline "part of a complete breakfast" and the company's desire to evenly distribute testing efforts across the lifecycle of a WMS implementation. In other words, make testing part of a balanced development process.
+        I also learned that most users were already attempting these ideas through third-party software like Postman. While useful in basic cases, these tools were of limited value due to dependency and security issues: There was no easy way to substitute the values required for a given request with non-sensitive data like usernames and passwords.
 
-        I dropped the Dramatic Button concept based on the its lack of 'cheerfulness,' and focused my efforts on vectorizing the other two ideas for my check-in with marketing. Much to my pleasure, pancakes won the day, though I was asked to keep the FX pedal idea in my back pocket for future use. */}
+        Once I understood the value of the feature as well as the software customers were currently using to replicate it, I got to work sketching potential layouts.
+
+        My first few sketches sought to understand where this particular feature should live. When initially designing Cycle, I landed on a three-panel layout: the panel furthest left would be for project-related data like a file tree, project settings, and notifications; the middle was a tabbed interface used to display working documents; and the far-right panel held detailed information regarding the open document or an item selected within it. I figured it could live in one of two areas: the collapsable _detail panel_ where it could be summoned as needed, or in the middle _workspace_ as a tabbed document. Workspace-based views had the requirement of being read from a file, which I knew would have knock-on implications, so I brought my sketches to the rest of the Product team to discuss.
+
+        After the group refined the feature, we decided to make it file-based and place it within the main workspace. I performed a few more sketches exploring how the Body, Query, and Header sections would interact. My research had informed me that any given API call may have some or none of those three elements, so I decided to make them collapsable, that way Cycle users would be able to focus on the data that mattered without having to deal with empty UI.
+
+        Additionally, my research turned up a few easily implementable suggestions: A list to enter variables for substitution within the API request and a list to view what Feature files utilized this particular call. I decided to add these to a tabbed interface along with the actual response data from the server.
+
+        Now that the features were set, I took my sketches into Figma to create a prototype that I could show to stakeholders. 
     </Fragment>
     <Fragment slot="gallery">
-        <GalleryImage image={sketch1} group="B" vertical={"true"} caption="Early sketch work demonstrating the pancake and button concepts." />
-        {/* <GalleryImage image={sketch2} group="B" vertical={"true"} caption="More early sketches, including the FX pedal." />
-        <GalleryImage image={sketch3} group="B" vertical={"true"} caption="Another attempt at an FX pedal, this time incorporating themes like 'supercharging' and 'amplifying'." />
-        <GalleryImage image={sketchrefined} group="B" caption="Second and third iterations of my pancake illustration. I spend so much time on the computer that I enjoy drawing by hand whenever possible." />
-        <GalleryImage image={pedalvector} group="B" vertical={"true"} caption="In-progress art for the pedal concept." />         */}
+        <GalleryImage image={sketch1} group="B" vertical={"true"} caption="Early sketch exploring potential locations for the API Editor." />
+        <GalleryImage image={sketch2} group="B" vertical={"true"} caption="The layout solidfied once I'd called a meeting to refine the concept further." />
+        <GalleryImage image={sketch3} group="B" vertical={"true"} caption="The proposed layout eventually included additional panels to contain variables and relationships between the API call and the Features that invoked it." />
+        <GalleryImage image={components} group="B" caption="I created a series of stateful components that had their own internal logic so elements like panels would switch properly no matter where they were used." />
+        <GalleryImage image={boards} group="B" caption="By using component variants, I'm able to reduce the number of overall boards needed to create a prototype while properly mimicking a component's true behavior." />
     </Fragment>
 </ProjectSection>
 
 <ProjectSection sectionTitle="Outcome">
     <Fragment slot="text">
-        {/* Marketing was pleased with my work and my timeliness, the project was ready well before deadline despite my other responsibilities.
-
-        The shirts were distributed along with stickers, snacks, and drinks as a welcome package for team members. Many people immediately changed into their new attire, while others asked if there were leftovers they could take home to their kids. This was the attitude I wished to embody with this project &mdash; I wanted us to be proud of our organization, come together to achieve a common goal, and enjoy ourselves in the process. */}
+        Lorem
     </Fragment>
     <Fragment slot="gallery">
-        <GalleryImage image={pancakefinal} group="C" vertical={"true"} caption="The final shirt graphic." />
-        {/* <GalleryImage image={model} group="C" vertical={"true"} caption="A model showcasing my design." /> */}
+       <GalleryImage image={boards} group="B" caption="By using component variants, I'm able to reduce the number of overall boards needed to create a prototype while properly mimicking a component's true behavior." />
     </Fragment>
 </ProjectSection>
